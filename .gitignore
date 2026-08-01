@@ -399,3 +399,10 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 .idea
+
+# Ignore assets
+Olallieberry/assets/*
+!Olallieberry/assets/*.gitkeep
+
+# Ignore user prefs
+Olallieberry/Olallieberry.csproj.user

@@ -1,5 +1,0 @@
-﻿<Project>
-  <PropertyGroup>
-    <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/Etherpod.Jam6Project</OutputPath>
-  </PropertyGroup>
-</Project>
