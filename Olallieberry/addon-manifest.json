@@ -1,3 +1,21 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/addon_manifest_schema.json"
+    "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/addon_manifest_schema.json",
+    "credits": [
+        // only putting down what I think people will end up doing
+        // we'll fix this at the end
+        "Etherpod#Music, Programming",
+        "ditzy#Programming, VFX, Writing",
+        "MegaPiggy#Programming, Writing",
+        "Xya#2D Art",
+        "JohnCorby#Moral Support"
+    ]
 }
+
+// roles:
+// - 2D art
+// - 3D art
+// - music
+// - programming
+// - VFX (shaders)
+// - writing
+// - moral support
