@@ -13,24 +13,15 @@ public class Olallieberry : ModBehaviour
 	public void Awake()
 	{
 		Instance = this;
-		// You won't be able to access OWML's mod helper in Awake.
-		// So you probably don't want to do anything here.
-		// Use Start() instead.
+		new Harmony("Etherpod.Olallieberry").PatchAll(Assembly.GetExecutingAssembly());
 	}
 
 	public void Start()
 	{
-		// Starting here, you'll have access to OWML's mod helper.
-		ModHelper.Console.WriteLine($"My mod {nameof(Olallieberry)} is loaded!", MessageType.Success);
-
-		// Get the New Horizons API and load configs
 		NewHorizons = ModHelper.Interaction.TryGetModApi<INewHorizons>("xen.NewHorizons");
 		NewHorizons.LoadConfigs(this);
-
-		new Harmony("Etherpod.Olallieberry").PatchAll(Assembly.GetExecutingAssembly());
-
-		// Example of accessing game code.
-		OnCompleteSceneLoad(OWScene.TitleScreen, OWScene.TitleScreen); // We start on title screen
+		
+		OnCompleteSceneLoad(OWScene.TitleScreen, OWScene.TitleScreen);
 		LoadManager.OnCompleteSceneLoad += OnCompleteSceneLoad;
 	}
 

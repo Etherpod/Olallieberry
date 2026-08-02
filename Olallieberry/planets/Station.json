@@ -1,0 +1,40 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Lingering Chime- wait, this isn't Astral Codec!",
+  "starSystem": "SolarSystem",
+  "canShowOnTitle": false,
+  
+  "Base": {
+    "showMinimap": false
+  },
+  
+  "Orbit": {
+    "isStatic": true,
+    "staticPosition": {
+      "x": 0,
+      "y": 4000, // the sun's radius is 2000m
+      "z": 0
+    },
+    "siderealPeriod": 0
+  },
+  
+  "ReferenceFrame": {
+    "enabled": true,
+    "bracketRadius": 100,
+    "targetColliderRadius": 100
+  },
+  
+  "MapMarker": {
+    "enabled": true
+  },
+  
+  "Props": {
+    "details": [
+      {
+        "assetBundle": "assets/jambundle",
+        "path": "Assets/JamAssets/ChimeStation.prefab",
+        "keepLoaded": true
+      }
+    ]
+  }
+}
