@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
@@ -10,6 +10,10 @@
         <NoWarn>MSB3270</NoWarn>
         <DebugType>portable</DebugType>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="Olallieberry.csproj.user"/>
+    </ItemGroup>
 
     <Target Name="CopyAssets" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' And '$(UnityProjectDir)' != '' ">
         <Message Text="Copying assets to Unity project" Importance="High" />
@@ -36,10 +40,6 @@
         <None Include="manifest.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-    </ItemGroup>
-    
-    <ItemGroup>
-        <Content Include="Olallieberry.csproj.user"/>
     </ItemGroup>
     
     <ItemGroup>
