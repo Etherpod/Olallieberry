@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
@@ -6,7 +6,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <NoWarn>MSB3270</NoWarn>
         <DebugType>portable</DebugType>
     </PropertyGroup>
@@ -29,8 +29,10 @@
     </Target>
     
     <ItemGroup>
-        <PackageReference Include="OWML" Version="2.16.2"/>
-        <PackageReference Include="OuterWildsGameLibs" Version="1.1.16.1372"/>
+        <PackageReference Include="OWML" Version="2.16.2" IncludeAssets="compile"/>
+        <PackageReference Include="OuterWildsGameLibs" Version="1.1.16.1372" IncludeAssets="compile"/>
+
+        <PackageReference Include="DitzyExtensions" Version="3.2.0"/>
     </ItemGroup>
     
     <ItemGroup>
