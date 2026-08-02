@@ -5,7 +5,7 @@ using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Jam6Project;
+namespace Olallieberry;
 
 public interface INewHorizons
 {

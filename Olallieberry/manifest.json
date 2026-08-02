@@ -1,9 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
-  "filename": "Jam6Project.dll",
+  "filename": "Olallieberry.dll",
   "author": "Etherpod, ditzy, MegaPiggy, Xya",
-  "name": "Jam6Project",
-  "uniqueName": "Etherpod.Jam6Project",
+  "name": "Olallieberry",
+  "uniqueName": "Etherpod.Olallieberry",
   "version": "1.0.0",
   "owmlVersion": "2.15.1",
   "dependencies": ["xen.NewHorizons"]

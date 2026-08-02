@@ -3,11 +3,11 @@ using OWML.Common;
 using OWML.ModHelper;
 using System.Reflection;
 
-namespace Jam6Project;
+namespace Olallieberry;
 
-public class Jam6Project : ModBehaviour
+public class Olallieberry : ModBehaviour
 {
-	public static Jam6Project Instance;
+	public static Olallieberry Instance;
 	public INewHorizons NewHorizons;
 
 	public void Awake()
@@ -21,13 +21,13 @@ public class Jam6Project : ModBehaviour
 	public void Start()
 	{
 		// Starting here, you'll have access to OWML's mod helper.
-		ModHelper.Console.WriteLine($"My mod {nameof(Jam6Project)} is loaded!", MessageType.Success);
+		ModHelper.Console.WriteLine($"My mod {nameof(Olallieberry)} is loaded!", MessageType.Success);
 
 		// Get the New Horizons API and load configs
 		NewHorizons = ModHelper.Interaction.TryGetModApi<INewHorizons>("xen.NewHorizons");
 		NewHorizons.LoadConfigs(this);
 
-		new Harmony("Etherpod.Jam6Project").PatchAll(Assembly.GetExecutingAssembly());
+		new Harmony("Etherpod.Olallieberry").PatchAll(Assembly.GetExecutingAssembly());
 
 		// Example of accessing game code.
 		OnCompleteSceneLoad(OWScene.TitleScreen, OWScene.TitleScreen); // We start on title screen
