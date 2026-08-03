@@ -2,30 +2,17 @@
 
 namespace Olallieberry.TimeZones;
 
-public class TimeZone : MonoBehaviour
+public class TimeZone : EffectVolume
 {
 	public delegate void TimeZoneEvent(TimeZone zone);
 
 	public event TimeZoneEvent OnZoneActivated;
 	public event TimeZoneEvent OnZoneDeactivated;
 	
-	private OWTriggerVolume _triggerVolume;
 	private bool _playerInside;
 	private bool _probeInside;
 
-	private void Awake()
-	{
-		_triggerVolume = this.GetRequiredComponent<OWTriggerVolume>();
-		_triggerVolume.OnEntry += OnEntry;
-		_triggerVolume.OnExit += OnExit;
-
-		// set in code because I hate having to deal with Unity auto-assigning this layer
-		// to every child of the zone
-		// I might actually just make an editor script that sets the layer to default every time
-		gameObject.layer = LayerMask.NameToLayer("BasicEffectVolume");
-	}
-
-	private void OnEntry(GameObject hitObj)
+    public override void OnEffectVolumeEnter(GameObject hitObj)
 	{
 		bool wasEmpty = !_playerInside && !_probeInside;
 		
@@ -48,7 +35,7 @@ public class TimeZone : MonoBehaviour
 		}
 	}
 
-	private void OnExit(GameObject hitObj)
+	public override void OnEffectVolumeExit(GameObject hitObj)
 	{
 		if (_playerInside && hitObj.CompareTag("PlayerDetector"))
 		{
@@ -67,11 +54,5 @@ public class TimeZone : MonoBehaviour
 		{
 			OnZoneDeactivated?.Invoke(this);
 		}
-	}
-
-	private void OnDestroy()
-	{
-		_triggerVolume.OnEntry -= OnEntry;
-		_triggerVolume.OnExit -= OnExit;
 	}
 }
