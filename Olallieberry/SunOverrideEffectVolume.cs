@@ -25,14 +25,14 @@ namespace Olallieberry
         private readonly HashSet<GameObject> _trackedObjects = new HashSet<GameObject>(4);
         private float _currentBlend;
 
-        private void Awake()
+        public void Awake()
         {
             if (triggerVolume == null) triggerVolume = gameObject.GetAddComponent<OWTriggerVolume>();
             triggerVolume.OnEntry += OnEnter;
             triggerVolume.OnExit += OnExit;
         }
 
-        private void OnDestroy()
+        public void OnDestroy()
         {
             triggerVolume.OnEntry -= OnEnter;
             triggerVolume.OnExit -= OnExit;
