@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Olallieberry
 {
     [RequireComponent(typeof(OWTriggerVolume))]
-    public class SunOverrideEffectVolume : SectoredMonoBehaviour, SunLightController.ISunOverrider
+    public class SunOverrideEffectVolume : MonoBehaviour, SunLightController.ISunOverrider
     {
         public OWTriggerVolume triggerVolume;
         public int priority = 0;
@@ -25,19 +25,15 @@ namespace Olallieberry
         private readonly HashSet<GameObject> _trackedObjects = new HashSet<GameObject>(4);
         private float _currentBlend;
 
-        public override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             if (triggerVolume == null) triggerVolume = gameObject.GetAddComponent<OWTriggerVolume>();
             triggerVolume.OnEntry += OnEnter;
             triggerVolume.OnExit += OnExit;
         }
 
-        public override void OnDestroy()
+        private void OnDestroy()
         {
-            base.OnDestroy();
-
             triggerVolume.OnEntry -= OnEnter;
             triggerVolume.OnExit -= OnExit;
         }
@@ -48,12 +44,12 @@ namespace Olallieberry
         public void OnDisable() =>
             SunLightController.UnregisterSunOverrider(this);
 
-        public override void OnSectorOccupantsUpdated()
+        /*public override void OnSectorOccupantsUpdated()
         {
             enabled = _sector.ContainsAnyOccupants(
                 DynamicOccupant.Player | DynamicOccupant.Probe
             );
-        }
+        }*/
 
         private static bool IsTrackedDetector(GameObject obj)
         {
