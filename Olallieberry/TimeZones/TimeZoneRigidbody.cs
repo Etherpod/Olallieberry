@@ -2,6 +2,9 @@
 
 namespace Olallieberry.TimeZones;
 
+/// <summary>
+/// A rigidbody that suspends itself when a <see cref="TimeZone"/> is activated.
+/// </summary>
 [RequireComponent(typeof(OWRigidbody))]
 public class TimeZoneRigidbody : TimeZoneObject
 {

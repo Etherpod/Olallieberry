@@ -1,5 +1,8 @@
 ﻿namespace Olallieberry;
 
+/// <summary>
+/// Overrides vanilla debug warps by removing any existing spawn points with the same location.
+/// </summary>
 public class CustomSpawnPoint : SpawnPoint
 {
 	private void Start()
