@@ -4,9 +4,11 @@
         <LangVersion>latest</LangVersion>
         <Copyright>Copyright © 2026 Etherpod</Copyright>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
         <NoWarn>MSB3270</NoWarn>
         <DebugType>portable</DebugType>
     </PropertyGroup>
@@ -21,20 +23,20 @@
         <Copy SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFolder="$(UnityDLLTargetDir)" />
         
         <ItemGroup>
-            <DialogueItems Include="$(TargetDir)\dialogue\*.*" />
+            <DialogueItems Include="$(TargetDir)dialogue\**\*.*" />
         </ItemGroup>
         <Copy SourceFiles="@(DialogueItems)" DestinationFolder="$(UnityDialogueTargetDir)" />
 
         <Message Text="Copy complete" Importance="High" />
     </Target>
-    
+
     <ItemGroup>
         <PackageReference Include="OWML" Version="2.16.2" IncludeAssets="compile"/>
         <PackageReference Include="OuterWildsGameLibs" Version="1.1.16.1372" IncludeAssets="compile"/>
 
         <PackageReference Include="DitzyExtensions" Version="3.2.0"/>
     </ItemGroup>
-    
+
     <ItemGroup>
         <None Include="default-config.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -42,9 +44,7 @@
         <None Include="manifest.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-    </ItemGroup>
-    
-    <ItemGroup>
+
         <None Include="planets\**\*.*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
@@ -57,6 +57,7 @@
         <None Include="assets\**\*.*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+
         <None Include="addon-manifest.json" Condition="Exists('addon-manifest.json')">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
@@ -66,5 +67,19 @@
         <None Include="title-screen.json" Condition="Exists('title-screen.json')">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <UpToDateCheckInput Include="default-config.json" />
+        <UpToDateCheckInput Include="manifest.json" />
+
+        <UpToDateCheckInput Include="planets\**\*.*" />
+        <UpToDateCheckInput Include="systems\**\*.*" />
+        <UpToDateCheckInput Include="translations\**\*.*" />
+        <UpToDateCheckInput Include="assets\**\*.*" />
+
+        <UpToDateCheckInput Include="addon-manifest.json" Condition="Exists('addon-manifest.json')" />
+        <UpToDateCheckInput Include="subtitle.png" Condition="Exists('subtitle.png')" />
+        <UpToDateCheckInput Include="title-screen.json" Condition="Exists('title-screen.json')" />
     </ItemGroup>
 </Project>
