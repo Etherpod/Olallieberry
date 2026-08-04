@@ -22,7 +22,13 @@ public class TimeZone : EffectVolume
 	private bool _playerInside;
 	private bool _probeInside;
 
-    public override void OnEffectVolumeEnter(GameObject hitObj)
+	public void OnValidate()
+	{
+		_triggerVolume = gameObject.GetAddComponent<OWTriggerVolume>();
+		_triggerVolume.Reset();
+	}
+
+	public override void OnEffectVolumeEnter(GameObject hitObj)
 	{
 		bool wasEmpty = !_playerInside && !_probeInside;
 		

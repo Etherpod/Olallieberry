@@ -3,46 +3,133 @@
 namespace Olallieberry.TimeZones;
 
 /// <summary>
-/// A rigidbody that suspends itself when a <see cref="TimeZone"/> is activated.
+/// A rigidbody that suspends itself and
+/// returns to its initial local transform
+/// when a <see cref="TimeZone"/> is deactivated.
 /// </summary>
 [RequireComponent(typeof(OWRigidbody))]
 public class TimeZoneRigidbody : TimeZoneObject
 {
-	private OWRigidbody _rigidbody;
-	private OWRigidbody _attachedBody;
-	private Vector3 _initialPosition;
-	private Quaternion _initialRotation;
-	private Vector3 _initialScale;
+	protected OWRigidbody _rigidbody;
+	protected OWRigidbody _attachedBody;
+
+	protected Vector3 _initialPosition;
+	protected Quaternion _initialRotation;
+	protected Vector3 _initialScale;
 
 	protected override void Awake()
 	{
 		base.Awake();
+
 		_rigidbody = this.GetRequiredComponent<OWRigidbody>();
+
+		if (_timeZone == null)
+		{
+			enabled = false;
+			return;
+		}
+
 		_attachedBody = _timeZone.GetAttachedOWRigidbody();
 	}
 
-	private void Start()
+	protected virtual void Start()
 	{
-		_rigidbody.Suspend(_attachedBody);
-		transform.parent = _timeZone.transform;
+		if (_timeZone == null || _attachedBody == null)
+			return;
+
+		ConfigureRigidbody();
+
+		Suspend();
+
 		_initialPosition = transform.localPosition;
 		_initialRotation = transform.localRotation;
 		_initialScale = transform.localScale;
 	}
 
+	/// <summary>
+	/// Called before the rigidbody is initially suspended.
+	/// Override this to configure kinematic simulation or other settings.
+	/// </summary>
+	protected virtual void ConfigureRigidbody() { }
+
 	protected override void OnZoneActivated(TimeZone zone)
 	{
-		_rigidbody.Unsuspend(false);
-		_rigidbody.SetVelocity(_attachedBody.GetVelocity());
+		UnsuspendAndStart();
 	}
-	
+
 	protected override void OnZoneDeactivated(TimeZone zone)
+	{
+		SuspendAndReset();
+	}
+
+	/// <summary>
+	/// Suspends the rigidbody.
+	/// </summary>
+	public void Suspend()
 	{
 		_rigidbody.Suspend(_attachedBody);
 		transform.parent = _timeZone.transform;
-		
+	}
+
+	/// <summary>
+	/// Returns the parent body's velocity at the supplied position.
+	/// </summary>
+	protected Vector3 GetParentPointVelocity(Vector3 worldPosition)
+	{
+		return _attachedBody != null
+			? _attachedBody.GetPointVelocity(worldPosition)
+			: Vector3.zero;
+	}
+
+	/// <summary>
+	/// Returns the parent body's velocity at the current position.
+	/// </summary>
+	protected Vector3 GetParentPointVelocity()
+	{
+		return GetParentPointVelocity(transform.position);
+	}
+
+	/// <summary>
+	/// Unsuspends the rigidbody and sets its velocity.
+	/// </summary>
+	public void Unsuspend()
+	{
+		_rigidbody.Unsuspend(false);
+		_rigidbody.SetVelocity(GetParentPointVelocity());
+	}
+
+	public virtual void StartFromInitialState()
+	{
+	}
+
+	/// <summary>
+	/// Restores the object's initial local transform.
+	/// </summary>
+	public virtual void ResetToInitialState()
+	{
 		transform.localPosition = _initialPosition;
 		transform.localRotation = _initialRotation;
 		transform.localScale = _initialScale;
+
+		_rigidbody.SetVelocity(Vector3.zero);
+		_rigidbody.SetAngularVelocity(Vector3.zero);
+	}
+
+	/// <summary>
+	/// Suspends the rigidbody and restores its initial local transform.
+	/// </summary>
+	public void UnsuspendAndStart()
+	{
+		Unsuspend();
+		StartFromInitialState();
+	}
+
+	/// <summary>
+	/// Suspends the rigidbody and restores its initial local transform.
+	/// </summary>
+	public void SuspendAndReset()
+	{
+		Suspend();
+		ResetToInitialState();
 	}
 }

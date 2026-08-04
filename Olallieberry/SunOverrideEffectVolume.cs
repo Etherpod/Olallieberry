@@ -22,7 +22,7 @@ namespace Olallieberry
         public bool overrideShadowStrength;
         public float shadowStrength = 1f;
 
-        private readonly HashSet<GameObject> _trackedObjects = new HashSet<GameObject>(4);
+        private readonly HashSet<GameObject> _trackedObjects = new(4);
         private float _currentBlend;
 
         public void Awake()
