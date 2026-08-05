@@ -18,9 +18,14 @@ public class TimeZone : EffectVolume
 	/// Invoked when every foreign object has left a zone.
 	/// </summary>
 	public event TimeZoneEvent OnZoneDeactivated;
-	
+
 	private bool _playerInside;
 	private bool _probeInside;
+
+	/// <summary>
+	/// Whether the player or probe is currently inside the time zone.
+	/// </summary>
+	public bool IsActive => _playerInside || _probeInside;
 
 	public void OnValidate()
 	{
@@ -30,8 +35,8 @@ public class TimeZone : EffectVolume
 
 	public override void OnEffectVolumeEnter(GameObject hitObj)
 	{
-		bool wasEmpty = !_playerInside && !_probeInside;
-		
+		bool wasActive = IsActive;
+
 		if (!_playerInside && hitObj.CompareTag("PlayerDetector"))
 		{
 			_playerInside = true;
@@ -45,7 +50,7 @@ public class TimeZone : EffectVolume
 			return;
 		}
 
-		if ((_playerInside || _probeInside) && wasEmpty)
+		if (IsActive && !wasActive)
 		{
 			OnZoneActivated?.Invoke(this);
 		}
@@ -66,7 +71,7 @@ public class TimeZone : EffectVolume
 			return;
 		}
 
-		if (!_playerInside && !_probeInside)
+		if (!IsActive)
 		{
 			OnZoneDeactivated?.Invoke(this);
 		}
