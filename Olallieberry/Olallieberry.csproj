@@ -9,7 +9,7 @@
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 
-        <NoWarn>MSB3270</NoWarn>
+        <NoWarn>MSB3270,CS0649,IDE0031</NoWarn>
         <DebugType>portable</DebugType>
     </PropertyGroup>
 
