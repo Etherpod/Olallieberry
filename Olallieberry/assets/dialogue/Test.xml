@@ -1,0 +1,14 @@
+<DialogueTree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/dialogue_schema.xsd">
+	<NameField>Test</NameField>
+
+	<DialogueNode>
+		<Name>ENTRY</Name>
+		<EntryCondition>DEFAULT</EntryCondition>
+		<Dialogue>
+			<Page>This is placeholder text.</Page>
+		</Dialogue>
+		<RevealFacts>
+			<FactID>OLALLIEBERRY_TEST</FactID>
+		</RevealFacts>
+	</DialogueNode>
+</DialogueTree>

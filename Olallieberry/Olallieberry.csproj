@@ -14,7 +14,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="Olallieberry.csproj.user"/>
+        <Content Include="Olallieberry.csproj.user" />
     </ItemGroup>
 
     <Target Name="CopyAssets" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' And '$(UnityProjectDir)' != '' ">
@@ -23,7 +23,7 @@
         <Copy SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFolder="$(UnityDLLTargetDir)" />
         
         <ItemGroup>
-            <DialogueItems Include="$(TargetDir)dialogue\**\*.*" />
+            <DialogueItems Include="$(TargetDir)assets\dialogue\**\*.*" />
         </ItemGroup>
         <Copy SourceFiles="@(DialogueItems)" DestinationFolder="$(UnityDialogueTargetDir)" />
 
@@ -31,10 +31,10 @@
     </Target>
 
     <ItemGroup>
-        <PackageReference Include="OWML" Version="2.16.2" IncludeAssets="compile"/>
-        <PackageReference Include="OuterWildsGameLibs" Version="1.1.16.1372" IncludeAssets="compile"/>
+        <PackageReference Include="OWML" Version="2.16.2" IncludeAssets="compile" />
+        <PackageReference Include="OuterWildsGameLibs" Version="1.1.16.1372" IncludeAssets="compile" />
 
-        <PackageReference Include="DitzyExtensions" Version="3.2.0"/>
+        <PackageReference Include="DitzyExtensions" Version="3.2.0" />
     </ItemGroup>
 
     <ItemGroup>

@@ -27,11 +27,11 @@
   "MapMarker": {
     "enabled": true
   },
-  
+
   "Props": {
     "details": [
       {
-        "assetBundle": "assets/jambundle",
+        "assetBundle": "assets/bundles/jambundle",
         "path": "Assets/JamAssets/ChimeStation.prefab",
         "keepLoaded": true
       }

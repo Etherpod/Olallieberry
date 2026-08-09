@@ -400,9 +400,9 @@ FodyWeavers.xsd
 *.sln.iml
 .idea
 
-# Ignore assets
-Olallieberry/assets/*
-!Olallieberry/assets/*.gitkeep
+# Ignore bundles
+Olallieberry/assets/bundles/*
+!Olallieberry/assets/bundles/*.gitkeep
 
 # Ignore user prefs
 Olallieberry/Olallieberry.csproj.user
