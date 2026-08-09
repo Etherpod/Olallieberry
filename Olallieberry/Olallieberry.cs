@@ -20,9 +20,23 @@ public class Olallieberry : ModBehaviour
 	{
 		NewHorizons = ModHelper.Interaction.TryGetModApi<INewHorizons>("xen.NewHorizons");
 		NewHorizons.LoadConfigs(this);
+		NewHorizons.GetStarSystemLoadedEvent().AddListener(OnStarSystemLoaded);
 		
 		OnCompleteSceneLoad(OWScene.TitleScreen, OWScene.TitleScreen);
 		LoadManager.OnCompleteSceneLoad += OnCompleteSceneLoad;
+	}
+
+	public void OnStarSystemLoaded(string system)
+	{
+		if (system == "SolarSystem")
+		{
+			var planet = NewHorizons.GetPlanet("Chime Station");
+
+			foreach (var line in planet.GetComponentsInChildren<NomaiTextLine>())
+			{
+				line.gameObject.AddComponent<CircleTextLine>();
+			}
+		}
 	}
 
 	public void OnCompleteSceneLoad(OWScene previousScene, OWScene newScene)

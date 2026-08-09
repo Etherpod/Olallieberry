@@ -3,11 +3,11 @@
   "name": "Chime Station",
   "starSystem": "SolarSystem",
   "canShowOnTitle": false,
-  
+
   "Base": {
     "showMinimap": false
   },
-  
+
   "Orbit": {
     "isStatic": true,
     "staticPosition": {
@@ -17,13 +17,13 @@
     },
     "siderealPeriod": 0
   },
-  
+
   "ReferenceFrame": {
     "enabled": true,
     "bracketRadius": 300,
     "targetColliderRadius": 400
   },
-  
+
   "MapMarker": {
     "enabled": true
   },
@@ -35,6 +35,39 @@
         "path": "Assets/JamAssets/ChimeStation.prefab",
         "keepLoaded": true
       }
+    ],
+    "translatorText": [
+      {
+        "rename": "TestText",
+        "position": {
+          "x": 65.20677,
+          "y": 49.58234,
+          "z": -8.186631
+        },
+        "rotation": {
+          "x": 270,
+          "y": 0,
+          "z": 0
+        },
+        "xmlFile": "assets/text/Test.xml",
+        "arcInfo": [
+          {
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      }
     ]
   },
 
@@ -44,13 +77,13 @@
         "isDefault": true,
         "startWithSuit": true,
         "position": {
-          "x": -10.46,
-          "y": 239.92,
-          "z": 15.5
+          "x": 63.64639,
+          "y": 49.58233,
+          "z": -7.114183
         },
         "rotation": {
           "x": 0,
-          "y": 152.301,
+          "y": 272.751,
           "z": 0
         }
       }
