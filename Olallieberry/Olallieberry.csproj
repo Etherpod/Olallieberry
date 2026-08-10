@@ -21,11 +21,6 @@
         <Message Text="Copying assets to Unity project" Importance="High" />
 
         <Copy SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFolder="$(UnityDLLTargetDir)" />
-        
-        <ItemGroup>
-            <DialogueItems Include="$(TargetDir)assets\dialogue\**\*.*" />
-        </ItemGroup>
-        <Copy SourceFiles="@(DialogueItems)" DestinationFolder="$(UnityDialogueTargetDir)" />
 
         <Message Text="Copy complete" Importance="High" />
     </Target>

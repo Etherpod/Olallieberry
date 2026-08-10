@@ -3,6 +3,5 @@
     <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/Etherpod.Jam6Project</OutputPath>
     <UnityProjectDir>$(SolutionDir)\..\OlallieberryAssets</UnityProjectDir>
     <UnityDLLTargetDir>$(UnityProjectDir)\Assets\Dlls</UnityDLLTargetDir>
-    <UnityDialogueTargetDir>$(UnityProjectDir)\Assets\JamAssets\Dialogue</UnityDialogueTargetDir>
   </PropertyGroup>
 </Project>
