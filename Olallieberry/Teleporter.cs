@@ -87,7 +87,8 @@ public class Teleporter : EffectVolume
     }
 
     /// <summary>
-    /// Teleports an object to the connected teleporter.
+    /// Warps an object to the connected teleporter while preserving its
+    /// position and rotation relative to the source pad.
     /// </summary>
     public virtual void Teleport(GameObject obj)
     {
@@ -104,22 +105,27 @@ public class Teleporter : EffectVolume
         // Stop the destination from immediately sending the object back.
         connectedTeleporter.BlockUntilExit(obj);
 
-        var localPosition = targetBody.transform.InverseTransformPoint(
-            target.position
-        );
-
+        // Preserve the object's position and rotation relative to this pad.
+        var localPosition = transform.InverseTransformPoint(body.GetPosition());
         var localRotation =
-            target.rotation *
-            Quaternion.Inverse(targetBody.GetRotation());
+            Quaternion.Inverse(transform.rotation) *
+            body.GetRotation();
 
-        TeleportObjectTo(
-            body,
-            targetBody,
-            localPosition,
-            Vector3.zero,
-            Vector3.zero,
-            localRotation
-        );
+        // Convert that relative transform into the destination pad's space.
+        var targetPosition =
+            target.TransformPoint(localPosition);
+
+        var targetRotation =
+            target.rotation *
+            localRotation;
+
+        // Move the body.
+        body.SetRotation(targetRotation);
+        body.SetPosition(targetPosition);
+        body.SetVelocity(targetBody.GetPointVelocity(targetPosition));
+
+        if (!Physics.autoSyncTransforms)
+            Physics.SyncTransforms();
 
         // Play the teleport sound at both pads.
         PlayTeleportSound();
@@ -141,27 +147,5 @@ public class Teleporter : EffectVolume
     private void BlockUntilExit(GameObject obj)
     {
         _blockedObjects.Add(obj);
-    }
-
-    /// <summary>
-    /// Moves a rigidbody relative to another rigidbody.
-    /// </summary>
-    private static void TeleportObjectTo(
-        OWRigidbody teleportObject,
-        OWRigidbody teleportTo,
-        Vector3 position,
-        Vector3 velocity,
-        Vector3 angularVelocity,
-        Quaternion rotation)
-    {
-        var newPosition = teleportTo.transform.TransformPoint(position);
-        var newVelocity = velocity + teleportTo.GetPointVelocity(newPosition);
-        var newAngularVelocity = angularVelocity + teleportTo.GetAngularVelocity();
-        var newRotation = rotation * teleportTo.GetRotation();
-
-        teleportObject.SetPosition(newPosition);
-        teleportObject.SetVelocity(newVelocity);
-        teleportObject.SetRotation(newRotation);
-        teleportObject.SetAngularVelocity(newAngularVelocity);
     }
 }
