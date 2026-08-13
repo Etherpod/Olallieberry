@@ -72,39 +72,5 @@
         ]
       }
     ]
-  },
-
-  "Spawn": {
-    "playerSpawnPoints": [
-      {
-        "isDefault": true,
-        "startWithSuit": true,
-        "position": {
-          "x": 25,
-          "y": 52,
-          "z": 0
-        },
-        "rotation": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      }
-    ],
-    "shipSpawnPoints": [
-      {
-        "isDefault": true,
-        "position": {
-          "x": 0,
-          "y": 160,
-          "z": 0
-        },
-        "rotation": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      }
-    ]
   }
 }
