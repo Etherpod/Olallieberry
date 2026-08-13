@@ -25,6 +25,10 @@ public class ConditionalTeleporter : Teleporter
             "DialogueConditionChanged",
             OnConditionChanged
         );
+
+#if DEBUG
+        _conditionMet = true;
+#endif
     }
 
     public override void OnDestroy()
