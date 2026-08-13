@@ -40,18 +40,21 @@
       {
         "rename": "TestText",
         "position": {
-          "x": 40.51734,
-          "y": 49.65268,
-          "z": -4.752994
-        },
-        "rotation": {
-          "x": 270,
+          "x": 0,
           "y": 0,
           "z": 0
         },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/TextWall/Text",
         "xmlFile": "assets/text/Test.xml",
         "arcInfo": [
           {
+            "zRotation": 0,
             "customTextImage": "assets/images/circleText_sparkles.png",
             "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
             "customLanguageName": "OLALLIEBERRY_SNAKE",
