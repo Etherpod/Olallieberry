@@ -121,7 +121,8 @@ public class Teleporter : EffectVolume
             localRotation
         );
 
-        // Play the sound at the destination.
+        // Play the teleport sound at both pads.
+        PlayTeleportSound();
         connectedTeleporter.PlayTeleportSound();
     }
 
