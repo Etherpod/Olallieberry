@@ -13,7 +13,7 @@ public class Olallieberry : ModBehaviour
 	public void Awake()
 	{
 		Instance = this;
-		new Harmony("Etherpod.Olallieberry").PatchAll(Assembly.GetExecutingAssembly());
+		new Harmony("Olallieberry.BorrowedTomorrows").PatchAll(Assembly.GetExecutingAssembly());
 	}
 
 	public void Start()

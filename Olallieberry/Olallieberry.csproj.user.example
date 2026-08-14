@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/Etherpod.Jam6Project</OutputPath>
+    <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/Olallieberry.BorrowedTomorrows</OutputPath>
     <UnityProjectDir>$(SolutionDir)\..\OlallieberryAssets</UnityProjectDir>
     <UnityDLLTargetDir>$(UnityProjectDir)\Assets\Dlls</UnityDLLTargetDir>
   </PropertyGroup>

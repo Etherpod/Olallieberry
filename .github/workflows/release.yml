@@ -14,8 +14,8 @@ permissions:
   contents: write
 
 env:
-  PROJ_USERNAME: Etherpod
   PROJ_NAME: Olallieberry
+  MOD_NAME: BorrowedTomorrows
 
 jobs:
   pre_job:
@@ -50,6 +50,7 @@ jobs:
       - name: Error
         if: ${{ steps.out.outputs.exists != 'false' && (!inputs.bypassCheck) }}
         run: echo "::error file=manifest.json,title=Refusing to Release::Your mod was not released because there is already a release with the version in manifest.json"
+
   release:
     needs: pre_job
     if: ${{ (needs.pre_job.outputs.version != '0.0.0') && (needs.pre_job.outputs.exists == 'false') || (inputs.bypassCheck) }}
@@ -73,11 +74,11 @@ jobs:
       - name: Upload Artifact
         uses: "actions/upload-artifact@v4"
         with:
-          name: "${{ env.PROJ_USERNAME }}.${{ env.PROJ_NAME }}"
+          name: "${{ env.PROJ_NAME }}.${{ env.MOD_NAME }}"
           path: "${{ env.PROJ_NAME }}/bin/Release"
 
       - name: Zip For Release
-        run: 7z a ${{ env.PROJ_USERNAME }}.${{ env.PROJ_NAME }}.zip ./${{ env.PROJ_NAME }}/bin/Release/**
+        run: 7z a ${{ env.PROJ_NAME }}.${{ env.MOD_NAME }}.zip ./${{ env.PROJ_NAME }}/bin/Release/**
 
       - name: Create Release
         uses: "ncipollo/release-action@v1"
@@ -87,6 +88,6 @@ jobs:
           tag: v${{ needs.pre_job.outputs.version }}
           name: Version ${{ needs.pre_job.outputs.version }}
           omitBodyDuringUpdate: true
-          artifacts: "${{ env.PROJ_USERNAME}}.${{ env.PROJ_NAME }}.zip"
+          artifacts: "${{ env.PROJ_NAME }}.${{ env.MOD_NAME }}.zip"
           draft: true
           prerelease: ${{ inputs.prerelease }}

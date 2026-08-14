@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "Olallieberry.dll",
   "author": "Etherpod, ditzy, MegaPiggy, Xya",
-  "name": "Olallieberry",
-  "uniqueName": "Etherpod.Olallieberry",
+  "name": "Borrowed Tomorrows",
+  "uniqueName": "Olallieberry.BorrowedTomorrows",
   "version": "1.0.0",
   "owmlVersion": "2.15.1",
-  "dependencies": ["xen.NewHorizons"]
+  "dependencies": [ "xen.NewHorizons" ]
 }
