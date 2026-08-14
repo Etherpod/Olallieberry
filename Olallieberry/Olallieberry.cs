@@ -30,7 +30,7 @@ public class Olallieberry : ModBehaviour
 	{
 		if (system == "SolarSystem")
 		{
-			var planet = NewHorizons.GetPlanet("Chime Station");
+			var planet = NewHorizons.GetPlanet("The Ephemeris");
 
 			foreach (var line in planet.GetComponentsInChildren<NomaiTextLine>())
 			{
