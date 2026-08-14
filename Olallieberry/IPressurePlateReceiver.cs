@@ -6,7 +6,7 @@ namespace Olallieberry;
 /// An object that responds when a <see cref="PressurePlate"/> is
 /// pressed or released.
 /// </summary>
-public abstract class PressurePlateReceiver : MonoBehaviour
+public interface IPressurePlateReceiver
 {
     /// <summary>
     /// Applies the current state of a pressure plate to this receiver.
@@ -17,7 +17,7 @@ public abstract class PressurePlateReceiver : MonoBehaviour
     /// <param name="isPressed">
     /// Whether the pressure plate is currently pressed.
     /// </param>
-    public abstract void SetPressurePlateState(
+    void SetPressurePlateState(
         PressurePlate pressurePlate,
         bool isPressed
     );

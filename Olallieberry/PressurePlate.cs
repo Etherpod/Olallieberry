@@ -23,7 +23,7 @@ public class PressurePlate : MonoBehaviour
     /// </summary>
     [Header("Receivers")]
     [Tooltip("Objects that receive the pressure plate's active state.")]
-    public PressurePlateReceiver[] receivers = [];
+    public MonoBehaviour[] receivers = [];
 
     /// <summary>
     /// The visual portion of the pressure plate that moves when pressed.
@@ -102,6 +102,20 @@ public class PressurePlate : MonoBehaviour
     /// Whether the pressure plate is currently pressed and its time zone is active.
     /// </summary>
     public bool IsPressed => _isPressed;
+
+    protected virtual void OnValidate()
+    {
+        foreach (var receiver in receivers)
+        {
+            if (receiver != null && receiver is not IPressurePlateReceiver)
+            {
+                Debug.LogWarning(
+                    $"{receiver.name} does not implement {nameof(IPressurePlateReceiver)}.",
+                    receiver
+                );
+            }
+        }
+    }
 
     protected virtual void Awake()
     {
@@ -251,9 +265,9 @@ public class PressurePlate : MonoBehaviour
 
         foreach (var receiver in receivers)
         {
-            if (receiver != null)
+            if (receiver is IPressurePlateReceiver pressurePlateReceiver)
             {
-                receiver.SetPressurePlateState(this, pressed);
+                pressurePlateReceiver.SetPressurePlateState(this, pressed);
             }
         }
 

@@ -7,7 +7,7 @@ namespace Olallieberry;
 /// A sliding door controlled by one or more
 /// <see cref="PressurePlate"/> objects.
 /// </summary>
-public class PressurePlateDoor : PressurePlateReceiver
+public class PressurePlateDoorController : DoorController, IPressurePlateReceiver
 {
     public enum ActivationMode
     {
@@ -37,81 +37,10 @@ public class PressurePlateDoor : PressurePlateReceiver
     [Min(1)]
     public int requiredPlateCount = 1;
 
-    /// <summary>
-    /// The transform that moves when the door opens.
-    /// </summary>
-    [Header("Movement")]
-    [Tooltip("The transform that moves when the door opens.")]
-    public Transform movingPart;
-
-    /// <summary>
-    /// The door's open position relative to its initial local position.
-    /// </summary>
-    [Tooltip("The door's open position relative to its initial local position.")]
-    public Vector3 openOffset = new(0f, 3f, 0f);
-
-    /// <summary>
-    /// The door's movement speed in units per second.
-    /// </summary>
-    [Tooltip("The door's movement speed in units per second.")]
-    [Min(0f)]
-    public float moveSpeed = 3f;
-
-    /// <summary>
-    /// The audio source used to play door sounds.
-    /// </summary>
-    [Header("Audio")]
-    [Tooltip("The audio source used to play door sounds.")]
-    public OWAudioSource audioSource;
-
-    /// <summary>
-    /// The sound played when the door begins opening.
-    /// </summary>
-    [Tooltip("The sound played when the door begins opening.")]
-    public AudioType openSound = AudioType.NomaiDoorStart;
-
-    /// <summary>
-    /// The sound played when the door begins closing.
-    /// </summary>
-    [Tooltip("The sound played when the door begins closing.")]
-    public AudioType closeSound = AudioType.NomaiDoorStop;
-
     private readonly HashSet<PressurePlate> _activePlates = [];
 
-    private Vector3 _closedLocalPosition;
-    private bool _isOpen;
-
-    /// <summary>
-    /// Whether the door is currently commanded to open.
-    /// </summary>
-    public bool IsOpen => _isOpen;
-
-    protected virtual void Awake()
-    {
-        if (movingPart == null) movingPart = transform;
-        if (audioSource == null) audioSource = GetComponentInChildren<OWAudioSource>();
-
-        _closedLocalPosition = movingPart.localPosition;
-    }
-
-    protected virtual void Update()
-    {
-        Vector3 targetPosition = _isOpen
-            ? _closedLocalPosition + openOffset
-            : _closedLocalPosition;
-
-        movingPart.localPosition = Vector3.MoveTowards(
-            movingPart.localPosition,
-            targetPosition,
-            moveSpeed * Time.deltaTime
-        );
-    }
-
     /// <inheritdoc/>
-    public override void SetPressurePlateState(
-        PressurePlate pressurePlate,
-        bool isPressed
-    )
+    public void SetPressurePlateState(PressurePlate pressurePlate, bool isPressed)
     {
         if (pressurePlate == null)
         {
@@ -135,20 +64,5 @@ public class PressurePlateDoor : PressurePlateReceiver
         };
 
         SetOpen(shouldOpen);
-    }
-
-    public void SetOpen(bool open)
-    {
-        if (_isOpen == open)
-        {
-            return;
-        }
-
-        _isOpen = open;
-
-        if (audioSource != null)
-        {
-            audioSource.PlayOneShot(open ? openSound : closeSound);
-        }
     }
 }
