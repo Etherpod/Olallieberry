@@ -5,14 +5,15 @@
   "canShowOnTitle": false,
 
   "Base": {
-    "showMinimap": false
+    "showMinimap": false,
+    "surfaceSize": 600
   },
 
   "Orbit": {
     "isStatic": true,
     "staticPosition": {
       "x": 0,
-      "y": 4000, // the sun's radius is 2000m
+      "y": 6250, // the sun's radius is 2000m
       "z": 0
     },
     "siderealPeriod": 0
@@ -33,6 +34,9 @@
       {
         "assetBundle": "assets/bundles/jambundle",
         "path": "Assets/JamAssets/ChimeStation.prefab",
+        "position": {
+          "y": -200
+        },
         "keepLoaded": true
       }
     ],
