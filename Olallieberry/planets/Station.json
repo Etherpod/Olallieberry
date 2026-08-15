@@ -29,6 +29,19 @@
     "enabled": true
   },
 
+  "AmbientLights": [
+    {
+      "innerRadius": 500,
+      "outerRadius": 600,
+      "intensity": 0.5,
+      "tint": {
+        "r": 255,
+        "g": 210,
+        "b": 100
+      }
+    }
+  ],
+
   "Props": {
     "details": [
       {
