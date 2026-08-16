@@ -1,11 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Olallieberry;
 
 public class OrbSpinController : MonoBehaviour
 {
-	[SerializeField] private float spinRate;
+	[SerializeField] private float spinRate = 6;
+	[SerializeField] private Vector3 spinAxis = new Vector3(1, 0, -1); // the gear is diagonal for some reason, so we do this to spin it like a gear
 
 	private float spinRateMultiplier = 0;
 
@@ -18,6 +18,10 @@ public class OrbSpinController : MonoBehaviour
 	{
 		if (OWTime.IsPaused()) return;
 		
-		transform.Rotate(Vector3.up, Time.fixedDeltaTime * spinRateMultiplier, Space.Self);
+		transform.Rotate(
+			spinAxis.normalized,
+			Time.fixedDeltaTime * spinRateMultiplier,
+			Space.Self
+		);
 	}
 }
