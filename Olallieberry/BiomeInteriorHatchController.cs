@@ -16,6 +16,10 @@ public class BiomeInteriorHatchController : MonoBehaviour
     {
         _closedRotation = transform.localRotation;
         _openRotation = _closedRotation * Quaternion.Euler(0f, openAngle, 0f);
+        
+#if DEBUG
+        Open();
+#endif
     }
 
     public void Update()
