@@ -21,6 +21,10 @@
         <Message Text="Copying assets to Unity project" Importance="High" />
 
         <Copy SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFolder="$(UnityDLLTargetDir)" />
+        <ItemGroup>
+            <DependencyDlls Include="$(OutputPath)/*.dll" />
+        </ItemGroup>
+        <Copy SourceFiles="@(DependencyDlls)" DestinationFolder="$(UnityDLLTargetDir)" />
 
         <Message Text="Copy complete" Importance="High" />
     </Target>

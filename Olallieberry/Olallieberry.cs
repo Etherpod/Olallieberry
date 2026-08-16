@@ -45,3 +45,11 @@ public class Olallieberry : ModBehaviour
 		ModHelper.Console.WriteLine("Loaded into solar system!", MessageType.Success);
 	}
 }
+
+public static class OlallieberryExtensions
+{
+	public static void Log(this string message)
+	{
+		Olallieberry.Instance?.ModHelper?.Console?.WriteLine(message);
+	}
+}
