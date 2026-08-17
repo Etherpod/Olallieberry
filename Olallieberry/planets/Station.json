@@ -53,6 +53,20 @@
         "keepLoaded": true
       }
     ],
+    "dialogue": [
+      {
+        "parentPath": "TranslatorPedestal/Pedestal/Sphere",
+        "isRelativeToParent": true,
+        "xmlFile": "assets/dialogue/Translator.xml",
+        "blockAfterPersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+        "radius": 1,
+        "remoteTrigger": {
+          "parentPath": "Sector/ChimeStation/TranslatorPedestal/Pedestal/Sphere",
+          "isRelativeToParent": true,
+          "radius": 6
+        }
+      }
+    ],
     "translatorText": [
       {
         "rename": "TestText",
