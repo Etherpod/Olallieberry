@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Olallieberry.TimeZones;
 
@@ -18,19 +19,100 @@ public class TimeZone : EffectVolume
 	/// Invoked when every foreign object has left a zone.
 	/// </summary>
 	public event TimeZoneEvent OnZoneDeactivated;
+	
+	public event TimeZoneEvent OnZoneExpired;
+	
+	public event TimeZoneEvent OnZoneReset;
+	
+	[SerializeField] protected bool presenceControlled = true;
+	[SerializeField] protected bool manuallyControlled = false;
+	[SerializeField] protected float zoneLifespan = 0f;
+	[SerializeField] protected bool deactivateOnReset = true;
+	[SerializeField] protected bool resetOnDeactivate = true;
+	[SerializeField] protected bool resetOnExpire = true;
 
-	private bool _playerInside;
-	private bool _probeInside;
+	private bool _playerInside = false;
+	private bool _probeInside = false;
+	protected bool _activated = false;
+	protected float _elapsedTime = 0f;
 
+	public bool IsManuallyActive => manuallyControlled && _activated;
+	public bool IsPresenceActive => presenceControlled && (_playerInside || _probeInside);
+	public bool HasLifespan => 0f < zoneLifespan;
+	public bool IsExpired => HasLifespan && zoneLifespan <= _elapsedTime;
+	
 	/// <summary>
 	/// Whether the player or probe is currently inside the time zone.
 	/// </summary>
-	public bool IsActive => _playerInside || _probeInside;
+	public bool IsActive => (IsManuallyActive || IsPresenceActive) && !IsExpired;
+
+	public float ElapsedTime => _elapsedTime;
 
 	public void OnValidate()
 	{
 		_triggerVolume = gameObject.GetAddComponent<OWTriggerVolume>();
 		_triggerVolume.Reset();
+	}
+
+	public void ActivateZone(bool wasActive = false)
+	{
+		if (!IsActive || wasActive) return;
+		
+		OnZoneActivated?.Invoke(this);
+	}
+
+	public void ResetZone(bool ignoreDeactivate = false)
+	{
+		_elapsedTime = 0f;
+		if (!ignoreDeactivate && deactivateOnReset) DeactivateZone(true);
+		OnZoneReset?.Invoke(this);
+	}
+
+	private void DeactivateZone(bool ignoreReset = false)
+	{
+		_playerInside = false;
+		_probeInside = false;
+		OnZoneDeactivated?.Invoke(this);
+		if (!ignoreReset && resetOnDeactivate) ResetZone(true);
+	}
+
+	private void ExpireZone()
+	{
+		OnZoneExpired?.Invoke(this);
+		DeactivateZone();
+		if (resetOnExpire) ResetZone(true);
+	}
+
+	public void Activate()
+	{
+		if (!manuallyControlled || _activated) return;
+		
+		var wasActive = IsActive;
+		_activated = true;
+		ActivateZone(wasActive);
+	}
+
+	public void Deactivate()
+	{
+		if (!manuallyControlled || _activated) return;
+		_activated = false;
+		DeactivateZone();
+	}
+
+	private void FixedUpdate()
+	{
+		if (!IsActive) return;
+		
+		_elapsedTime += Time.fixedDeltaTime;
+		
+		UpdateLife();
+	}
+	
+	private void UpdateLife()
+	{
+		if (!IsExpired) return;
+		
+		ExpireZone();
 	}
 
 	public override void OnEffectVolumeEnter(GameObject hitObj)
@@ -50,10 +132,7 @@ public class TimeZone : EffectVolume
 			return;
 		}
 
-		if (IsActive && !wasActive)
-		{
-			OnZoneActivated?.Invoke(this);
-		}
+		ActivateZone(wasActive);
 	}
 
 	public override void OnEffectVolumeExit(GameObject hitObj)
@@ -73,7 +152,7 @@ public class TimeZone : EffectVolume
 
 		if (!IsActive)
 		{
-			OnZoneDeactivated?.Invoke(this);
+			DeactivateZone();
 		}
 	}
 }

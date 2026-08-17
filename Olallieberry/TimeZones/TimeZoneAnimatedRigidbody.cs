@@ -15,7 +15,10 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 		/// <summary>
 		/// Moves from the initial position to the displacement and back.
 		/// </summary>
-		PingPong
+		PingPong,
+		
+		// move in a straight line a set distance then stop
+		Linear
 	}
 
 	public enum RotationMode
@@ -45,6 +48,10 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 		/// </summary>
 		Linear
 	}
+	
+	public delegate void TimeZoneAnimatedRigidbodyEvent(TimeZoneAnimatedRigidbody body);
+
+	public event TimeZoneAnimatedRigidbodyEvent OnMovementCompleted;
 
 	/// <summary>
 	/// Starting animation time offset in seconds.
@@ -119,30 +126,13 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 	[Tooltip("Determines how the rotation animation progresses through its cycle.")]
 	public OscillationMode rotationOscillation = OscillationMode.Sine;
 
-	private bool _animating;
-	private float _elapsedTime;
+	private bool _completed = false;
 
-	/// <summary>
-	/// Restores the initial state and starts the animation from
-	/// <see cref="phaseOffset"/>.
-	/// </summary>
-	public override void StartFromInitialState()
-	{
-		base.StartFromInitialState();
-
-		_elapsedTime = phaseOffset;
-		_animating = true;
-	}
-
-	/// <summary>
-	/// Stops the animation and restores the rigidbody's initial state.
-	/// </summary>
 	public override void ResetToInitialState()
 	{
-		_animating = false;
-		_elapsedTime = 0f;
-
 		base.ResetToInitialState();
+
+		_completed = false;
 	}
 
 	/// <summary>
@@ -151,11 +141,7 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 	/// </summary>
 	public void FixedUpdate()
 	{
-		if (!_animating)
-			return;
-
-		float deltaTime = Time.fixedDeltaTime;
-		_elapsedTime += deltaTime;
+		if (IsActive) return;
 
 		Vector3 localPosition = CalculateLocalPosition();
 		Quaternion localRotation = CalculateLocalRotation();
@@ -169,7 +155,7 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 		MoveTowardsPose(
 			targetPosition,
 			targetRotation,
-			deltaTime);
+			Time.fixedDeltaTime);
 	}
 
 	/// <summary>
@@ -209,10 +195,7 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 
 		Vector3 angularVelocity =
 			axis.sqrMagnitude > 0f
-				? axis.normalized *
-				  angle *
-				  Mathf.Deg2Rad /
-				  deltaTime
+				? axis.normalized * (angle * Mathf.Deg2Rad) / deltaTime
 				: Vector3.zero;
 
 		if (_attachedBody != null)
@@ -231,14 +214,32 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 	/// </returns>
 	private Vector3 CalculateLocalPosition()
 	{
-		if (movementMode == MovementMode.None)
-			return _initialPosition;
+		var progress = 0f;
 
-		float progress = EvaluateOscillation(
-			_elapsedTime,
-			movementCycleDuration,
-			movementOscillation
-		);
+		switch (movementMode)
+		{
+			case MovementMode.None:
+				progress = 0f;
+				break;
+			
+			case MovementMode.PingPong:
+				progress = EvaluateOscillation(
+					ElapsedTime,
+					movementCycleDuration,
+					movementOscillation
+				);
+				break;
+			
+			case MovementMode.Linear:
+				progress = _timeZone.ElapsedTime / movementCycleDuration;
+				if (!_completed && 1f <= progress)
+				{
+					_completed = true;
+					OnMovementCompleted?.Invoke(this);
+				}
+				progress = Mathf.Clamp01(progress);
+				break;
+		}
 
 		return _initialPosition + movementDisplacement * progress;
 	}
@@ -264,12 +265,12 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 		switch (rotationMode)
 		{
 			case RotationMode.Continuous:
-				angle = _elapsedTime * degreesPerSecond;
+				angle = ElapsedTime * degreesPerSecond;
 				break;
 
 			case RotationMode.PingPong:
 				float progress = EvaluateOscillation(
-					_elapsedTime,
+					ElapsedTime,
 					rotationCycleDuration,
 					rotationOscillation
 				);

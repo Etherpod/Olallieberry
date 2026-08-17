@@ -6,6 +6,9 @@ public abstract class TimeZoneObject : MonoBehaviour
 {
 	[SerializeField]
 	protected TimeZone _timeZone;
+	
+	protected bool IsActive => _timeZone.IsActive;
+	protected float ElapsedTime => _timeZone.ElapsedTime;
 
 	protected virtual void OnValidate()
 	{
@@ -21,6 +24,8 @@ public abstract class TimeZoneObject : MonoBehaviour
 
 		_timeZone.OnZoneActivated += OnZoneActivated;
 		_timeZone.OnZoneDeactivated += OnZoneDeactivated;
+		_timeZone.OnZoneExpired += OnZoneExpired;
+		_timeZone.OnZoneReset += OnZoneReset;
 	}
 
 	/// <summary>
@@ -34,6 +39,10 @@ public abstract class TimeZoneObject : MonoBehaviour
 	/// </summary>
 	/// <param name="zone"></param>
 	protected virtual void OnZoneDeactivated(TimeZone zone) { }
+	
+	protected virtual void OnZoneExpired(TimeZone zone) { }
+	
+	protected virtual void OnZoneReset(TimeZone zone) { }
 
 	protected virtual void OnDestroy()
 	{
@@ -41,5 +50,7 @@ public abstract class TimeZoneObject : MonoBehaviour
 
 		_timeZone.OnZoneActivated -= OnZoneActivated;
 		_timeZone.OnZoneDeactivated -= OnZoneDeactivated;
+		_timeZone.OnZoneExpired -= OnZoneExpired;
+		_timeZone.OnZoneReset -= OnZoneReset;
 	}
 }

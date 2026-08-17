@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Olallieberry.TimeZones;
 
@@ -16,6 +17,8 @@ public class TimeZoneRigidbody : TimeZoneObject
 	protected Vector3 _initialPosition;
 	protected Quaternion _initialRotation;
 	protected Vector3 _initialScale;
+
+	protected bool _started = false;
 
 	protected override void Awake()
 	{
@@ -44,6 +47,16 @@ public class TimeZoneRigidbody : TimeZoneObject
 		_initialPosition = transform.localPosition;
 		_initialRotation = transform.localRotation;
 		_initialScale = transform.localScale;
+		_started = false;
+	}
+
+	private void FixedUpdate()
+	{
+		if (!IsActive) return;
+
+		if (_started) return;
+		
+		StartFromInitialState();
 	}
 
 	/// <summary>
@@ -54,12 +67,17 @@ public class TimeZoneRigidbody : TimeZoneObject
 
 	protected override void OnZoneActivated(TimeZone zone)
 	{
-		UnsuspendAndStart();
+		Unsuspend();
 	}
 
 	protected override void OnZoneDeactivated(TimeZone zone)
 	{
-		SuspendAndReset();
+		Suspend();
+	}
+
+	protected override void OnZoneReset(TimeZone zone)
+	{
+		ResetToInitialState();
 	}
 
 	/// <summary>
@@ -100,6 +118,7 @@ public class TimeZoneRigidbody : TimeZoneObject
 
 	public virtual void StartFromInitialState()
 	{
+		_started = true;
 	}
 
 	/// <summary>
@@ -113,6 +132,8 @@ public class TimeZoneRigidbody : TimeZoneObject
 
 		_rigidbody.SetVelocity(Vector3.zero);
 		_rigidbody.SetAngularVelocity(Vector3.zero);
+		
+		_started = false;
 	}
 
 	/// <summary>
