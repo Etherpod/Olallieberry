@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Olallieberry;
 
 /// <summary>
-/// Opens a specified door while the player is inside this trigger volume.
+/// Opens a specified door while a valid detector is inside this trigger volume.
 /// </summary>
 public class DoorTriggerVolume : EffectVolume
 {
@@ -14,6 +15,8 @@ public class DoorTriggerVolume : EffectVolume
     [Tooltip("The door controlled by this trigger volume.")]
     public DoorController door;
 
+    private readonly HashSet<GameObject> _detectors = [];
+
     public void OnValidate()
     {
         _triggerVolume = gameObject.GetAddComponent<OWTriggerVolume>();
@@ -21,24 +24,36 @@ public class DoorTriggerVolume : EffectVolume
     }
 
     /// <summary>
-    /// Opens the door when the player enters.
+    /// Checks whether the specified object should activate this trigger.
     /// </summary>
-    public override void OnEffectVolumeEnter(GameObject hitObj)
+    public virtual bool CheckDetector(GameObject hitObj)
     {
-        if (!hitObj.CompareTag("PlayerDetector"))
-            return;
-
-        door?.Open();
+        return hitObj.CompareTag("PlayerDetector") || hitObj.CompareTag("ProbeDetector");
     }
 
     /// <summary>
-    /// Closes the door when the player leaves.
+    /// Opens the door when a valid detector enters.
+    /// </summary>
+    public override void OnEffectVolumeEnter(GameObject hitObj)
+    {
+        if (!CheckDetector(hitObj))
+            return;
+
+        _detectors.Add(hitObj);
+        door.Open();
+    }
+
+    /// <summary>
+    /// Closes the door when the last valid detector leaves.
     /// </summary>
     public override void OnEffectVolumeExit(GameObject hitObj)
     {
-        if (!hitObj.CompareTag("PlayerDetector"))
+        if (!CheckDetector(hitObj))
             return;
 
-        door?.Close();
+        _detectors.Remove(hitObj);
+
+        if (_detectors.Count == 0)
+            door.Close();
     }
 }
