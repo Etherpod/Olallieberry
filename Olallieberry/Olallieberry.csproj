@@ -60,7 +60,7 @@
         <None Include="addon-manifest.json" Condition="Exists('addon-manifest.json')">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Include="subtitle.png" Condition="Exists('subtitle.png')">
+        <None Include="title_logo.png" Condition="Exists('title_logo.png')">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Include="title-screen.json" Condition="Exists('title-screen.json')">
@@ -78,7 +78,7 @@
         <UpToDateCheckInput Include="assets\**\*.*" />
 
         <UpToDateCheckInput Include="addon-manifest.json" Condition="Exists('addon-manifest.json')" />
-        <UpToDateCheckInput Include="subtitle.png" Condition="Exists('subtitle.png')" />
+        <UpToDateCheckInput Include="title_logo.png" Condition="Exists('title_logo.png')" />
         <UpToDateCheckInput Include="title-screen.json" Condition="Exists('title-screen.json')" />
     </ItemGroup>
 </Project>
