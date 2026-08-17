@@ -13,7 +13,9 @@ public class CustomSpawnPoint : SpawnPoint
 
 	public void Start()
 	{
+#if DEBUG
 		GlobalMessenger.AddListener("WakeUp", Spawn);
+#endif
 
 		foreach (var spawn in Locator.GetPlayerBody().GetComponent<PlayerSpawner>()._spawnList)
 		{
