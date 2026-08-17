@@ -1,0 +1,6 @@
+<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
+  <TextBlock>
+    <ID>1</ID>
+    <Text>CARETAKER: I cannot physically access several damaged systems from here. Fortunately, the Ephemeris was designed so that very little requires me to leave my post.</Text>
+  </TextBlock>
+</NomaiObject>
