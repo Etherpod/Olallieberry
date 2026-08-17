@@ -32,9 +32,14 @@ public class Olallieberry : ModBehaviour
 		{
 			var planet = NewHorizons.GetPlanet("The Ephemeris");
 
-			foreach (var line in planet.GetComponentsInChildren<NomaiTextLine>())
+			foreach (var line in planet.GetComponentsInChildren<NomaiTextLine>(true))
 			{
 				line.gameObject.AddComponent<CircleTextLine>();
+			}
+
+			foreach (var fluidVolume in planet.GetComponentsInChildren<FluidVolume>(true))
+			{
+				fluidVolume.ResetAttachedBody(); // some fluid volumes don't have their attached body set correctly, so we reset it to fix that
 			}
 		}
 	}
