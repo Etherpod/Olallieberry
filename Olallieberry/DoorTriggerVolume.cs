@@ -15,6 +15,9 @@ public class DoorTriggerVolume : EffectVolume
     [Tooltip("The door controlled by this trigger volume.")]
     public DoorController door;
 
+    [Tooltip("If enabled, the door stays open permanently after being triggered once.")]
+    public bool stayOpen;
+
     private readonly HashSet<GameObject> _detectors = [];
 
     public void OnValidate()
@@ -44,7 +47,7 @@ public class DoorTriggerVolume : EffectVolume
     }
 
     /// <summary>
-    /// Closes the door when the last valid detector leaves.
+    /// Closes the door when the last valid detector leaves, unless it should stay open.
     /// </summary>
     public override void OnEffectVolumeExit(GameObject hitObj)
     {
@@ -53,7 +56,7 @@ public class DoorTriggerVolume : EffectVolume
 
         _detectors.Remove(hitObj);
 
-        if (_detectors.Count == 0)
+        if (!stayOpen && _detectors.Count == 0)
             door.Close();
     }
 }
