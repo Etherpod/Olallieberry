@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Olallieberry;
 
-public class BeachTidesController : TimeZoneObject
+public class BasaltLavaController : TimeZoneObject
 {
-    [Header("Water Level")]
-    public float lowerWaterHeight = 0.015f;
-    public float upperWaterHeight = 0.65f;
+    [Header("Lava Level")]
+    public float lowerLavaHeight = 0.025f;
+    public float upperLavaHeight = 0.35f;
 
     [Header("Timing")]
     [Min(0f)]
@@ -17,21 +17,19 @@ public class BeachTidesController : TimeZoneObject
     public float lowerSeconds = 60f;
 
     [Min(0f)]
-    public float raisedWaitSeconds = 10f;
+    public float loweredWaitSeconds = 10f;
 
-    public bool IsAtTop => _waterHeight == upperWaterHeight;
-
-    private float _waterHeight;
+    private float _lavaHeight;
     private float _waitTimer;
-    private bool _rising = true;
+    private bool _rising;
     private bool _active;
 
     protected override void Awake()
     {
         base.Awake();
 
-        _waterHeight = lowerWaterHeight;
-        SetWaterHeight(_waterHeight);
+        _lavaHeight = upperLavaHeight;
+        SetLavaHeight(_lavaHeight);
     }
 
     public void Update()
@@ -39,33 +37,33 @@ public class BeachTidesController : TimeZoneObject
         if (!_active)
             return;
 
-        if (_rising && IsAtTop)
+        if (!_rising && _lavaHeight == lowerLavaHeight)
         {
             _waitTimer += Time.deltaTime;
 
-            if (_waitTimer >= raisedWaitSeconds)
+            if (_waitTimer >= loweredWaitSeconds)
             {
                 _waitTimer = 0f;
-                _rising = false;
+                _rising = true;
             }
 
             return;
         }
 
-        float targetHeight = _rising ? upperWaterHeight : lowerWaterHeight;
+        float targetHeight = _rising ? upperLavaHeight : lowerLavaHeight;
         float duration = _rising ? riseSeconds : lowerSeconds;
-        float distance = upperWaterHeight - lowerWaterHeight;
+        float distance = upperLavaHeight - lowerLavaHeight;
         float speed = distance / duration;
 
-        _waterHeight = Mathf.MoveTowards(
-            _waterHeight,
+        _lavaHeight = Mathf.MoveTowards(
+            _lavaHeight,
             targetHeight,
             speed * Time.deltaTime);
 
-        if (!_rising && _waterHeight == lowerWaterHeight)
-            _rising = true;
+        if (_lavaHeight == targetHeight)
+            _rising = !_rising;
 
-        SetWaterHeight(_waterHeight);
+        SetLavaHeight(_lavaHeight);
     }
 
     protected override void OnZoneActivated(TimeZone zone)
@@ -76,17 +74,17 @@ public class BeachTidesController : TimeZoneObject
     protected override void OnZoneDeactivated(TimeZone zone)
     {
         _active = false;
-        _rising = true;
+        _rising = false;
         _waitTimer = 0f;
-        _waterHeight = lowerWaterHeight;
+        _lavaHeight = upperLavaHeight;
 
-        SetWaterHeight(_waterHeight);
+        SetLavaHeight(_lavaHeight);
     }
 
-    public void SetWaterHeight(float waterHeight)
+    public void SetLavaHeight(float lavaHeight)
     {
         var scale = transform.localScale;
-        scale.y = waterHeight;
+        scale.y = lavaHeight;
         transform.localScale = scale;
     }
 }
