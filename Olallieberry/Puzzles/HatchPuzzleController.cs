@@ -20,7 +20,7 @@ public class HatchPuzzleController : MonoBehaviour
 		puzzleA.OnPuzzleSolved -= OnPuzzleSolved;
 	}
 
-	private void OnPuzzleSolved()
+	private void OnPuzzleSolved(HatchPuzzleA puzzle)
 	{
 		puzzleIndicators?.ForEach(i => i.Activate());
 
