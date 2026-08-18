@@ -19,12 +19,14 @@ public class BeachTidesController : TimeZoneObject
     [Min(0f)]
     public float raisedWaitSeconds = 10f;
 
-    public bool IsAtTop => _waterHeight == upperWaterHeight;
+    [Min(0f)]
+    public float loweredWaitSeconds = 10f;
 
+    public LevelState State => _state;
+
+    private LevelState _state = LevelState.Lowered;
     private float _waterHeight;
     private float _waitTimer;
-    private bool _rising = true;
-    private bool _active;
 
     protected override void Awake()
     {
@@ -36,24 +38,57 @@ public class BeachTidesController : TimeZoneObject
 
     public void Update()
     {
-        if (!_active)
+        if (!IsActive)
             return;
 
-        if (_rising && IsAtTop)
+        switch (_state)
         {
-            _waitTimer += Time.deltaTime;
+            case LevelState.Lowered:
+                _waitTimer += Time.deltaTime;
 
-            if (_waitTimer >= raisedWaitSeconds)
-            {
-                _waitTimer = 0f;
-                _rising = false;
-            }
+                if (_waitTimer >= loweredWaitSeconds)
+                {
+                    _waitTimer = 0f;
+                    _state = LevelState.Rising;
+                }
+                break;
 
+            case LevelState.Rising:
+                MoveWater(upperWaterHeight, riseSeconds);
+
+                if (_waterHeight == upperWaterHeight)
+                    _state = LevelState.Raised;
+                break;
+
+            case LevelState.Raised:
+                _waitTimer += Time.deltaTime;
+
+                if (_waitTimer >= raisedWaitSeconds)
+                {
+                    _waitTimer = 0f;
+                    _state = LevelState.Lowering;
+                }
+                break;
+
+            case LevelState.Lowering:
+                MoveWater(lowerWaterHeight, lowerSeconds);
+
+                if (_waterHeight == lowerWaterHeight)
+                    _state = LevelState.Lowered;
+                break;
+        }
+
+        SetWaterHeight(_waterHeight);
+    }
+
+    private void MoveWater(float targetHeight, float duration)
+    {
+        if (duration <= 0f)
+        {
+            _waterHeight = targetHeight;
             return;
         }
 
-        float targetHeight = _rising ? upperWaterHeight : lowerWaterHeight;
-        float duration = _rising ? riseSeconds : lowerSeconds;
         float distance = upperWaterHeight - lowerWaterHeight;
         float speed = distance / duration;
 
@@ -61,22 +96,15 @@ public class BeachTidesController : TimeZoneObject
             _waterHeight,
             targetHeight,
             speed * Time.deltaTime);
-
-        if (!_rising && _waterHeight == lowerWaterHeight)
-            _rising = true;
-
-        SetWaterHeight(_waterHeight);
     }
 
     protected override void OnZoneActivated(TimeZone zone)
     {
-        _active = true;
     }
 
     protected override void OnZoneDeactivated(TimeZone zone)
     {
-        _active = false;
-        _rising = true;
+        _state = LevelState.Lowered;
         _waitTimer = 0f;
         _waterHeight = lowerWaterHeight;
 

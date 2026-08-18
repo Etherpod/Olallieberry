@@ -17,12 +17,16 @@ public class BasaltLavaController : TimeZoneObject
     public float lowerSeconds = 60f;
 
     [Min(0f)]
+    public float raisedWaitSeconds = 10f;
+
+    [Min(0f)]
     public float loweredWaitSeconds = 10f;
 
+    public LevelState State => _state;
+
+    private LevelState _state = LevelState.Raised;
     private float _lavaHeight;
     private float _waitTimer;
-    private bool _rising;
-    private bool _active;
 
     protected override void Awake()
     {
@@ -34,24 +38,57 @@ public class BasaltLavaController : TimeZoneObject
 
     public void Update()
     {
-        if (!_active)
+        if (!IsActive)
             return;
 
-        if (!_rising && _lavaHeight == lowerLavaHeight)
+        switch (_state)
         {
-            _waitTimer += Time.deltaTime;
+            case LevelState.Raised:
+                _waitTimer += Time.deltaTime;
 
-            if (_waitTimer >= loweredWaitSeconds)
-            {
-                _waitTimer = 0f;
-                _rising = true;
-            }
+                if (_waitTimer >= raisedWaitSeconds)
+                {
+                    _waitTimer = 0f;
+                    _state = LevelState.Lowering;
+                }
+                break;
 
+            case LevelState.Lowering:
+                MoveLava(lowerLavaHeight, lowerSeconds);
+
+                if (_lavaHeight == lowerLavaHeight)
+                    _state = LevelState.Lowered;
+                break;
+
+            case LevelState.Lowered:
+                _waitTimer += Time.deltaTime;
+
+                if (_waitTimer >= loweredWaitSeconds)
+                {
+                    _waitTimer = 0f;
+                    _state = LevelState.Rising;
+                }
+                break;
+
+            case LevelState.Rising:
+                MoveLava(upperLavaHeight, riseSeconds);
+
+                if (_lavaHeight == upperLavaHeight)
+                    _state = LevelState.Raised;
+                break;
+        }
+
+        SetLavaHeight(_lavaHeight);
+    }
+
+    private void MoveLava(float targetHeight, float duration)
+    {
+        if (duration <= 0f)
+        {
+            _lavaHeight = targetHeight;
             return;
         }
 
-        float targetHeight = _rising ? upperLavaHeight : lowerLavaHeight;
-        float duration = _rising ? riseSeconds : lowerSeconds;
         float distance = upperLavaHeight - lowerLavaHeight;
         float speed = distance / duration;
 
@@ -59,22 +96,15 @@ public class BasaltLavaController : TimeZoneObject
             _lavaHeight,
             targetHeight,
             speed * Time.deltaTime);
-
-        if (_lavaHeight == targetHeight)
-            _rising = !_rising;
-
-        SetLavaHeight(_lavaHeight);
     }
 
     protected override void OnZoneActivated(TimeZone zone)
     {
-        _active = true;
     }
 
     protected override void OnZoneDeactivated(TimeZone zone)
     {
-        _active = false;
-        _rising = false;
+        _state = LevelState.Raised;
         _waitTimer = 0f;
         _lavaHeight = upperLavaHeight;
 
