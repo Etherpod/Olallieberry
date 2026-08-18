@@ -30,6 +30,11 @@ public class Teleporter : EffectVolume
     public AudioType teleportSound = AudioType.SingularityOnPlayerEnterExit;
 
     /// <summary>
+    /// Valid objects currently standing on this teleporter.
+    /// </summary>
+    private readonly HashSet<GameObject> _objectsInside = new();
+
+    /// <summary>
     /// Objects blocked from teleporting until they leave this pad.
     /// </summary>
     private readonly HashSet<GameObject> _blockedObjects = new();
@@ -51,8 +56,14 @@ public class Teleporter : EffectVolume
             audioSource = GetComponentInChildren<OWAudioSource>();
     }
 
+    public void Update()
+    {
+        foreach (var obj in _objectsInside)
+            TryTeleport(obj);
+    }
+
     /// <summary>
-    /// Teleports valid objects that enter the pad.
+    /// Begins attempting to teleport valid objects that enter the pad.
     /// </summary>
     public override void OnEffectVolumeEnter(GameObject hitObj)
     {
@@ -60,22 +71,36 @@ public class Teleporter : EffectVolume
         if (!hitObj.CompareTag("PlayerDetector") && !hitObj.CompareTag("ProbeDetector"))
             return;
 
-        // Prevent an immediate return teleport.
-        if (_blockedObjects.Contains(hitObj))
-            return;
+        _objectsInside.Add(hitObj);
 
-        if (!CanTeleport(hitObj))
-            return;
-
-        Teleport(hitObj);
+        TryTeleport(hitObj);
     }
 
     /// <summary>
-    /// Allows an arriving object to use this teleporter after leaving it.
+    /// Stops attempting to teleport an object and allows an arriving object
+    /// to use this teleporter again after leaving it.
     /// </summary>
     public override void OnEffectVolumeExit(GameObject hitObj)
     {
+        _objectsInside.Remove(hitObj);
         _blockedObjects.Remove(hitObj);
+    }
+
+    /// <summary>
+    /// Attempts to teleport an object currently standing on this pad.
+    /// </summary>
+    private void TryTeleport(GameObject obj)
+    {
+        if (obj == null)
+            return;
+
+        if (_blockedObjects.Contains(obj))
+            return;
+
+        if (!CanTeleport(obj))
+            return;
+
+        Teleport(obj);
     }
 
     /// <summary>
@@ -101,6 +126,9 @@ public class Teleporter : EffectVolume
 
         if (body == null || targetBody == null)
             return;
+
+        // Prevent this pad from firing again before the object's exit is processed.
+        BlockUntilExit(obj);
 
         // Stop the destination from immediately sending the object back.
         connectedTeleporter.BlockUntilExit(obj);
