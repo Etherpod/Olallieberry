@@ -56,5 +56,12 @@ public static class OlallieberryExtensions
 	public static void Log(this string message)
 	{
 		Olallieberry.Instance?.ModHelper?.Console?.WriteLine(message);
-	}
+    }
+
+    public static void SetPromptText(this SingleInteractionVolume interactReceiver, string promptID)
+    {
+        var prompt = Olallieberry.Instance.NewHorizons.GetTranslationForUI(promptID);
+        interactReceiver._screenPrompt.SetText("<CMD> " + prompt);
+        interactReceiver._noCommandIconPrompt.SetText(prompt);
+    }
 }

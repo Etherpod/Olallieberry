@@ -58,6 +58,7 @@ public class HatchPuzzleA : MonoBehaviour
 		{
 			buttonHandlers[i] = () => ButtonPressed(i);
 			b.OnPressInteract += buttonHandlers[i];
+			b.SetPromptText("HATCH_PUZZLE_PROMPT");
 		});
 		
 		timezones.ForEach(tz => tz.OnZoneDeactivated += OnZoneDeactivated);
