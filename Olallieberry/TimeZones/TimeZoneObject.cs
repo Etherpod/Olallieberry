@@ -7,8 +7,8 @@ public abstract class TimeZoneObject : MonoBehaviour
 	[SerializeField]
 	protected TimeZone _timeZone;
 	
-	protected bool IsActive => _timeZone.IsActive;
-	protected float ElapsedTime => _timeZone.ElapsedTime;
+	protected bool IsActive => _timeZone == null || _timeZone.IsActive;
+	protected float ElapsedTime => _timeZone == null ? Time.time : _timeZone.ElapsedTime;
 
 	protected virtual void OnValidate()
 	{
@@ -40,8 +40,16 @@ public abstract class TimeZoneObject : MonoBehaviour
 	/// <param name="zone"></param>
 	protected virtual void OnZoneDeactivated(TimeZone zone) { }
 	
+	/// <summary>
+	/// Called when the time zone is expired.
+	/// </summary>
+	/// <param name="zone"></param>
 	protected virtual void OnZoneExpired(TimeZone zone) { }
 	
+	/// <summary>
+	/// Called when the time zone is reset.
+	/// </summary>
+	/// <param name="zone"></param>
 	protected virtual void OnZoneReset(TimeZone zone) { }
 
 	protected virtual void OnDestroy()
