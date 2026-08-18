@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "Olallieberry.dll",
-  "author": "Etherpod, ditzy, MegaPiggy, Xya",
+  "author": "ditzy, MegaPiggy, Xya, Etherpod",
   "name": "Borrowed Tomorrows",
   "uniqueName": "Olallieberry.BorrowedTomorrows",
   "version": "1.0.0",
