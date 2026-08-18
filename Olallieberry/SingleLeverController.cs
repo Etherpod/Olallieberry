@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Olallieberry;
 
-public class SingleLeverController : MonoBehaviour
+public class SingleLeverController : AbstractLeverController
 {
     /// <summary>
     /// The interact receiver used to operate the lever.
@@ -32,16 +31,8 @@ public class SingleLeverController : MonoBehaviour
     [Min(0f)]
     public float rotationSpeed = 60f;
 
-    /// <summary>
-    /// Invoked whenever the lever changes state.
-    /// </summary>
-    public event Action<bool> OnStateChanged;
-
-    public bool IsActive => _active;
-
     private Quaternion _inactiveRotation;
     private Quaternion _activeRotation;
-    private bool _active;
 
     public void Awake()
     {
@@ -68,7 +59,7 @@ public class SingleLeverController : MonoBehaviour
     public void Update()
     {
         Quaternion targetRotation =
-            _active ? _activeRotation : _inactiveRotation;
+            IsActive ? _activeRotation : _inactiveRotation;
 
         handle.localRotation = Quaternion.RotateTowards(
             handle.localRotation,
@@ -81,29 +72,5 @@ public class SingleLeverController : MonoBehaviour
     {
         interactReceiver.ResetInteraction();
         Toggle();
-    }
-
-    public void Activate()
-    {
-        SetActive(true);
-    }
-
-    public void Deactivate()
-    {
-        SetActive(false);
-    }
-
-    public void SetActive(bool active)
-    {
-        if (_active == active)
-            return;
-
-        _active = active;
-        OnStateChanged?.Invoke(_active);
-    }
-
-    public void Toggle()
-    {
-        SetActive(!_active);
     }
 }

@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Olallieberry;
 
-public class DoubleLeverController : MonoBehaviour
+public class DoubleLeverController : AbstractLeverController
 {
     /// <summary>
     /// The first lever required to activate this double lever.
@@ -17,18 +16,6 @@ public class DoubleLeverController : MonoBehaviour
     /// </summary>
     [Tooltip("The second lever required to activate this double lever.")]
     public SingleLeverController secondLever;
-
-    /// <summary>
-    /// Invoked whenever the double lever changes state.
-    /// </summary>
-    public event Action<bool> OnStateChanged;
-
-    /// <summary>
-    /// Whether both levers are currently active.
-    /// </summary>
-    public bool IsActive => _active;
-
-    private bool _active;
 
     public void Start()
     {
@@ -57,16 +44,11 @@ public class DoubleLeverController : MonoBehaviour
 
     private void UpdateState()
     {
-        bool active =
+        SetActive(
             firstLever != null &&
             secondLever != null &&
             firstLever.IsActive &&
-            secondLever.IsActive;
-
-        if (_active == active)
-            return;
-
-        _active = active;
-        OnStateChanged?.Invoke(_active);
+            secondLever.IsActive
+        );
     }
 }
