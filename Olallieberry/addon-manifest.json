@@ -2,34 +2,28 @@
   "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/addon_manifest_schema.json",
   "subtitlePath": "title_logo.png",
   "credits": [
-    // only putting down what I think people will end up doing
-    // we'll fix this at the end
-    "Etherpod#Music, Programming",
     "ditzy#Programming, VFX, Writing",
-    "MegaPiggy#Programming, Writing",
-    "Xya#2D Art",
-    "JohnCorby#Moral Support"
+    "MegaPiggy#Programming, Writing, Music",
+    "Xya#2D Art, 3D Art",
+    "Etherpod#Programming",
+    "JohnCorby#Moral Support",
+    "",
+    "This mod was made for the Outer Wilds Modding Jam in August 2026"
   ],
   "gameOver": [
     {
-      "text": "You made Bob die this loop why did you do that?",
       "colour": {
-        "R": 255,
-        "G": 0,
-        "B": 0,
-        "A": 255
+        "r": 255,
+        "g": 210,
+        "b": 100
       },
-      "condition": "EXAMPLES_GHOST_BIRD_DIED",
-      "creditsType": "none"
-    },
-    {
-      "condition": "EXAMPLES_SHOW_CUSTOM_CREDITS",
+      "condition": "OLALLIEBERRY_WAKE_VYSS",
       "creditsType": "custom",
-      "text": "Time for custom credits music!",
-      "audio": "OW New Raft Music 082321_4 AP theme",
+      "text": "The Vyss awaken to see what remains.",
+      "audio": "assets/audio/olallieberry_ambience.ogg",
       "audioVolume": 0.75,
       "audioLooping": true,
-      "length": "120"
+      "length": 120
     }
   ]
 }
