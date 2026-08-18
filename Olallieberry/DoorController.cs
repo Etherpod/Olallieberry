@@ -66,7 +66,10 @@ public class DoorController : MonoBehaviour
         }
 
         _closedLocalPosition = movingPart.localPosition;
+    }
 
+    protected virtual void Start()
+    {
         if (loopingAudioSource != null)
         {
             loopingAudioSource.AssignAudioLibraryClip(_loopSound);
@@ -95,9 +98,13 @@ public class DoorController : MonoBehaviour
             movingPart.localPosition = targetPosition;
             _isMoving = false;
 
-            if (oneShotAudioSource != null && loopingAudioSource != null)
+            if (oneShotAudioSource != null)
             {
                 oneShotAudioSource.PlayOneShot(_stopSound, 1f);
+            }
+
+            if (loopingAudioSource != null)
+            {
                 loopingAudioSource.FadeOut(
                     0.2f,
                     OWAudioSource.FadeOutCompleteAction.STOP,
@@ -127,9 +134,13 @@ public class DoorController : MonoBehaviour
         _isOpen = open;
         _isMoving = true;
 
-        if (oneShotAudioSource != null && loopingAudioSource != null)
+        if (oneShotAudioSource != null)
         {
             oneShotAudioSource.PlayOneShot(_startSound, 1f);
+        }
+
+        if (loopingAudioSource != null)
+        {
             loopingAudioSource.FadeIn(0.2f, false, false, 1f);
         }
     }
