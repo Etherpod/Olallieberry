@@ -50,16 +50,18 @@ public class EmissiveMaterialHandler
 		ApplyProperties();
 	}
 
-	public void On()
+	public void On(bool immediately = false)
 	{
 		turningOn = true;
-		enabled = true;
+		enabled = !immediately;
+		if (immediately) emissionFactor = 1f;
 	}
 
-	public void Off()
+	public void Off(bool immediately = false)
 	{
 		turningOn = false;
-		enabled = false;
+		enabled = !immediately;
+		if (immediately) emissionFactor = 1f;
 	}
 
 	public void Update()
