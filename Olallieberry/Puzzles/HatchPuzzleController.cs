@@ -8,7 +8,7 @@ public class HatchPuzzleController : MonoBehaviour
 {
 	[SerializeField] private PuzzleIndicator[] puzzleIndicators;
 	[SerializeField] private HatchPuzzleA puzzleA;
-	[SerializeField] private AbstractDoor hatchDoor;
+	[SerializeField] private AbstractDoorController hatchDoor;
 
 	private void OnEnable()
 	{
@@ -26,7 +26,7 @@ public class HatchPuzzleController : MonoBehaviour
 
 		if (hatchDoor is null) return;
 
-		if (hatchDoor.IsOpen())
+		if (hatchDoor.IsOpen)
 			hatchDoor.Close();
 		else
 			hatchDoor.Open();

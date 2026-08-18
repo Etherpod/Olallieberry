@@ -4,10 +4,10 @@ using UnityEngine;
 namespace Olallieberry;
 
 /// <summary>
-/// A sliding door controlled by one or more
+/// Controls a door using one or more
 /// <see cref="PressurePlate"/> objects.
 /// </summary>
-public class PressurePlateDoorController : DoorController, IPressurePlateReceiver
+public class PressurePlateDoorController : MonoBehaviour, IPressurePlateReceiver
 {
     public enum ActivationMode
     {
@@ -21,6 +21,13 @@ public class PressurePlateDoorController : DoorController, IPressurePlateReceive
         /// </summary>
         All
     }
+
+    /// <summary>
+    /// The door controlled by the pressure plates.
+    /// </summary>
+    [Header("Door")]
+    [Tooltip("The door controlled by the pressure plates.")]
+    public AbstractDoorController door;
 
     /// <summary>
     /// Determines whether any or all pressure plates are required to open the door.
@@ -38,6 +45,14 @@ public class PressurePlateDoorController : DoorController, IPressurePlateReceive
     public int requiredPlateCount = 1;
 
     private readonly HashSet<PressurePlate> _activePlates = [];
+
+    public void Awake()
+    {
+        if (door == null)
+        {
+            door = GetComponent<AbstractDoorController>();
+        }
+    }
 
     /// <inheritdoc/>
     public void SetPressurePlateState(PressurePlate pressurePlate, bool isPressed)
@@ -63,6 +78,9 @@ public class PressurePlateDoorController : DoorController, IPressurePlateReceive
             _ => false
         };
 
-        SetOpen(shouldOpen);
+        if (door != null)
+        {
+            door.SetOpen(shouldOpen);
+        }
     }
 }

@@ -2,7 +2,11 @@
 
 namespace Olallieberry;
 
-public class DoorController : MonoBehaviour
+/// <summary>
+/// Base class for doors that can be opened and closed.
+/// Handles shared door state and audio.
+/// </summary>
+public abstract class AbstractDoorController : MonoBehaviour
 {
     /// <summary>
     /// The transform that moves when the door opens.
@@ -12,17 +16,10 @@ public class DoorController : MonoBehaviour
     public Transform movingPart;
 
     /// <summary>
-    /// The door's open position relative to its initial local position.
+    /// Whether the door starts open.
     /// </summary>
-    [Tooltip("The door's open position relative to its initial local position.")]
-    public Vector3 openOffset = new(0f, 3f, 0f);
-
-    /// <summary>
-    /// The door's movement speed in units per second.
-    /// </summary>
-    [Tooltip("The door's movement speed in units per second.")]
-    [Min(0f)]
-    public float moveSpeed = 3f;
+    [Tooltip("Whether the door starts open.")]
+    public bool startOpen;
 
     /// <summary>
     /// The audio source used to play the door's looping movement sound.
@@ -52,7 +49,6 @@ public class DoorController : MonoBehaviour
     /// </summary>
     private static readonly AudioType _stopSound = AudioType.SecretPassage_Stop;
 
-    protected Vector3 _closedLocalPosition;
     protected bool _isOpen;
     protected bool _isMoving;
 
@@ -65,7 +61,8 @@ public class DoorController : MonoBehaviour
             movingPart = transform;
         }
 
-        _closedLocalPosition = movingPart.localPosition;
+        InitializeMovement();
+        SetOpenImmediate(startOpen);
     }
 
     protected virtual void Start()
@@ -83,36 +80,43 @@ public class DoorController : MonoBehaviour
             return;
         }
 
-        Vector3 targetPosition = _isOpen
-            ? _closedLocalPosition + openOffset
-            : _closedLocalPosition;
-
-        movingPart.localPosition = Vector3.MoveTowards(
-            movingPart.localPosition,
-            targetPosition,
-            moveSpeed * Time.deltaTime
-        );
-
-        if (Vector3.Distance(movingPart.localPosition, targetPosition) < 0.001f)
+        if (!UpdateMovement())
         {
-            movingPart.localPosition = targetPosition;
-            _isMoving = false;
+            return;
+        }
 
-            if (oneShotAudioSource != null)
-            {
-                oneShotAudioSource.PlayOneShot(_stopSound, 1f);
-            }
+        _isMoving = false;
 
-            if (loopingAudioSource != null)
-            {
-                loopingAudioSource.FadeOut(
-                    0.2f,
-                    OWAudioSource.FadeOutCompleteAction.STOP,
-                    0f
-                );
-            }
+        if (oneShotAudioSource != null)
+        {
+            oneShotAudioSource.PlayOneShot(_stopSound, 1f);
+        }
+
+        if (loopingAudioSource != null)
+        {
+            loopingAudioSource.FadeOut(
+                0.2f,
+                OWAudioSource.FadeOutCompleteAction.STOP,
+                0f
+            );
         }
     }
+
+    /// <summary>
+    /// Initializes the door's movement-specific state.
+    /// </summary>
+    protected abstract void InitializeMovement();
+
+    /// <summary>
+    /// Updates the door's movement toward its current target.
+    /// Returns true once the movement has finished.
+    /// </summary>
+    protected abstract bool UpdateMovement();
+
+    /// <summary>
+    /// Immediately applies the requested door state.
+    /// </summary>
+    protected abstract void ApplyOpenImmediate(bool open);
 
     public virtual void Open()
     {
@@ -142,6 +146,19 @@ public class DoorController : MonoBehaviour
         if (loopingAudioSource != null)
         {
             loopingAudioSource.FadeIn(0.2f, false, false, 1f);
+        }
+    }
+
+    public virtual void SetOpenImmediate(bool open)
+    {
+        _isOpen = open;
+        _isMoving = false;
+
+        ApplyOpenImmediate(open);
+
+        if (loopingAudioSource != null)
+        {
+            loopingAudioSource.Stop();
         }
     }
 

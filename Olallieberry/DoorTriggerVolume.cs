@@ -13,7 +13,7 @@ public class DoorTriggerVolume : EffectVolume
     /// </summary>
     [Header("Door")]
     [Tooltip("The door controlled by this trigger volume.")]
-    public DoorController door;
+    public AbstractDoorController door;
 
     [Tooltip("If enabled, the door stays open permanently after being triggered once.")]
     public bool stayOpen;
