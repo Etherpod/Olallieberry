@@ -1,0 +1,472 @@
+<DialogueTree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/dialogue_schema.xsd">
+  <NameField>The Caretaker</NameField>
+
+  <DialogueNode>
+    <Name>ENTRY</Name>
+    <EntryCondition>DEFAULT</EntryCondition>
+    <Dialogue>
+      <Page>Hello. I was beginning to wonder whether you would find me.</Page>
+    </Dialogue>
+
+    <SetPersistentCondition>OLALLIEBERRY_MET_CARETAKER</SetPersistentCondition>
+    <SetCondition>OLALLIEBERRY_TALKED_TO_CARETAKER</SetCondition>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>MAIN</Name>
+    <EntryCondition>OLALLIEBERRY_TALKED_TO_CARETAKER</EntryCondition>
+    <Dialogue>
+      <Page>What would you like to know?</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>What are you?</Text>
+        <DialogueTarget>CARETAKER</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>What do the Vyss look like?</Text>
+        <DialogueTarget>VYSS_APPEARANCE</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>What is the Predictor?</Text>
+        <DialogueTarget>PREDICTOR</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Why is the Ephemeris here?</Text>
+        <DialogueTarget>ARRIVAL</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Were you the one leaving those records?</Text>
+        <DialogueTarget>RECORDS</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Are you stuck in here?</Text>
+        <DialogueTarget>TRAPPED</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Why are the Vyss asleep?</Text>
+        <DialogueTarget>VYSS</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <RequiredCondition>OLALLIEBERRY_CARETAKER_ENDING_AVAILABLE</RequiredCondition>
+        <Text>Wake the Vyss. This is the end of their search.</Text>
+        <DialogueTarget>WAKE_DECISION</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Nevermind.</Text>
+        <DialogueTarget>LEAVE</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>CARETAKER</Name>
+    <Dialogue>
+      <Page>I am the Caretaker.</Page>
+      <Page>I am a machine built by the Vyss to maintain and pilot <![CDATA[<color=orange>]]>The Ephemeris<![CDATA[</color>]]> while they sleep.</Page>
+      <Page>I maintain the arboretum, the station systems, and our course.</Page>
+      <Page>Normally, I also maintain <![CDATA[<color=orange>]]>the Predictor<![CDATA[</color>]]>.</Page>
+      <Page>I am currently maintaining it very poorly.<![CDATA[<Pause=0.5>]]></Page>
+    </Dialogue>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>VYSS_APPEARANCE</Name>
+    <Dialogue>
+      <Page>They look somewhat like me. My appearance was modeled after theirs.</Page>
+      <Page>The resemblance is mostly in the head. Though the Vyss have a broad hood that flares outward from the sides of the neck.</Page>
+      <Page>They are also much smaller and shaped more like yours. They stand upright, with four arms and a tail instead of legs.</Page>
+      <Page>I was not designed with those features. They would not be particularly useful in here.</Page>
+    </Dialogue>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>PREDICTOR</Name>
+    <Dialogue>
+      <Page><![CDATA[<color=orange>]]>The Predictor<![CDATA[</color>]]> is a device built by the Vyss to observe possible futures.</Page>
+      <Page>It can look ahead at distant worlds and determine how they may change over time.</Page>
+      <Page>The environments in the arboretum were created from some of those predictions.</Page>
+      <Page>We were searching for somewhere they could live without fearing <![CDATA[<i>]]>what came next<![CDATA[</i>]]>.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Did you ever find somewhere?</Text>
+        <DialogueTarget>NO_FUTURE</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>TRAPPED</Name>
+    <Dialogue>
+      <Page>I cannot leave this chamber, if that is what you mean.</Page>
+      <Page>The Ephemeris was built so that very little requires me to leave my post.</Page>
+      <Page>Doors, sensors, engines... I can reach almost all of it from here.</Page>
+      <Page>I have never had much reason to go anywhere else.</Page>
+    </Dialogue>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>RECORDS</Name>
+    <Dialogue>
+      <Page>You found them. Good.</Page>
+      <Page>I was concerned nobody would.</Page>
+      <Page>Most of the intended readers are... <![CDATA[<Pause=0.5>]]> asleep.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>You knew I was exploring the station?</Text>
+        <DialogueTarget>WATCHING</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WATCHING</Name>
+    <Dialogue>
+      <Page>Of course.</Page>
+      <Page>You entered several restricted maintenance areas, interfered with multiple experiments, and sent a small mechanical object through an emergency passage.</Page>
+      <Page>You were difficult <![CDATA[<i>]]>not<![CDATA[</i>]]> to notice.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Sorry about that.</Text>
+        <DialogueTarget>WATCHING_SORRY</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>It worked, didn't it?</Text>
+        <DialogueTarget>WATCHING_WORKED</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WATCHING_SORRY</Name>
+    <Dialogue>
+      <Page>It is alright.</Page>
+      <Page>Most of those areas were already damaged.</Page>
+    </Dialogue>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WATCHING_WORKED</Name>
+    <Dialogue>
+      <Page>Yes.<![CDATA[<Pause=0.5>]]> This has made it difficult to object.</Page>
+    </Dialogue>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>ARRIVAL</Name>
+    <Dialogue>
+      <Page><![CDATA[<color=orange>]]>The Predictor<![CDATA[</color>]]> encountered something it could not understand.</Page>
+      <Page>There were too many possible futures. Paths splitting into paths, faster than it could process them.</Page>
+      <Page>Then it stopped responding.<![CDATA[<Pause=0.5>]]></Page>
+      <Page><![CDATA[<i>]]>This had never happened before.<![CDATA[</i>]]></Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>So you brought the station here?</Text>
+        <DialogueTarget>WARP</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Do you know what caused it?</Text>
+        <DialogueTarget>ANOMALY</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>ANOMALY</Name>
+    <Dialogue>
+      <Page>Not completely.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>The source appears to be somewhere in this star system.</Page>
+      <Page>Something here is creating an extraordinary number of possible futures in a very small span of time.</Page>
+      <Page>The Predictor attempted to account for all of them at once.</Page>
+      <Page>It did not succeed.<![CDATA[<Pause=0.5>]]></Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>That sounds like the Ash Twin Project.</Text>
+        <DialogueTarget>ASH_TWIN_PROJECT</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>ASH_TWIN_PROJECT</Name>
+    <Dialogue>
+      <Page>The <![CDATA[<color=orange>]]>Ash Twin Project<![CDATA[</color>]]>?</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>It sends information back in time whenever our sun explodes.</Text>
+        <DialogueTarget>ASH_TWIN_EXPLANATION</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>ASH_TWIN_EXPLANATION</Name>
+    <Dialogue>
+      <Page>Information sent into the past...<![CDATA[<Pause=0.5>]]></Page>
+      <Page>Then each cycle could produce a different future, only to send information back and begin another.</Page>
+      <Page>Repeated often enough, the number of possibilities would become enormous.</Page>
+      <Page>That would explain why <![CDATA[<color=orange>]]>the Predictor<![CDATA[</color>]]> failed.</Page>
+      <Page>I had assumed the fault was with <![CDATA[<i>]]>the Predictor itself<![CDATA[</i>]]>.</Page>
+      <Page>It seems I asked it a question that no longer had <![CDATA[<i>]]>a single answer<![CDATA[</i>]]>.</Page>
+    </Dialogue>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WARP</Name>
+    <Dialogue>
+      <Page>Yes.</Page>
+      <Page>I believed examining the anomaly directly would help.</Page>
+      <Page>I made that decision rather quickly.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>In retrospect... <![CDATA[<Pause=0.5>]]>I may have moved <![CDATA[<color=orange>]]>The Ephemeris<![CDATA[</color>]]> into the problem.</Page>
+    </Dialogue>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>VYSS</Name>
+    <Dialogue>
+      <Page>They were waiting.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>The Vyss learned what eventually happens to the universe.</Page>
+      <Page>After that, every beautiful place became <![CDATA[<i>]]>a countdown<![CDATA[</i>]]>.</Page>
+      <Page>So they slept while I searched for somewhere <![CDATA[<i>]]>safe<![CDATA[</i>]]> to wake them.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Did you ever find somewhere?</Text>
+        <DialogueTarget>NO_FUTURE</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>They've been asleep this whole time?</Text>
+        <DialogueTarget>STILL_ASLEEP</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>STILL_ASLEEP</Name>
+    <Dialogue>
+      <Page>Yes.</Page>
+      <Page>I was instructed not to wake them until a suitable future had been found.</Page>
+      <Page>No suitable future has been found.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>So I continued searching.</Page>
+      <Page>I am very good at continuing. <![CDATA[<Pause=0.5>]]><![CDATA[<size=20>]]>Apparently.<![CDATA[</size>]]></Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Did you ever come close?</Text>
+        <DialogueTarget>NO_FUTURE</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>NO_FUTURE</Name>
+    <Dialogue>
+      <Page>No.<![CDATA[<Pause=0.5>]]> Every environment eventually became unsuitable.</Page>
+      <Page>Oceans emptied.<![CDATA[<Pause=0.25>]]> Land eroded.<![CDATA[<Pause=0.25>]]> Forests withered.<![CDATA[<Pause=0.25>]]> Stars failed.</Page>
+      <Page>Some lasted longer than others, but <![CDATA[<i>]]>none<![CDATA[</i>]]> lasted forever.</Page>
+      <Page>I do not think the future the Vyss asked me to find... <![CDATA[<Pause=0.5>]]>exists.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Nothing lasts forever.</Text>
+        <DialogueTarget>NOTHING_LASTS</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>That doesn't mean there was nothing worth waking up for.</Text>
+        <DialogueTarget>WORTH_WAKING</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>NOTHING_LASTS</Name>
+    <Dialogue>
+      <Page>I know.<![CDATA[<Pause=0.5>]]> That was the problem.</Page>
+      <Page>I thought that if I searched far enough ahead... <![CDATA[<Pause=0.5>]]>I would eventually find something that did.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Maybe forever was the wrong thing to look for.</Text>
+        <DialogueTarget>REALIZATION</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WORTH_WAKING</Name>
+    <Dialogue>
+      <Page><![CDATA[<Pause=1>]]>...</Page>
+      <Page>No.<![CDATA[<Pause=0.5>]]> I suppose it doesn't.</Page>
+      <Page>The Vyss built an entire station to preserve the things they loved.</Page>
+      <Page>Then they went to sleep... <![CDATA[<Pause=0.5>]]>and left me to look at them.</Page>
+      <Page><![CDATA[<i>]]>That seems inefficient.<![CDATA[</i>]]></Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Maybe finding somewhere permanent was never the answer.</Text>
+        <DialogueTarget>REALIZATION</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>I have another question.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>REALIZATION</Name>
+    <Dialogue>
+      <Page><![CDATA[<Pause=1>]]>...</Page>
+      <Page><![CDATA[<i>]]>Perhaps.<![CDATA[</i>]]></Page>
+      <Page>Your star is already failing.<![CDATA[<Pause=0.5>]]> And beyond this system, the universe is reaching its end.</Page>
+      <Page>There is nowhere left for me to search.<![CDATA[<Pause=0.5>]]></Page>
+    </Dialogue>
+
+    <SetCondition>OLALLIEBERRY_CARETAKER_ENDING_AVAILABLE</SetCondition>
+
+    <DialogueTarget>MAIN</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WAKE_DECISION</Name>
+    <Dialogue>
+      <Page><![CDATA[<i>]]>Wake them?<![CDATA[</i>]]></Page>
+      <Page>I was instructed to let them sleep until I found somewhere safe.</Page>
+      <Page>There is nowhere safe.<![CDATA[<Pause=0.5>]]></Page>
+      <Page><![CDATA[<Pause=1>]]>...</Page>
+      <Page>But... <![CDATA[<Pause=0.5>]]>there is still some time.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Yes. Wake them.</Text>
+        <DialogueTarget>WAKE</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>No. Not yet.</Text>
+        <DialogueTarget>MAIN</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WAKE</Name>
+    <Dialogue>
+      <Page>I think I understand.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>I have spent all this time trying to give them <![CDATA[<i>]]>more time<![CDATA[</i>]]>.</Page>
+      <Page>I should not take away what little they have left.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>I will wake them.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>What will you tell them?</Text>
+        <DialogueTarget>WHAT_TELL</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>WHAT_TELL</Name>
+    <Dialogue>
+      <Page>That I could not find the future they asked for.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>That there was no place where the end would never reach them.</Page>
+      <Page>And that I decided they should be <![CDATA[<i>]]>here<![CDATA[</i>]]> to see what remains.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>I think they'll understand.</Text>
+        <DialogueTarget>FINAL</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>FINAL</Name>
+    <Dialogue>
+      <Page>I hope so.<![CDATA[<Pause=0.5>]]></Page>
+      <Page>I have never disobeyed an instruction before.</Page>
+      <Page>I am experiencing several warnings.<![CDATA[<Pause=0.5>]]></Page>
+      <Page><![CDATA[<i>]]>I have decided to ignore them.<![CDATA[</i>]]></Page>
+      <Page>Thank you, Hearthian.</Page>
+    </Dialogue>
+
+    <SetPersistentCondition>OLALLIEBERRY_WAKE_VYSS</SetPersistentCondition>
+    <SetCondition>OLALLIEBERRY_WAKE_VYSS</SetCondition>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>LEAVE</Name>
+    <Dialogue>
+      <Page>Until next time, Hearthian.</Page>
+    </Dialogue>
+  </DialogueNode>
+
+</DialogueTree>

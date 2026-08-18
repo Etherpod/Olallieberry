@@ -55,15 +55,26 @@
     ],
     "dialogue": [
       {
-        "parentPath": "TranslatorPedestal/Pedestal/Sphere",
+        "parentPath": "Sector/ChimeStation/TranslatorPedestal/Sphere",
         "isRelativeToParent": true,
         "xmlFile": "assets/dialogue/Translator.xml",
         "blockAfterPersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
         "radius": 1,
         "remoteTrigger": {
-          "parentPath": "Sector/ChimeStation/TranslatorPedestal/Pedestal/Sphere",
+          "parentPath": "Sector/ChimeStation/TranslatorPedestal/Sphere",
           "isRelativeToParent": true,
           "radius": 6
+        }
+      },
+      {
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/A_Sphere/Floor/Snakebot/Dialogue",
+        "isRelativeToParent": true,
+        "xmlFile": "assets/dialogue/Snakebot.xml",
+        "radius": 5,
+        "range": 8,
+        "attentionPoint": {
+          "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/A_Sphere/Floor/Snakebot/RIG_snakebot/JNT_body/JNT_neck/JNT_head/TRM_head",
+          "isRelativeToParent": true
         }
       }
     ],
@@ -83,6 +94,346 @@
         "isRelativeToParent": true,
         "parentPath": "Sector/ChimeStation/TextWall/Text",
         "xmlFile": "assets/text/Test.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "ArrivalText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/C_Hatch/Floor/ArrivalTextWall/Text",
+        "xmlFile": "assets/text/Arrival.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "PredictorText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/HubFloor/PredictorTextWall/Text",
+        "xmlFile": "assets/text/PredictorFailure.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "StationaryText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/HubFloor/StationaryTextWall/Text",
+        "xmlFile": "assets/text/Stationary.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "DamageText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/HubFloor/DamageTextWall/Text",
+        "xmlFile": "assets/text/Damage.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "HabitabilityText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/HubFloor/HabitabilityTextWall/Text",
+        "xmlFile": "assets/text/Habitability.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "UnsuitableText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/E_Park/Floor/UnsuitableTextWall/Text",
+        "xmlFile": "assets/text/Unsuitable.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "VyssText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/E_Park/Floor/VyssTextWall/Text",
+        "xmlFile": "assets/text/Vyss.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "BasaltText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/BasaltTextWall/Text",
+        "xmlFile": "assets/text/Basalt.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "CaveText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/CaveTextWall/Text",
+        "xmlFile": "assets/text/Caves.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "SpikesText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/SpikesTextWall/Text",
+        "xmlFile": "assets/text/Spikes.xml",
         "arcInfo": [
           {
             "zRotation": 0,
