@@ -52,13 +52,20 @@ public class HatchPuzzleA : MonoBehaviour
 	private float[] buttonRepromptTimes = [];
 	private bool[] solvedPoles = [];
 
+	private void Start()
+	{
+		buttons.ForEach((b, i) =>
+		{
+			b.SetPromptText("HATCH_PUZZLE_PROMPT");
+		});
+	}
+
 	private void OnEnable()
 	{
 		buttons.ForEach((b, i) =>
 		{
 			buttonHandlers[i] = () => ButtonPressed(i);
 			b.OnPressInteract += buttonHandlers[i];
-			b.SetPromptText("HATCH_PUZZLE_PROMPT");
 		});
 		
 		timezones.ForEach(tz => tz.OnZoneDeactivated += OnZoneDeactivated);
