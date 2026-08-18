@@ -141,7 +141,7 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 	/// </summary>
 	public void FixedUpdate()
 	{
-		if (IsActive) return;
+		if (!IsActive) return;
 
 		Vector3 localPosition = CalculateLocalPosition();
 		Quaternion localRotation = CalculateLocalRotation();
@@ -231,7 +231,7 @@ public class TimeZoneAnimatedRigidbody : TimeZoneKinematicRigidbody
 				break;
 			
 			case MovementMode.Linear:
-				progress = _timeZone.ElapsedTime / movementCycleDuration;
+				progress = ElapsedTime / movementCycleDuration;
 				if (!_completed && 1f <= progress)
 				{
 					_completed = true;

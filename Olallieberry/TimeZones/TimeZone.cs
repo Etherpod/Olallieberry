@@ -30,9 +30,11 @@ public class TimeZone : EffectVolume
 	[SerializeField] protected bool deactivateOnReset = true;
 	[SerializeField] protected bool resetOnDeactivate = true;
 	[SerializeField] protected bool resetOnExpire = true;
+	[SerializeField] protected float expiryResetDelay = 0f;
 
 	private bool _playerInside = false;
 	private bool _probeInside = false;
+	private float _expiryResetTime = -1f;
 	protected bool _activated = false;
 	protected float _elapsedTime = 0f;
 
@@ -72,6 +74,7 @@ public class TimeZone : EffectVolume
 	{
 		_playerInside = false;
 		_probeInside = false;
+		_activated = false;
 		OnZoneDeactivated?.Invoke(this);
 		if (!ignoreReset && resetOnDeactivate) ResetZone(true);
 	}
@@ -80,7 +83,16 @@ public class TimeZone : EffectVolume
 	{
 		OnZoneExpired?.Invoke(this);
 		DeactivateZone();
-		if (resetOnExpire) ResetZone(true);
+		if (!resetOnExpire || _elapsedTime == 0f) return;
+		
+		if (expiryResetDelay == 0f)
+		{
+			ResetZone(true);
+		}
+		else
+		{
+			_expiryResetTime = Time.time + expiryResetDelay;
+		}
 	}
 
 	public void Activate()
@@ -94,13 +106,23 @@ public class TimeZone : EffectVolume
 
 	public void Deactivate()
 	{
-		if (!manuallyControlled || _activated) return;
+		if (!manuallyControlled || !_activated) return;
 		_activated = false;
 		DeactivateZone();
 	}
 
 	private void FixedUpdate()
 	{
+		if (0 < _expiryResetTime)
+		{
+			if (_elapsedTime == 0f) _expiryResetTime = -1f;
+			else if (_expiryResetTime <= Time.time)
+			{
+				ResetZone(true);
+				_expiryResetTime = -1f;
+			}
+		}
+		
 		if (!IsActive) return;
 		
 		_elapsedTime += Time.fixedDeltaTime;
