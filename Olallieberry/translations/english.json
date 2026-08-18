@@ -7,6 +7,7 @@
 
 	},
 	"UIDictionary": {
+		"LEVER_PROMPT": "Move Lever",
 		"HATCH_PUZZLE_PROMPT": "Toggle Time"
 	},
 	"OtherDictionary": {
