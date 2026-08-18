@@ -24,6 +24,9 @@ public class LeverDoorController : MonoBehaviour
     public void Start()
     {
         if (lever == null)
+            lever = GetComponent<AbstractLeverController>();
+
+        if (lever == null)
             return;
 
         lever.OnStateChanged += OnLeverStateChanged;
