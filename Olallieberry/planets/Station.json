@@ -60,6 +60,26 @@
           "OLALLIEBERRY_EPHEMERIS_FOUND"
         ]
       }
+    ],
+    "creditsVolume": [
+      {
+        "radius": 600,
+        "parentPath": "Sector/Ending",
+        "gameOver": {
+          "colour": {
+            "r": 255,
+            "g": 210,
+            "b": 100
+          },
+          "condition": "OLALLIEBERRY_WAKE_VYSS",
+          "creditsType": "custom",
+          "text": "The Vyss awaken to see what remains.",
+          "audio": "assets/audio/olallieberry_ambience.ogg",
+          "audioVolume": 0.75,
+          "audioLooping": true,
+          "length": 120
+        }
+      }
     ]
   },
 
@@ -72,6 +92,11 @@
           "y": -200
         },
         "keepLoaded": true
+      },
+      {
+        "rename": "Ending",
+        "activationCondition": "OLALLIEBERRY_WAKE_VYSS",
+        "blinkWhenActiveChanged": false
       }
     ],
     "dialogue": [

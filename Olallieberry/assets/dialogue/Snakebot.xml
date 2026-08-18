@@ -495,7 +495,7 @@
       <FactID>OLALLIEBERRY_VYSS_WAKE</FactID>
     </RevealFacts>
 
-    <SetPersistentCondition>OLALLIEBERRY_WAKE_VYSS</SetPersistentCondition>
+    <SetPersistentCondition>OLALLIEBERRY_HAS_WOKEN_VYSS</SetPersistentCondition>
     <SetCondition>OLALLIEBERRY_WAKE_VYSS</SetCondition>
   </DialogueNode>
 
