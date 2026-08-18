@@ -34,7 +34,7 @@ public class RotatingDoorController : AbstractDoorController
     {
         _closedLocalRotation = movingPart.localRotation;
         _openLocalRotation =
-            _closedLocalRotation * Quaternion.Euler(0f, -openRotation, 0f);
+            _closedLocalRotation * Quaternion.Euler(0f, openRotation, 0f);
     }
 
     protected override bool UpdateMovement()

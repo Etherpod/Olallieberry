@@ -2,54 +2,27 @@
 
 namespace Olallieberry;
 
-public class BiomeInteriorHatchController : MonoBehaviour
+public class BiomeInteriorHatchController : RotatingDoorController
 {
-    [Header("Hatch")]
-    public float openAngle = -85f;
-    public float rotationSpeed = 180f;
-
-    private Quaternion _closedRotation;
-    private Quaternion _openRotation;
-    private bool _open;
-
-    public void Awake()
+    public void OnValidate()
     {
-        _closedRotation = transform.localRotation;
-        _openRotation = _closedRotation * Quaternion.Euler(0f, openAngle, 0f);
-        
+        movingPart = transform;
+        openRotation = -85f;
+        openingSpeed = 60f;
+        closingSpeed = 60f;
+    }
+
+    protected override void InitializeMovement()
+    {
+        if (movingPart == null)
+        {
+            movingPart = transform;
+        }
+
+        base.InitializeMovement();
+
 #if DEBUG
         Open();
 #endif
-    }
-
-    public void Update()
-    {
-        Quaternion targetRotation = _open ? _openRotation : _closedRotation;
-
-        transform.localRotation = Quaternion.RotateTowards(
-            transform.localRotation,
-            targetRotation,
-            rotationSpeed * Time.deltaTime
-        );
-    }
-
-    public void Open()
-    {
-        _open = true;
-    }
-
-    public void Close()
-    {
-        _open = false;
-    }
-
-    public void SetOpen(bool open)
-    {
-        _open = open;
-    }
-
-    public void Toggle()
-    {
-        _open = !_open;
     }
 }
