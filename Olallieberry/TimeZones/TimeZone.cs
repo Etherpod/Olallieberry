@@ -72,8 +72,6 @@ public class TimeZone : EffectVolume
 
 	private void DeactivateZone(bool ignoreReset = false)
 	{
-		_playerInside = false;
-		_probeInside = false;
 		_activated = false;
 		OnZoneDeactivated?.Invoke(this);
 		if (!ignoreReset && resetOnDeactivate) ResetZone(true);
