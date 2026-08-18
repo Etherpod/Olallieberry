@@ -25,26 +25,36 @@ public class DoorController : MonoBehaviour
     public float moveSpeed = 3f;
 
     /// <summary>
-    /// The audio source used to play door sounds.
+    /// The audio source used to play the door's looping movement sound.
     /// </summary>
     [Header("Audio")]
-    [Tooltip("The audio source used to play door sounds.")]
-    public OWAudioSource audioSource;
+    [Tooltip("The audio source used to play the door's looping movement sound.")]
+    public OWAudioSource loopingAudioSource;
 
     /// <summary>
-    /// The sound played when the door begins opening.
+    /// The audio source used to play the door's start and stop sounds.
     /// </summary>
-    [Tooltip("The sound played when the door begins opening.")]
-    public AudioType openSound = AudioType.NomaiDoorStart;
+    [Tooltip("The audio source used to play the door's start and stop sounds.")]
+    public OWAudioSource oneShotAudioSource;
 
     /// <summary>
-    /// The sound played when the door begins closing.
+    /// The sound played when the door begins moving.
     /// </summary>
-    [Tooltip("The sound played when the door begins closing.")]
-    public AudioType closeSound = AudioType.NomaiDoorStop;
+    private static readonly AudioType _startSound = AudioType.SecretPassage_Start;
+
+    /// <summary>
+    /// The sound played while the door is moving.
+    /// </summary>
+    private static readonly AudioType _loopSound = AudioType.SecretPassage_Loop;
+
+    /// <summary>
+    /// The sound played when the door finishes moving.
+    /// </summary>
+    private static readonly AudioType _stopSound = AudioType.SecretPassage_Stop;
 
     protected Vector3 _closedLocalPosition;
     protected bool _isOpen;
+    protected bool _isMoving;
 
     public bool IsOpen => _isOpen;
 
@@ -57,14 +67,19 @@ public class DoorController : MonoBehaviour
 
         _closedLocalPosition = movingPart.localPosition;
 
-        if (audioSource == null)
+        if (loopingAudioSource != null)
         {
-            audioSource = GetComponentInChildren<OWAudioSource>();
+            loopingAudioSource.AssignAudioLibraryClip(_loopSound);
         }
     }
 
     protected virtual void Update()
     {
+        if (!_isMoving)
+        {
+            return;
+        }
+
         Vector3 targetPosition = _isOpen
             ? _closedLocalPosition + openOffset
             : _closedLocalPosition;
@@ -74,6 +89,22 @@ public class DoorController : MonoBehaviour
             targetPosition,
             moveSpeed * Time.deltaTime
         );
+
+        if (Vector3.Distance(movingPart.localPosition, targetPosition) < 0.001f)
+        {
+            movingPart.localPosition = targetPosition;
+            _isMoving = false;
+
+            if (oneShotAudioSource != null && loopingAudioSource != null)
+            {
+                oneShotAudioSource.PlayOneShot(_stopSound, 1f);
+                loopingAudioSource.FadeOut(
+                    0.2f,
+                    OWAudioSource.FadeOutCompleteAction.STOP,
+                    0f
+                );
+            }
+        }
     }
 
     public virtual void Open()
@@ -94,10 +125,12 @@ public class DoorController : MonoBehaviour
         }
 
         _isOpen = open;
+        _isMoving = true;
 
-        if (audioSource != null)
+        if (oneShotAudioSource != null && loopingAudioSource != null)
         {
-            audioSource.PlayOneShot(open ? openSound : closeSound);
+            oneShotAudioSource.PlayOneShot(_startSound, 1f);
+            loopingAudioSource.FadeIn(0.2f, false, false, 1f);
         }
     }
 
