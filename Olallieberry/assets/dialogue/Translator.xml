@@ -5,10 +5,15 @@
 		<Name>MAIN</Name>
 		<EntryCondition>DEFAULT</EntryCondition>
 		<Dialogue>
-			<Page>Visitor language identified.</Page>
-			<Page>Translation reference prepared.</Page>
+			<Page>Visitor language predicted.</Page>
+			<Page>Visitor translation device predicted.</Page>
+			<Page>Compatible translation reference prepared.</Page>
 			<Page>Translator updated with Vyss language.</Page>
 		</Dialogue>
+		<RevealFacts>
+			<FactID>OLALLIEBERRY_TRANSLATOR_UPDATED</FactID>
+			<FactID>OLALLIEBERRY_VYSS_TRANSLATOR_RUMOR</FactID>
+		</RevealFacts>
 		<SetPersistentCondition>OLALLIEBERRY_CAN_READ_SNAKE</SetPersistentCondition>
 	</DialogueNode>
 </DialogueTree>

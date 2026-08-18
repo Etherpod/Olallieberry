@@ -3,4 +3,15 @@
     <ID>1</ID>
     <Text>CARETAKER: I cannot physically access several damaged systems from here. Fortunately, the Ephemeris was designed so that very little requires me to leave my post.</Text>
   </TextBlock>
+
+  <ShipLogConditions>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CARETAKER_TRAPPED</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+  </ShipLogConditions>
 </NomaiObject>

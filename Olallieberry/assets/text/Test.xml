@@ -2,5 +2,11 @@
 	<TextBlock>
 		<ID>1</ID>
 		<Text>This is placeholder text.</Text>
-	</TextBlock>
+    </TextBlock>
+    <ShipLogConditions>
+      <RevealFact>
+        <FactID>TEST</FactID>
+        <Condition>1</Condition>
+      </RevealFact>
+    </ShipLogConditions>
 </NomaiObject>

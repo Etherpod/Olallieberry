@@ -1,0 +1,337 @@
+﻿<AstroObjectEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/shiplog_schema.xsd">
+  <ID>EPHEMERIS</ID>
+
+  <Entry>
+    <ID>OLALLIEBERRY_EPHEMERIS</ID>
+    <Name>The Ephemeris</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+    <IsCuriosity/>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_EPHEMERIS_FOUND</ID>
+      <Text>I found a large artificial station near above the solar system.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_EPHEMERIS_ARRIVAL</ID>
+      <Text>The station was relocated here after something in this solar system disrupted a device called the Predictor.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_EPHEMERIS_DAMAGE</ID>
+      <Text>The Ephemeris was badly damaged during its sudden relocation, although most of its critical systems still function.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_EPHEMERIS_TIME_ZONES</ID>
+      <Text>Temporal zones aboard the Ephemeris remain suspended while empty. Entering a zone resumes local time, and leaving it vacant causes it to reset.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_ARBORETUM</ID>
+    <Name>Ephemeris Arboretum</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_ARBORETUM_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_EPHEMERIS</SourceID>
+      <RumorName>Artificial Environments</RumorName>
+      <Text>Several sections of the Ephemeris contain strange artificial environments.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_ARBORETUM_PURPOSE</ID>
+      <IgnoreMoreToExplore/>
+      <Text>The environments aboard the station were modeled after possible habitable worlds predicted by the Vyss.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_ARBORETUM_FAILURE</ID>
+      <Text>Every environment tested by the Caretaker eventually became unsuitable for life.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_BASALT</ID>
+    <Name>Basalt Dunes</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_BASALT_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_ARBORETUM</SourceID>
+      <RumorName>Basalt Dunes</RumorName>
+      <Text>One section of the arboretum contains an artificial basalt environment.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_BASALT_FOUND</ID>
+      <Text>One of the artificial environments is a basalt dunes with rising and falling lava.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_CAVES</ID>
+    <Name>Marble Caves</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_CAVES_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_ARBORETUM</SourceID>
+      <RumorName>Marble Caves</RumorName>
+      <Text>One section of the arboretum contains an artificial cave environment.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_CAVES_FOUND</ID>
+      <Text>One of the artificial environments is a flooded cave system.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_SPIKES</ID>
+    <Name>Spikey Rocks</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_SPIKES_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_ARBORETUM</SourceID>
+      <RumorName>Spikey Rocks</RumorName>
+      <Text>One section of the arboretum contains an artificial spike environment.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_SPIKES_FOUND</ID>
+      <Text>One of the artificial environments is a maze of tall, sharp rock formations.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_BEACH</ID>
+    <Name>Hexagon Beach</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_BEACH_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_ARBORETUM</SourceID>
+      <RumorName>Hexagon Beach</RumorName>
+      <Text>One section of the arboretum contains an artificial beach environment.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_BEACH_FOUND</ID>
+      <Text>One of the artificial environments is a beach with a continuously changing tide.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_BEACH_RESET</ID>
+      <Text>The tide resets when I leave the beach.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_BEACH_PROBE</ID>
+      <Text>Leaving my scout at the beach allows the tide to keep moving after I leave.</Text>
+    </ExploreFact>
+
+    <Entry>
+      <ID>OLALLIEBERRY_BEACH_HATCH</ID>
+      <Name>Windowed Hatch</Name>
+
+      <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+      <RumorFact>
+        <ID>OLALLIEBERRY_BEACH_HATCH_RUMOR</ID>
+        <SourceID>OLALLIEBERRY_BEACH</SourceID>
+        <RumorName>Windowed Hatch</RumorName>
+        <Text>There is a hidden windowed hatch in the center of Hexagon Beach.</Text>
+      </RumorFact>
+
+      <ExploreFact>
+        <ID>OLALLIEBERRY_BEACH_HATCH_FOUND</ID>
+        <Text>The hatch overlooks a staircase below, but I can't fit through it.</Text>
+      </ExploreFact>
+
+      <ExploreFact>
+        <ID>OLALLIEBERRY_BEACH_HATCH_PROBE</ID>
+        <Text>My scout is small enough to fit through the hatch.</Text>
+      </ExploreFact>
+
+      <ExploreFact>
+        <ID>OLALLIEBERRY_BEACH_HATCH_OPEN</ID>
+        <Text>The hatch can be opened from below. Once opened, it stays open and provides a direct route between the beach and the staircase beneath it.</Text>
+      </ExploreFact>
+    </Entry>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_SHORTCUT</ID>
+    <Name>Maintenance Passage</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_SHORTCUT_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_CAVES</SourceID>
+      <RumorName>Maintenance Passage</RumorName>
+      <Text>A lower maintenance passage provides emergency access to the Caretaker's chamber.</Text>
+    </RumorFact>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_SHORTCUT_BEACH_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_SPIKES</SourceID>
+      <RumorName>Maintenance Passage</RumorName>
+      <Text>The maintenance passage beneath the beach reaches the Caretaker only at high tide, but the beach must somehow remain active after I leave.</Text>
+    </RumorFact>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_SHORTCUT_HATCH_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_BEACH_HATCH</SourceID>
+      <RumorName>Staircase Below</RumorName>
+      <RumorNamePriority>1</RumorNamePriority>
+      <Text>The staircase beneath the windowed hatch continues into a lower section of the station.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_SHORTCUT_FOUND</ID>
+      <Text>I found a hidden maintenance passage containing a strange device and a staircase up to the beach.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_SHORTCUT_TELEPORTER</ID>
+      <Text>The device in the maintenance passage is a teleporter leading to the Caretaker's chamber.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_SPHERE</ID>
+    <Name>Caretaker's Chamber</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_SPHERE_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_SHORTCUT</SourceID>
+      <RumorName>Caretaker's Chamber</RumorName>
+      <Text>A lower maintenance passage provides emergency access to the Caretaker's chamber.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_SPHERE_FOUND</ID>
+      <Text>I warped to a spherical chamber containing an enormous snake-like machine surrounded by water lilies.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_PREDICTOR</ID>
+    <Name>The Predictor</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_PREDICTOR_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_EPHEMERIS</SourceID>
+      <RumorName>The Predictor</RumorName>
+      <Text>The Caretaker's records mention a device called the Predictor that stopped responding.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_PREDICTOR_PURPOSE</ID>
+      <Text>The Predictor was built by the Vyss to examine possible futures and determine how distant worlds would change over time.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_PREDICTOR_FAILURE</ID>
+      <Text>The Predictor encountered an enormous number of branching futures originating somewhere in this solar system and failed while trying to process them.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_PREDICTOR_ATP</ID>
+      <Text>The Ash Twin Project's repeated time loops may be responsible for the impossible number of futures that overwhelmed the Predictor.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_CARETAKER</ID>
+    <Name>The Caretaker</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_CARETAKER_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_EPHEMERIS</SourceID>
+      <RumorName>The Caretaker</RumorName>
+      <Text>Records aboard the Ephemeris repeatedly refer to someone called the Caretaker.</Text>
+    </RumorFact>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_CARETAKER_SPHERE_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_SPHERE</SourceID>
+      <RumorName>Snake-like Machine</RumorName>
+      <Text>An enormous snake-like machine occupies the chamber reached through a teleporter in the maintenance passage.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_CARETAKER_MET</ID>
+      <Text>I found the Caretaker, a large machine built by the Vyss to maintain and pilot the Ephemeris while they sleep.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_CARETAKER_TRAPPED</ID>
+      <Text>The Caretaker cannot leave its chamber, but it can remotely control most of the station.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_TRANSLATOR</ID>
+    <Name>Translation Device</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_TRANSLATOR_UPDATED</ID>
+      <Text>I found a device that somehow predicted both my language and the translator I would be carrying, then used that information to add the Vyss language to it.</Text>
+    </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_VYSS</ID>
+    <Name>The Vyss</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_VYSS_TRANSLATOR_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_TRANSLATOR</SourceID>
+      <RumorName>The Vyss</RumorName>
+      <Text>The translation device that predicted my translator identified the station's language as belonging to a species called the Vyss.</Text>
+    </RumorFact>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_VYSS_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_CARETAKER</SourceID>
+      <RumorName>The Vyss</RumorName>
+      <Text>The Caretaker was built by a species called the Vyss, who are still somewhere aboard the station.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_VYSS_ASLEEP</ID>
+      <Text>The Vyss learned that the universe would eventually end and chose to sleep while the Caretaker searched for a safe future in which to wake them.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_VYSS_NO_FUTURE</ID>
+      <Text>The Caretaker never found a permanent refuge. Every possible environment eventually failed.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_VYSS_WAKE</ID>
+      <Text>The Caretaker realized that waiting forever for somewhere safe would only deprive the Vyss of what little time remained.</Text>
+    </ExploreFact>
+  </Entry>
+</AstroObjectEntry>

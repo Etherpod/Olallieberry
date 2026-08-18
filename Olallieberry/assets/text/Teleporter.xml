@@ -1,16 +1,12 @@
 <NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
   <TextBlock>
     <ID>1</ID>
-    <Text>CARETAKER: Every environment I examine eventually becomes unsuitable. This is making my assignment considerably more difficult.</Text>
+    <Text>Caretaker Teleporter</Text>
   </TextBlock>
-  
+
   <ShipLogConditions>
     <RevealFact>
-      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
-      <Condition>1</Condition>
-    </RevealFact>
-    <RevealFact>
-      <FactID>OLALLIEBERRY_ARBORETUM_FAILURE</FactID>
+      <FactID>OLALLIEBERRY_SHORTCUT_TELEPORTER</FactID>
       <Condition>1</Condition>
     </RevealFact>
   </ShipLogConditions>

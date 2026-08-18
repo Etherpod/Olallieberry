@@ -8,6 +8,10 @@
       <Page>Hello. I was beginning to wonder whether you would find me.</Page>
     </Dialogue>
 
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_CARETAKER_MET</FactID>
+    </RevealFacts>
+
     <SetPersistentCondition>OLALLIEBERRY_MET_CARETAKER</SetPersistentCondition>
     <SetCondition>OLALLIEBERRY_TALKED_TO_CARETAKER</SetCondition>
 
@@ -72,6 +76,10 @@
       <Page>I am currently maintaining it very poorly.<![CDATA[<Pause=0.5>]]></Page>
     </Dialogue>
 
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_VYSS_RUMOR</FactID>
+    </RevealFacts>
+
     <DialogueTarget>MAIN</DialogueTarget>
   </DialogueNode>
 
@@ -96,6 +104,11 @@
       <Page>We were searching for somewhere they could live without fearing <![CDATA[<i>]]>what came next<![CDATA[</i>]]>.</Page>
     </Dialogue>
 
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_PREDICTOR_PURPOSE</FactID>
+      <FactID>OLALLIEBERRY_ARBORETUM_PURPOSE</FactID>
+    </RevealFacts>
+
     <DialogueOptionsList>
       <DialogueOption>
         <Text>Did you ever find somewhere?</Text>
@@ -116,6 +129,10 @@
       <Page>Doors, sensors, engines... I can reach almost all of it from here.</Page>
       <Page>I have never had much reason to go anywhere else.</Page>
     </Dialogue>
+
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_CARETAKER_TRAPPED</FactID>
+    </RevealFacts>
 
     <DialogueTarget>MAIN</DialogueTarget>
   </DialogueNode>
@@ -214,6 +231,10 @@
       <Page>It did not succeed.<![CDATA[<Pause=0.5>]]></Page>
     </Dialogue>
 
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_PREDICTOR_FAILURE</FactID>
+    </RevealFacts>
+
     <DialogueOptionsList>
       <DialogueOption>
         <Text>That sounds like the Ash Twin Project.</Text>
@@ -251,6 +272,10 @@
       <Page>It seems I asked it a question that no longer had <![CDATA[<i>]]>a single answer<![CDATA[</i>]]>.</Page>
     </Dialogue>
 
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_PREDICTOR_ATP</FactID>
+    </RevealFacts>
+
     <DialogueTarget>MAIN</DialogueTarget>
   </DialogueNode>
 
@@ -274,6 +299,10 @@
       <Page>After that, every beautiful place became <![CDATA[<i>]]>a countdown<![CDATA[</i>]]>.</Page>
       <Page>So they slept while I searched for somewhere <![CDATA[<i>]]>safe<![CDATA[</i>]]> to wake them.</Page>
     </Dialogue>
+
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_VYSS_ASLEEP</FactID>
+    </RevealFacts>
 
     <DialogueOptionsList>
       <DialogueOption>
@@ -321,6 +350,10 @@
       <Page>Some lasted longer than others, but <![CDATA[<i>]]>none<![CDATA[</i>]]> lasted forever.</Page>
       <Page>I do not think the future the Vyss asked me to find... <![CDATA[<Pause=0.5>]]>exists.</Page>
     </Dialogue>
+
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_VYSS_NO_FUTURE</FactID>
+    </RevealFacts>
 
     <DialogueOptionsList>
       <DialogueOption>
@@ -457,6 +490,10 @@
       <Page><![CDATA[<i>]]>I have decided to ignore them.<![CDATA[</i>]]></Page>
       <Page>Thank you, Hearthian.</Page>
     </Dialogue>
+
+    <RevealFacts>
+      <FactID>OLALLIEBERRY_VYSS_WAKE</FactID>
+    </RevealFacts>
 
     <SetPersistentCondition>OLALLIEBERRY_WAKE_VYSS</SetPersistentCondition>
     <SetCondition>OLALLIEBERRY_WAKE_VYSS</SetCondition>

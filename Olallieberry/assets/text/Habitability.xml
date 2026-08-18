@@ -3,4 +3,15 @@
     <ID>1</ID>
     <Text>CARETAKER: Another environment has failed long-term habitability testing. I will continue searching.</Text>
   </TextBlock>
+  
+  <ShipLogConditions>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_ARBORETUM_FAILURE</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+  </ShipLogConditions>
 </NomaiObject>

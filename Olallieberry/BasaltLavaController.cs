@@ -98,11 +98,7 @@ public class BasaltLavaController : TimeZoneObject
             speed * Time.deltaTime);
     }
 
-    protected override void OnZoneActivated(TimeZone zone)
-    {
-    }
-
-    protected override void OnZoneDeactivated(TimeZone zone)
+    protected override void OnZoneReset(TimeZone zone)
     {
         _state = LevelState.Raised;
         _waitTimer = 0f;

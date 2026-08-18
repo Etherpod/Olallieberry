@@ -1,0 +1,29 @@
+<NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
+  <TextBlock>
+    <ID>1</ID>
+    <Text>CARETAKER: The artificial environments connected to this hub are designated Basalt Dunes, Marble Caves, Spikey Rocks, and Hexagon Beach.</Text>
+  </TextBlock>
+
+  <ShipLogConditions>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_ARBORETUM_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_BASALT_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CAVES_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_SPIKES_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_BEACH_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+  </ShipLogConditions>
+</NomaiObject>

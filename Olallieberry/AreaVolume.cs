@@ -20,7 +20,8 @@ public enum StationArea
 }
 
 /// <summary>
-/// Logs whenever an object enters/exits a station area.
+/// Logs whenever an object enters/exits a station area and reveals the
+/// corresponding ship log fact when the player enters.
 /// </summary>
 public class AreaVolume : EffectVolume
 {
@@ -43,6 +44,14 @@ public class AreaVolume : EffectVolume
             $"[AreaVolume] {hitObj.name} entered {area}.",
             MessageType.Info
         );
+
+        if (!hitObj.CompareTag("PlayerDetector"))
+            return;
+
+        string factID = GetShipLogFactID();
+
+        if (!string.IsNullOrWhiteSpace(factID))
+            Locator.GetShipLogManager().RevealFact(factID);
     }
 
     public override void OnEffectVolumeExit(GameObject hitObj)
@@ -51,5 +60,24 @@ public class AreaVolume : EffectVolume
             $"[AreaVolume] {hitObj.name} exited {area}.",
             MessageType.Info
         );
+    }
+
+    /// <summary>
+    /// Gets the ship log fact revealed when the player enters this area.
+    /// </summary>
+    private string GetShipLogFactID()
+    {
+        return area switch
+        {
+            StationArea.Entrance => "OLALLIEBERRY_EPHEMERIS_FOUND",
+            StationArea.Hub => "",
+            StationArea.Basalt => "OLALLIEBERRY_BASALT_FOUND",
+            StationArea.Caves => "OLALLIEBERRY_CAVES_FOUND",
+            StationArea.Spikes => "OLALLIEBERRY_SPIKES_FOUND",
+            StationArea.Beach => "OLALLIEBERRY_BEACH_FOUND",
+            StationArea.Sphere => "OLALLIEBERRY_SPHERE_FOUND",
+            StationArea.Shortcut => "OLALLIEBERRY_SHORTCUT_FOUND",
+            _ => null
+        };
     }
 }

@@ -3,4 +3,15 @@
     <ID>1</ID>
     <Text>CARETAKER: The relocation caused substantially more damage than anticipated. Most critical systems remain functional. I will address the rest when circumstances become less urgent.</Text>
   </TextBlock>
+  
+  <ShipLogConditions>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_EPHEMERIS_DAMAGE</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+  </ShipLogConditions>
 </NomaiObject>

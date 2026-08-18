@@ -3,4 +3,11 @@
     <ID>1</ID>
     <Text>The Ephemeris was damaged during its arrival in this system. The Caretaker must be reached before repairs can begin.</Text>
   </TextBlock>
+  
+  <ShipLogConditions>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+  </ShipLogConditions>
 </NomaiObject>

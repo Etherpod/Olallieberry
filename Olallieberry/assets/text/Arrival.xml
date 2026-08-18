@@ -3,4 +3,15 @@
     <ID>1</ID>
     <Text>CARETAKER: Emergency relocation complete. We are now beside the temporal anomaly. I believe this was the correct decision.</Text>
   </TextBlock>
+  
+  <ShipLogConditions>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_EPHEMERIS_ARRIVAL</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+  </ShipLogConditions>
 </NomaiObject>

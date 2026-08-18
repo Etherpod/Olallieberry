@@ -1,14 +1,10 @@
 <NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
   <TextBlock>
     <ID>1</ID>
-    <Text>CARETAKER: Every environment I examine eventually becomes unsuitable. This is making my assignment considerably more difficult.</Text>
+    <Text>CARETAKER: The Vyss asked that unsuccessful environments not be dismantled immediately. They believed a place could still be worth preserving even if it would not last.</Text>
   </TextBlock>
-  
+
   <ShipLogConditions>
-    <RevealFact>
-      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
-      <Condition>1</Condition>
-    </RevealFact>
     <RevealFact>
       <FactID>OLALLIEBERRY_ARBORETUM_FAILURE</FactID>
       <Condition>1</Condition>

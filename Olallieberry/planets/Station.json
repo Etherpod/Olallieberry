@@ -42,6 +42,27 @@
     }
   ],
 
+  "ShipLog": {
+    "xmlFile": "assets/shiplog/Ephemeris.xml",
+    "spriteFolder": "assets/shiplog/images",
+    "mapMode": {
+      "remove": true
+    }
+  },
+
+  "Volumes": {
+    "revealVolumes": [
+      {
+        "radius": 600,
+        "revealOn": "enter",
+        "revealFor": "both",
+        "reveals": [
+          "OLALLIEBERRY_EPHEMERIS_FOUND"
+        ]
+      }
+    ]
+  },
+
   "Props": {
     "details": [
       {
@@ -79,40 +100,6 @@
       }
     ],
     "translatorText": [
-      {
-        "rename": "TestText",
-        "position": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        },
-        "rotation": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        },
-        "isRelativeToParent": true,
-        "parentPath": "Sector/ChimeStation/TextWall/Text",
-        "xmlFile": "assets/text/Test.xml",
-        "arcInfo": [
-          {
-            "zRotation": 0,
-            "customTextImage": "assets/images/circleText_sparkles.png",
-            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
-            "customLanguageName": "OLALLIEBERRY_SNAKE",
-            "overrideUnreadColor": {
-              "r": 255,
-              "g": 210,
-              "b": 100
-            },
-            "overrideTranslatedColor": {
-              "r": 132,
-              "g": 127,
-              "b": 113
-            }
-          }
-        ]
-      },
       {
         "rename": "ArrivalText",
         "position": {
@@ -352,6 +339,74 @@
         ]
       },
       {
+        "rename": "TimeZoneText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/E_Park/Floor/TimeZoneTextWall/Text",
+        "xmlFile": "assets/text/TimeZone.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "UnsuccessfulText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/E_Park/Floor/UnsuccessfulTextWall/Text",
+        "xmlFile": "assets/text/Unsuccessful.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
         "rename": "BasaltText",
         "position": {
           "x": 0,
@@ -434,6 +489,74 @@
         "isRelativeToParent": true,
         "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/SpikesTextWall/Text",
         "xmlFile": "assets/text/Spikes.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "BiomesText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/HubFloor/BiomesTextWall/Text",
+        "xmlFile": "assets/text/Biomes.xml",
+        "arcInfo": [
+          {
+            "zRotation": 0,
+            "customTextImage": "assets/images/circleText_sparkles.png",
+            "legiblePersistentCondition": "OLALLIEBERRY_CAN_READ_SNAKE",
+            "customLanguageName": "OLALLIEBERRY_SNAKE",
+            "overrideUnreadColor": {
+              "r": 255,
+              "g": 210,
+              "b": 100
+            },
+            "overrideTranslatedColor": {
+              "r": 132,
+              "g": 127,
+              "b": 113
+            }
+          }
+        ]
+      },
+      {
+        "rename": "TeleporterText",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isRelativeToParent": true,
+        "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/F_BottomArea/Floor/TeleporterTextWall/Text",
+        "xmlFile": "assets/text/Teleporter.xml",
         "arcInfo": [
           {
             "zRotation": 0,

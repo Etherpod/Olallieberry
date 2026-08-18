@@ -27,6 +27,7 @@ public class BeachTidesController : TimeZoneObject
     private LevelState _state = LevelState.Lowered;
     private float _waterHeight;
     private float _waitTimer;
+    private bool _wasPlayerInside;
 
     protected override void Awake()
     {
@@ -34,10 +35,15 @@ public class BeachTidesController : TimeZoneObject
 
         _waterHeight = lowerWaterHeight;
         SetWaterHeight(_waterHeight);
+
+        if (_timeZone != null)
+            _wasPlayerInside = _timeZone.IsPlayerInside;
     }
 
     public void Update()
     {
+        UpdateShipLogFacts();
+
         if (!IsActive)
             return;
 
@@ -81,6 +87,25 @@ public class BeachTidesController : TimeZoneObject
         SetWaterHeight(_waterHeight);
     }
 
+    private void UpdateShipLogFacts()
+    {
+        if (_timeZone == null)
+            return;
+
+        bool playerInside = _timeZone.IsPlayerInside;
+
+        if (_wasPlayerInside && !playerInside)
+        {
+            string factID = _timeZone.IsProbeInside
+                ? "OLALLIEBERRY_BEACH_PROBE"
+                : "OLALLIEBERRY_BEACH_RESET";
+
+            Locator.GetShipLogManager().RevealFact(factID);
+        }
+
+        _wasPlayerInside = playerInside;
+    }
+
     private void MoveWater(float targetHeight, float duration)
     {
         if (duration <= 0f)
@@ -98,11 +123,7 @@ public class BeachTidesController : TimeZoneObject
             speed * Time.deltaTime);
     }
 
-    protected override void OnZoneActivated(TimeZone zone)
-    {
-    }
-
-    protected override void OnZoneDeactivated(TimeZone zone)
+    protected override void OnZoneReset(TimeZone zone)
     {
         _state = LevelState.Lowered;
         _waitTimer = 0f;

@@ -40,6 +40,8 @@ public class TimeZone : EffectVolume
 
 	public bool IsManuallyActive => manuallyControlled && _activated;
 	public bool IsPresenceActive => presenceControlled && (_playerInside || _probeInside);
+	public bool IsPlayerInside => _playerInside;
+	public bool IsProbeInside => _probeInside;
 	public bool HasLifespan => 0f < zoneLifespan;
 	public bool IsExpired => HasLifespan && zoneLifespan <= _elapsedTime;
 	

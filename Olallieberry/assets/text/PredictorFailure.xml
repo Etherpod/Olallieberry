@@ -3,4 +3,15 @@
     <ID>1</ID>
     <Text>CARETAKER: The Predictor has stopped responding. I have attempted to restart it. It remains uncooperative.</Text>
   </TextBlock>
+  
+  <ShipLogConditions>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_PREDICTOR_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+  </ShipLogConditions>
 </NomaiObject>
