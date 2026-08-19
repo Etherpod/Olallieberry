@@ -10,6 +10,14 @@
     "",
     "This mod was made for the Outer Wilds Modding Jam in August 2026"
   ],
+  "popupMessage": "Open your map to find something mysterious.",
+  "achievements": [
+    {
+      "ID": "OLALLIEBERRY_WAKE_VYSS",
+      "conditionIDs": [ "OLALLIEBERRY_WAKE_VYSS" ],
+      "secret": true
+    }
+  ],
   "gameOver": [
     {
       "colour": {

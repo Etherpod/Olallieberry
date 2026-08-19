@@ -60,6 +60,9 @@
         <None Include="assets\**\*.*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <None Include="icons\**\*.*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
 
         <None Include="addon-manifest.json" Condition="Exists('addon-manifest.json')">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -80,6 +83,7 @@
         <UpToDateCheckInput Include="systems\**\*.*" />
         <UpToDateCheckInput Include="translations\**\*.*" />
         <UpToDateCheckInput Include="assets\**\*.*" />
+        <UpToDateCheckInput Include="icons\**\*.*" />
 
         <UpToDateCheckInput Include="addon-manifest.json" Condition="Exists('addon-manifest.json')" />
         <UpToDateCheckInput Include="title_logo.png" Condition="Exists('title_logo.png')" />

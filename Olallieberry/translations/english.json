@@ -12,5 +12,11 @@
 	},
 	"OtherDictionary": {
 		"OLALLIEBERRY_SNAKE": "Vyss"
+	},
+	"AchievementTranslations": {
+		"OLALLIEBERRY_WAKE_VYSS": {
+			"Name": "Wake the Vyss",
+			"Description": "The Vyss awaken to see what remains."
+		}
 	}
 }
