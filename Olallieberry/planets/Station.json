@@ -96,7 +96,7 @@
   "Props": {
     "details": [
       {
-        "assetBundle": "assets/bundles/jambundle",
+        "assetBundle": "assets/bundles/olallieberry",
         "path": "Assets/JamAssets/ChimeStation.prefab",
         "position": {
           "y": -200
