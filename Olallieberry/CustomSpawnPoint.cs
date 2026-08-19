@@ -9,6 +9,7 @@ namespace Olallieberry;
 /// </summary>
 public class CustomSpawnPoint : SpawnPoint
 {
+	[SerializeField]
 	private bool _default = true;
 
 	public void Start()

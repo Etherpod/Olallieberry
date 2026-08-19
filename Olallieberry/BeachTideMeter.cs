@@ -4,10 +4,12 @@ namespace Olallieberry;
 
 /// <summary>
 /// Displays the current Hexagon Beach tide level using a physical meter bar.
+/// Reveals information about the meter when the player approaches it.
 /// </summary>
-public class BeachTideMeter : MonoBehaviour
+public class BeachTideMeter : EffectVolume
 {
-    private const string FactID = "OLALLIEBERRY_SHORTCUT_TIDE_METER";
+    private static readonly string exploreFactID = "OLALLIEBERRY_SHORTCUT_TIDE_METER";
+    private static readonly string rumorFactID = "OLALLIEBERRY_SHORTCUT_TIDE_METER_RUMOR";
 
     /// <summary>
     /// The beach tide controller being monitored.
@@ -32,74 +34,89 @@ public class BeachTideMeter : MonoBehaviour
     public float minimumFill = 0.01f;
 
     private Vector3 _fullScale;
-    private OWTriggerVolume _triggerVolume;
+
     private bool _playerInside;
     private float _lastTideLevel;
     private bool _factRevealed;
+    private bool _rumorRevealed;
 
-    public void Awake()
+    public void OnValidate()
     {
-        if (fill != null)
-            _fullScale = fill.localScale;
-
-        _triggerVolume = GetComponentInChildren<OWTriggerVolume>();
+        _triggerVolume = gameObject.GetAddComponent<OWTriggerVolume>();
+        _triggerVolume.Reset();
     }
 
     public void Start()
     {
+        if (fill != null)
+            _fullScale = fill.localScale;
+
         if (tides == null)
             tides = FindObjectOfType<BeachTidesController>();
 
         if (tides != null)
             _lastTideLevel = tides.TideLevel;
-
-        if (_triggerVolume != null)
-        {
-            _triggerVolume.OnEntry += OnEntry;
-            _triggerVolume.OnExit += OnExit;
-        }
-    }
-
-    public void OnDestroy()
-    {
-        if (_triggerVolume != null)
-        {
-            _triggerVolume.OnEntry -= OnEntry;
-            _triggerVolume.OnExit -= OnExit;
-        }
     }
 
     public void LateUpdate()
     {
-        if (tides == null || fill == null)
+        if (tides == null)
             return;
 
         float tideLevel = tides.TideLevel;
+        bool tideMoving = !Mathf.Approximately(tideLevel, _lastTideLevel);
 
-        Vector3 scale = _fullScale;
-        scale.y *= Mathf.Lerp(minimumFill, 1f, tideLevel);
-        fill.localScale = scale;
-
-        if (!_factRevealed &&
-            _playerInside &&
-            !Mathf.Approximately(tideLevel, _lastTideLevel))
+        if (fill != null)
         {
-            Locator.GetShipLogManager().RevealFact(FactID, true, true);
-            _factRevealed = true;
+            Vector3 scale = _fullScale;
+            scale.y *= Mathf.Lerp(minimumFill, 1f, tideLevel);
+            fill.localScale = scale;
         }
+
+        if (_playerInside && tideMoving)
+            RevealFact();
 
         _lastTideLevel = tideLevel;
     }
 
-    private void OnEntry(GameObject hitObj)
+    public override void OnEffectVolumeEnter(GameObject hitObj)
     {
-        if (hitObj.CompareTag("PlayerDetector"))
-            _playerInside = true;
+        if (!hitObj.CompareTag("PlayerDetector"))
+            return;
+
+        _playerInside = true;
+
+        RevealRumor();
+
+        bool tideMoving =
+            tides != null &&
+            !Mathf.Approximately(tides.TideLevel, _lastTideLevel);
+
+        if (tideMoving)
+            RevealFact();
     }
 
-    private void OnExit(GameObject hitObj)
+    public override void OnEffectVolumeExit(GameObject hitObj)
     {
         if (hitObj.CompareTag("PlayerDetector"))
             _playerInside = false;
+    }
+
+    private void RevealFact()
+    {
+        if (_factRevealed)
+            return;
+
+        Locator.GetShipLogManager().RevealFact(exploreFactID, true, true);
+        _factRevealed = true;
+    }
+
+    private void RevealRumor()
+    {
+        if (_rumorRevealed)
+            return;
+
+        Locator.GetShipLogManager().RevealFact(rumorFactID, true, true);
+        _rumorRevealed = true;
     }
 }
