@@ -15,7 +15,8 @@
       "colour": {
         "r": 255,
         "g": 210,
-        "b": 100
+        "b": 100,
+        "a": 255
       },
       "condition": "OLALLIEBERRY_WAKE_VYSS",
       "creditsType": "custom",
