@@ -46,7 +46,16 @@
     "xmlFile": "assets/shiplog/Ephemeris.xml",
     "spriteFolder": "assets/shiplog/images",
     "mapMode": {
-      "remove": true
+      "scale": 0.6,
+      "invisibleWhenHidden": true,
+      "manualNavigationPosition": {
+        "x": 4.0
+      },
+      "manualPosition": {
+        "x": 1500.0,
+        "y": -90.0
+      },
+      "revealedSprite": "assets/shiplog/images/EphemerisMapMode.png"
     }
   },
 
