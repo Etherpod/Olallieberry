@@ -1,12 +1,16 @@
 <NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
   <TextBlock>
     <ID>1</ID>
-    <Text>The Ephemeris was damaged during its arrival in this system. The Caretaker must be reached before repairs can begin.</Text>
+    <Text>The windowed hatch hidden in the center of the beach can be opened from below.</Text>
   </TextBlock>
-  
+
   <ShipLogConditions>
     <RevealFact>
-      <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>
+      <FactID>OLALLIEBERRY_BEACH_HATCH_OPEN_RUMOR</FactID>
+      <Condition>1</Condition>
+    </RevealFact>
+    <RevealFact>
+      <FactID>OLALLIEBERRY_BASALT_TEXT</FactID>
       <Condition>1</Condition>
     </RevealFact>
   </ShipLogConditions>

@@ -22,10 +22,27 @@
       <ID>OLALLIEBERRY_EPHEMERIS_DAMAGE</ID>
       <Text>The Ephemeris was badly damaged during its sudden relocation, although most of its critical systems still function.</Text>
     </ExploreFact>
+  </Entry>
+
+  <Entry>
+    <ID>OLALLIEBERRY_TIME_ZONES</ID>
+    <Name>Temporal Zones</Name>
+
+    <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
 
     <ExploreFact>
       <ID>OLALLIEBERRY_EPHEMERIS_TIME_ZONES</ID>
-      <Text>Temporal zones aboard the Ephemeris remain suspended while empty. Entering a zone resumes local time, and leaving it vacant causes it to reset.</Text>
+      <Text>Time only moves inside a temporal zone while something from outside is in it. When nothing from outside remains, the zone resets and freezes.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_EPHEMERIS_BIOME_TIME_ZONES</ID>
+      <Text>Each artificial environment is contained within its own temporal zone, even when there is no obvious change to observe.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_EPHEMERIS_TIME_ZONES_PROBE</ID>
+      <Text>My scout alone is enough to keep a temporal zone active.</Text>
     </ExploreFact>
   </Entry>
 
@@ -71,6 +88,11 @@
       <ID>OLALLIEBERRY_BASALT_FOUND</ID>
       <Text>One of the artificial environments is a basalt dunes with rising and falling lava.</Text>
     </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_BASALT_TEXT</ID>
+      <Text>A message in Basalt Dunes says the windowed hatch hidden in the center of the beach can be opened from below.</Text>
+    </ExploreFact>
   </Entry>
 
   <Entry>
@@ -89,6 +111,11 @@
     <ExploreFact>
       <ID>OLALLIEBERRY_CAVES_FOUND</ID>
       <Text>One of the artificial environments is a flooded cave system.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_CAVES_TEXT</ID>
+      <Text>A message in the Marble Caves says the Caretaker's chamber has no direct passage from the main station and must be reached through a lower maintenance passage.</Text>
     </ExploreFact>
   </Entry>
 
@@ -109,6 +136,11 @@
       <ID>OLALLIEBERRY_SPIKES_FOUND</ID>
       <Text>One of the artificial environments is a maze of tall, sharp rock formations.</Text>
     </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_SPIKES_TEXT</ID>
+      <Text>A message in Spikey Rocks says access to the Caretaker's chamber through the maintenance passage is only available at high tide, and the beach must remain active after leaving.</Text>
+    </ExploreFact>
   </Entry>
 
   <Entry>
@@ -121,7 +153,7 @@
       <ID>OLALLIEBERRY_BEACH_RUMOR</ID>
       <SourceID>OLALLIEBERRY_ARBORETUM</SourceID>
       <RumorName>Hexagon Beach</RumorName>
-      <Text>One section of the arboretum contains an artificial beach environment.</Text>
+      <Text>One section of the arboretum contains an artificial beach environment. It is below the hub and can be accessed using a lever somewhere in the hub.</Text>
     </RumorFact>
 
     <ExploreFact>
@@ -152,6 +184,13 @@
         <Text>There is a hidden windowed hatch in the center of Hexagon Beach.</Text>
       </RumorFact>
 
+      <RumorFact>
+        <ID>OLALLIEBERRY_BEACH_HATCH_OPEN_RUMOR</ID>
+        <SourceID>OLALLIEBERRY_BASALT</SourceID>
+        <RumorName>Windowed Hatch</RumorName>
+        <Text>The hidden windowed hatch in the center of Hexagon Beach can only be opened from below.</Text>
+      </RumorFact>
+
       <ExploreFact>
         <ID>OLALLIEBERRY_BEACH_HATCH_FOUND</ID>
         <Text>The hatch overlooks a staircase below, but I can't fit through it.</Text>
@@ -179,13 +218,15 @@
       <ID>OLALLIEBERRY_SHORTCUT_RUMOR</ID>
       <SourceID>OLALLIEBERRY_CAVES</SourceID>
       <RumorName>Maintenance Passage</RumorName>
-      <Text>A lower maintenance passage provides emergency access to the Caretaker's chamber.</Text>
+      <RumorNamePriority>1</RumorNamePriority>
+      <Text>A gate on the lower exterior of the station leads into a maintenance passage connected in some indirect way to the Caretaker's chamber.</Text>
     </RumorFact>
 
     <RumorFact>
       <ID>OLALLIEBERRY_SHORTCUT_BEACH_RUMOR</ID>
       <SourceID>OLALLIEBERRY_SPIKES</SourceID>
       <RumorName>Maintenance Passage</RumorName>
+      <RumorNamePriority>1</RumorNamePriority>
       <Text>The maintenance passage beneath the beach reaches the Caretaker only at high tide, but the beach must somehow remain active after I leave.</Text>
     </RumorFact>
 
@@ -193,13 +234,24 @@
       <ID>OLALLIEBERRY_SHORTCUT_HATCH_RUMOR</ID>
       <SourceID>OLALLIEBERRY_BEACH_HATCH</SourceID>
       <RumorName>Staircase Below</RumorName>
-      <RumorNamePriority>1</RumorNamePriority>
       <Text>The staircase beneath the windowed hatch continues into a lower section of the station.</Text>
+    </RumorFact>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_SHORTCUT_TIDE_METER_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_SHORTCUT</SourceID>
+      <RumorName>Tide Meter</RumorName>
+      <Text>A strange meter in the maintenance passage appears to measure something.</Text>
     </RumorFact>
 
     <ExploreFact>
       <ID>OLALLIEBERRY_SHORTCUT_FOUND</ID>
       <Text>I found a hidden maintenance passage containing a strange device and a staircase up to the beach.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>OLALLIEBERRY_SHORTCUT_TIDE_METER</ID>
+      <Text>The meter in the maintenance passage changes with the tide at Hexagon Beach.</Text>
     </ExploreFact>
 
     <ExploreFact>
@@ -218,7 +270,7 @@
       <ID>OLALLIEBERRY_SPHERE_RUMOR</ID>
       <SourceID>OLALLIEBERRY_SHORTCUT</SourceID>
       <RumorName>Caretaker's Chamber</RumorName>
-      <Text>A lower maintenance passage provides emergency access to the Caretaker's chamber.</Text>
+      <Text>A lower maintenance passage provides access to the Caretaker's chamber.</Text>
     </RumorFact>
 
     <ExploreFact>
@@ -272,18 +324,20 @@
     <RumorFact>
       <ID>OLALLIEBERRY_CARETAKER_SPHERE_RUMOR</ID>
       <SourceID>OLALLIEBERRY_SPHERE</SourceID>
-      <RumorName>Snake-like Machine</RumorName>
+      <RumorName>The Caretaker</RumorName>
       <Text>An enormous snake-like machine occupies the chamber reached through a teleporter in the maintenance passage.</Text>
+    </RumorFact>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_CARETAKER_TRAPPED</ID>
+      <SourceID>OLALLIEBERRY_SPHERE</SourceID>
+      <RumorName>The Caretaker</RumorName>
+      <Text>The Caretaker cannot physically access several parts of the station, but the Ephemeris was designed so it rarely needs to leave its chamber.</Text>
     </RumorFact>
 
     <ExploreFact>
       <ID>OLALLIEBERRY_CARETAKER_MET</ID>
       <Text>I found the Caretaker, a large machine built by the Vyss to maintain and pilot the Ephemeris while they sleep.</Text>
-    </ExploreFact>
-
-    <ExploreFact>
-      <ID>OLALLIEBERRY_CARETAKER_TRAPPED</ID>
-      <Text>The Caretaker cannot leave its chamber, but it can remotely control most of the station.</Text>
     </ExploreFact>
   </Entry>
 

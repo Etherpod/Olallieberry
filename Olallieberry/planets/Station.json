@@ -250,7 +250,7 @@
         },
         "isRelativeToParent": true,
         "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/HubFloor/DamageTextWall/Text",
-        "xmlFile": "assets/text/Damage.xml",
+        "xmlFile": "assets/text/TimeZone.xml",
         "arcInfo": [
           {
             "zRotation": 0,
@@ -284,7 +284,7 @@
         },
         "isRelativeToParent": true,
         "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/D_MainRing/Floor/HubFloor/HabitabilityTextWall/Text",
-        "xmlFile": "assets/text/Habitability.xml",
+        "xmlFile": "assets/text/BiomeTime.xml",
         "arcInfo": [
           {
             "zRotation": 0,
@@ -318,7 +318,7 @@
         },
         "isRelativeToParent": true,
         "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/E_Park/Floor/UnsuitableTextWall/Text",
-        "xmlFile": "assets/text/Unsuitable.xml",
+        "xmlFile": "assets/text/Habitability.xml",
         "arcInfo": [
           {
             "zRotation": 0,
@@ -386,7 +386,7 @@
         },
         "isRelativeToParent": true,
         "parentPath": "Sector/ChimeStation/stationSmall_bigRings/small_station/E_Park/Floor/TimeZoneTextWall/Text",
-        "xmlFile": "assets/text/TimeZone.xml",
+        "xmlFile": "assets/text/Damage.xml",
         "arcInfo": [
           {
             "zRotation": 0,

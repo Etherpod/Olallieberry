@@ -1,9 +1,9 @@
 <NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
   <TextBlock>
     <ID>1</ID>
-    <Text>CARETAKER: Temporal zones remain suspended while unoccupied. The presence of a visitor resumes local time. Once the area is vacant, the zone returns to its initial state.</Text>
+    <Text>CARETAKER: Temporal zones remain suspended while empty. Anything brought in from outside will cause time there to resume. Once nothing from outside remains, the zone returns to its initial state.</Text>
   </TextBlock>
-  
+
   <ShipLogConditions>
     <RevealFact>
       <FactID>OLALLIEBERRY_CARETAKER_RUMOR</FactID>

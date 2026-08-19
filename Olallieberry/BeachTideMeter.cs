@@ -7,6 +7,8 @@ namespace Olallieberry;
 /// </summary>
 public class BeachTideMeter : MonoBehaviour
 {
+    private const string FactID = "OLALLIEBERRY_SHORTCUT_TIDE_METER";
+
     /// <summary>
     /// The beach tide controller being monitored.
     /// </summary>
@@ -30,17 +32,41 @@ public class BeachTideMeter : MonoBehaviour
     public float minimumFill = 0.01f;
 
     private Vector3 _fullScale;
+    private OWTriggerVolume _triggerVolume;
+    private bool _playerInside;
+    private float _lastTideLevel;
+    private bool _factRevealed;
 
     public void Awake()
     {
         if (fill != null)
             _fullScale = fill.localScale;
+
+        _triggerVolume = GetComponentInChildren<OWTriggerVolume>();
     }
 
     public void Start()
     {
         if (tides == null)
             tides = FindObjectOfType<BeachTidesController>();
+
+        if (tides != null)
+            _lastTideLevel = tides.TideLevel;
+
+        if (_triggerVolume != null)
+        {
+            _triggerVolume.OnEntry += OnEntry;
+            _triggerVolume.OnExit += OnExit;
+        }
+    }
+
+    public void OnDestroy()
+    {
+        if (_triggerVolume != null)
+        {
+            _triggerVolume.OnEntry -= OnEntry;
+            _triggerVolume.OnExit -= OnExit;
+        }
     }
 
     public void LateUpdate()
@@ -48,9 +74,32 @@ public class BeachTideMeter : MonoBehaviour
         if (tides == null || fill == null)
             return;
 
-        Vector3 scale = _fullScale;
-        scale.y *= Mathf.Lerp(minimumFill, 1f, tides.TideLevel);
+        float tideLevel = tides.TideLevel;
 
+        Vector3 scale = _fullScale;
+        scale.y *= Mathf.Lerp(minimumFill, 1f, tideLevel);
         fill.localScale = scale;
+
+        if (!_factRevealed &&
+            _playerInside &&
+            !Mathf.Approximately(tideLevel, _lastTideLevel))
+        {
+            Locator.GetShipLogManager().RevealFact(FactID, true, true);
+            _factRevealed = true;
+        }
+
+        _lastTideLevel = tideLevel;
+    }
+
+    private void OnEntry(GameObject hitObj)
+    {
+        if (hitObj.CompareTag("PlayerDetector"))
+            _playerInside = true;
+    }
+
+    private void OnExit(GameObject hitObj)
+    {
+        if (hitObj.CompareTag("PlayerDetector"))
+            _playerInside = false;
     }
 }

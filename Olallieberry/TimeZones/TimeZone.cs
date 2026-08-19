@@ -15,15 +15,16 @@ public class TimeZone : EffectVolume
 	/// Invoked when a foreign object first enters a zone.
 	/// </summary>
 	public event TimeZoneEvent OnZoneActivated;
+
 	/// <summary>
 	/// Invoked when every foreign object has left a zone.
 	/// </summary>
 	public event TimeZoneEvent OnZoneDeactivated;
-	
+
 	public event TimeZoneEvent OnZoneExpired;
-	
+
 	public event TimeZoneEvent OnZoneReset;
-	
+
 	[SerializeField] protected bool presenceControlled = true;
 	[SerializeField] protected bool manuallyControlled = false;
 	[SerializeField] protected float zoneLifespan = 0f;
@@ -44,7 +45,7 @@ public class TimeZone : EffectVolume
 	public bool IsProbeInside => _probeInside;
 	public bool HasLifespan => 0f < zoneLifespan;
 	public bool IsExpired => HasLifespan && zoneLifespan <= _elapsedTime;
-	
+
 	/// <summary>
 	/// Whether the player or probe is currently inside the time zone.
 	/// </summary>
@@ -61,7 +62,7 @@ public class TimeZone : EffectVolume
 	public void ActivateZone(bool wasActive = false)
 	{
 		if (!IsActive || wasActive) return;
-		
+
 		OnZoneActivated?.Invoke(this);
 	}
 
@@ -84,7 +85,7 @@ public class TimeZone : EffectVolume
 		OnZoneExpired?.Invoke(this);
 		DeactivateZone();
 		if (!resetOnExpire || _elapsedTime == 0f) return;
-		
+
 		if (expiryResetDelay == 0f)
 		{
 			ResetZone(true);
@@ -98,7 +99,7 @@ public class TimeZone : EffectVolume
 	public void Activate()
 	{
 		if (!manuallyControlled || _activated) return;
-		
+
 		var wasActive = IsActive;
 		_activated = true;
 		ActivateZone(wasActive);
@@ -122,19 +123,36 @@ public class TimeZone : EffectVolume
 				_expiryResetTime = -1f;
 			}
 		}
-		
+
 		if (!IsActive) return;
-		
+
 		_elapsedTime += Time.fixedDeltaTime;
-		
+
 		UpdateLife();
 	}
-	
+
 	private void UpdateLife()
 	{
 		if (!IsExpired) return;
-		
+
 		ExpireZone();
+	}
+
+	private static readonly string knowledgeFactID = "OLALLIEBERRY_EPHEMERIS_TIME_ZONES";
+	private static readonly string probeOnlyFactID = "OLALLIEBERRY_EPHEMERIS_TIME_ZONES_PROBE";
+
+	private void CheckProbeOnlyFact()
+	{
+		if (manuallyControlled)
+			return;
+
+        if (!_probeInside || _playerInside)
+			return;
+
+		var shipLogManager = Locator.GetShipLogManager();
+
+		if (shipLogManager.IsFactRevealed(knowledgeFactID) && !shipLogManager.IsFactRevealed(probeOnlyFactID))
+			shipLogManager.RevealFact(probeOnlyFactID, true, true);
 	}
 
 	public override void OnEffectVolumeEnter(GameObject hitObj)
@@ -154,6 +172,7 @@ public class TimeZone : EffectVolume
 			return;
 		}
 
+		CheckProbeOnlyFact();
 		ActivateZone(wasActive);
 	}
 
@@ -171,6 +190,8 @@ public class TimeZone : EffectVolume
 		{
 			return;
 		}
+
+		CheckProbeOnlyFact();
 
 		if (!IsActive)
 		{

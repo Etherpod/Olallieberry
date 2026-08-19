@@ -1,7 +1,7 @@
 <NomaiObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/text_schema.xsd">
   <TextBlock>
     <ID>1</ID>
-    <Text>CARETAKER: The artificial environments connected to this hub are designated Basalt Dunes, Marble Caves, Spikey Rocks, and Hexagon Beach.</Text>
+    <Text>CARETAKER: The artificial environments connected to this hub are designated Basalt Dunes, Marble Caves, Spikey Rocks, and Hexagon Beach. Hexagon Beach is located below the hub and can be accessed using a lever in the hub.</Text>
   </TextBlock>
 
   <ShipLogConditions>
