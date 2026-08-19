@@ -33,7 +33,7 @@ public class BeachTideMeter : EffectVolume
     [Min(0f)]
     public float minimumFill = 0.01f;
 
-    private Vector3 _fullScale;
+    private Vector3 _fullScale = Vector3.one;
 
     private bool _playerInside;
     private float _lastTideLevel;
@@ -48,9 +48,6 @@ public class BeachTideMeter : EffectVolume
 
     public void Start()
     {
-        if (fill != null)
-            _fullScale = fill.localScale;
-
         if (tides == null)
             tides = FindObjectOfType<BeachTidesController>();
 
@@ -64,7 +61,7 @@ public class BeachTideMeter : EffectVolume
             return;
 
         float tideLevel = tides.TideLevel;
-        bool tideMoving = !Mathf.Approximately(tideLevel, _lastTideLevel);
+        bool tideMoving = tides.IsActive;
 
         if (fill != null)
         {

@@ -7,7 +7,7 @@ public abstract class TimeZoneObject : MonoBehaviour
 	[SerializeField]
 	protected TimeZone _timeZone;
 	
-	protected bool IsActive => _timeZone == null || _timeZone.IsActive;
+	public bool IsActive => _timeZone == null || _timeZone.IsActive;
 	protected float ElapsedTime => _timeZone == null ? Time.time : _timeZone.ElapsedTime;
 
 	protected virtual void OnValidate()
