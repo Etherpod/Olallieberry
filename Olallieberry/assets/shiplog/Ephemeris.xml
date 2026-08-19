@@ -29,6 +29,13 @@
     <Name>Temporal Zones</Name>
 
     <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+    
+    <RumorFact>
+      <ID>OLALLIEBERRY_TIME_ZONES_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_ARBORETUM</SourceID>
+      <RumorName>Temporal Zones</RumorName>
+      <Text>Certain areas aboard the Ephemeris seem to experience the passage of time differently from the hub.</Text>
+    </RumorFact>
 
     <ExploreFact>
       <ID>OLALLIEBERRY_EPHEMERIS_TIME_ZONES</ID>
@@ -226,7 +233,6 @@
       <ID>OLALLIEBERRY_SHORTCUT_BEACH_RUMOR</ID>
       <SourceID>OLALLIEBERRY_SPIKES</SourceID>
       <RumorName>Maintenance Passage</RumorName>
-      <RumorNamePriority>1</RumorNamePriority>
       <Text>The maintenance passage beneath the beach reaches the Caretaker only at high tide, but the beach must somehow remain active after I leave.</Text>
     </RumorFact>
 

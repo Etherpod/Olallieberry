@@ -16,6 +16,22 @@
       "then": {
         "revealFacts": [ "OLALLIEBERRY_SPHERE_RUMOR" ]
       }
+    },
+    {
+      "check": {
+        "allFactsRevealed": [ "OLALLIEBERRY_EPHEMERIS_TIME_ZONES" ]
+      },
+      "then": {
+        "revealFacts": [ "OLALLIEBERRY_TIME_ZONES_RUMOR" ]
+      }
+    },
+    {
+      "check": {
+        "allFactsRevealed": [ "OLALLIEBERRY_SHORTCUT_TIDE_METER" ]
+      },
+      "then": {
+        "revealFacts": [ "OLALLIEBERRY_SHORTCUT_TIDE_METER_RUMOR" ]
+      }
     }
   ],
   "entryPositions": [
@@ -108,6 +124,13 @@
       "position": {
         "x": 5450,
         "y": -5100
+      }
+    },
+    {
+      "id": "OLALLIEBERRY_TIME_ZONES",
+      "position": {
+        "x": 6000,
+        "y": -3500
       }
     }
   ],
