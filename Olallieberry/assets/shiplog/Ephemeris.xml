@@ -55,7 +55,7 @@
 
   <Entry>
     <ID>OLALLIEBERRY_ARBORETUM</ID>
-    <Name>Ephemeris Arboretum</Name>
+    <Name>Arboretum Hub</Name>
 
     <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
 
@@ -373,6 +373,13 @@
     <Name>Translation Device</Name>
 
     <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_TRANSLATOR_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_ARBORETUM</SourceID>
+      <RumorName>Strange Device</RumorName>
+      <Text>There is a strange device in the main hub of the Ephemeris.</Text>
+    </RumorFact>
 
     <ExploreFact>
       <ID>OLALLIEBERRY_TRANSLATOR_UPDATED</ID>

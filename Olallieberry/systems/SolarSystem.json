@@ -40,6 +40,14 @@
       "then": {
         "revealFacts": [ "OLALLIEBERRY_SHORTCUT_TELEPORTER_RUMOR", "OLALLIEBERRY_SPHERE_TELEPORT_RUMOR" ]
       }
+    },
+    {
+      "check": {
+        "allFactsRevealed": [ "OLALLIEBERRY_TRANSLATOR_UPDATED" ]
+      },
+      "then": {
+        "revealFacts": [ "OLALLIEBERRY_TRANSLATOR_RUMOR" ]
+      }
     }
   ],
   "entryPositions": [
