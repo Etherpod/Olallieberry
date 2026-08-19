@@ -29,6 +29,10 @@
         <Message Text="Copy complete" Importance="High" />
     </Target>
 
+    <Target Name="DontCopyAssets" AfterTargets="Build" Condition=" '$(Configuration)' != 'Debug' And '$(UnityProjectDir)' != '' ">
+        <Message Text="Cannot copy release build to Unity" Importance="High" />
+    </Target>
+
     <ItemGroup>
         <PackageReference Include="OWML" Version="2.16.2" IncludeAssets="compile" />
         <PackageReference Include="OuterWildsGameLibs" Version="1.1.16.1372" IncludeAssets="compile" />
