@@ -260,10 +260,24 @@
       <Text>The meter in the maintenance passage changes with the tide at Hexagon Beach.</Text>
     </ExploreFact>
 
-    <ExploreFact>
-      <ID>OLALLIEBERRY_SHORTCUT_TELEPORTER</ID>
-      <Text>The device in the maintenance passage is a teleporter leading to the Caretaker's chamber.</Text>
-    </ExploreFact>
+    <Entry>
+      <ID>OLALLIEBERRY_TELEPORTER</ID>
+      <Name>Teleporter</Name>
+
+      <Curiosity>OLALLIEBERRY_EPHEMERIS</Curiosity>
+
+      <RumorFact>
+        <ID>OLALLIEBERRY_SHORTCUT_TELEPORTER_RUMOR</ID>
+        <SourceID>OLALLIEBERRY_SHORTCUT</SourceID>
+        <RumorName>Strange Device</RumorName>
+        <Text>A strange device in the maintenance passage may provide a way to reach the Caretaker's chamber.</Text>
+      </RumorFact>
+
+      <ExploreFact>
+        <ID>OLALLIEBERRY_SHORTCUT_TELEPORTER</ID>
+        <Text>The device in the maintenance passage is a teleporter leading to the Caretaker's chamber.</Text>
+      </ExploreFact>
+    </Entry>
   </Entry>
 
   <Entry>
@@ -277,6 +291,13 @@
       <SourceID>OLALLIEBERRY_SHORTCUT</SourceID>
       <RumorName>Caretaker's Chamber</RumorName>
       <Text>A lower maintenance passage provides access to the Caretaker's chamber.</Text>
+    </RumorFact>
+
+    <RumorFact>
+      <ID>OLALLIEBERRY_SPHERE_TELEPORT_RUMOR</ID>
+      <SourceID>OLALLIEBERRY_TELEPORTER</SourceID>
+      <RumorName>Caretaker's Chamber</RumorName>
+      <Text>A device in the maintenance passage may provide access to the Caretaker's chamber.</Text>
     </RumorFact>
 
     <ExploreFact>
