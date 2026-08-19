@@ -4,7 +4,7 @@
   "author": "ditzy, MegaPiggy, Xya, Etherpod",
   "name": "Borrowed Tomorrows",
   "uniqueName": "Olallieberry.BorrowedTomorrows",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owmlVersion": "2.15.1",
   "dependencies": [ "xen.NewHorizons" ]
 }
