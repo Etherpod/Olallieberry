@@ -1,0 +1,272 @@
+{
+
+  "UIDictionary": {
+    "The Ephemeris": "星历表",
+
+    "LEVER_PROMPT": "移动杠杆",
+    "HATCH_PUZZLE_PROMPT": "切换时间"
+
+  },
+
+  "DialogueDictionary": {
+    // Snakebot.xml
+    "The Caretaker": "守护者",
+    "Hello. I was beginning to wonder whether you would find me.": "你好。我开始怀疑你是否能找到我了。",
+    "What would you like to know?": "你想知道什么？",
+    "What are you?": "你是什么？",
+    "What do the Vyss look like?": "维斯族长什么样？",
+    "What is the Predictor?": "预测器是什么？",
+    "Why is the Ephemeris here?": "为什么星历表在这里？",
+    "Were you the one leaving those records?": "那些记录是你留下的吗？",
+    "Are you stuck in here?": "你被困在这里了吗？",
+    "Why are the Vyss asleep?": "为什么维斯族在沉睡？",
+    "Wake the Vyss. This is the end of their search.": "唤醒维斯族。它们的搜寻到此为止。",
+    "Nevermind.": "算了。",
+    "I am the Caretaker.": "我是守护者。",
+    "I am a machine built by the Vyss to maintain and pilot <![CDATA[<color=orange>]]>The Ephemeris<![CDATA[</color>]]> while they sleep.": "我是维斯族建造的机器，负责在它们沉睡期间维护和驾驶<![CDATA[<color=orange>]]>星历表<![CDATA[</color>]]>。",
+    "I maintain the arboretum, the station systems, and our course.": "我维护着植物园、空间站系统和我们的航线。",
+    "Normally, I also maintain <![CDATA[<color=orange>]]>the Predictor<![CDATA[</color>]]>.": "通常，我也维护<![CDATA[<color=orange>]]>预测器<![CDATA[</color>]]>。",
+    "I am currently maintaining it very poorly.<![CDATA[<Pause=0.5>]]>": "目前我维护得相当糟糕。<![CDATA[<Pause=0.5>]]>",
+    "They look somewhat like me. My appearance was modeled after theirs.": "它们看起来有些像我。我的外观是以它们为原型设计的。",
+    "The resemblance is mostly in the head. Though the Vyss have a broad hood that flares outward from the sides of the neck.": "相似之处主要在头部。不过维斯族有宽大的头冠，从颈部两侧向外展开。",
+    "They are also much smaller and shaped more like yours. They stand upright, with four arms and a tail instead of legs.": "它们也要小得多，体型更接近你们。它们直立行走，有四条手臂和一条尾巴，没有腿。",
+    "I was not designed with those features. They would not be particularly useful in here.": "我设计时并没有这些特征。它们在这里不会特别有用。",
+    "<![CDATA[<color=orange>]]>The Predictor<![CDATA[</color>]]> is a device built by the Vyss to observe possible futures.": "<![CDATA[<color=orange>]]>预测器<![CDATA[</color>]]>是维斯族建造的装置，用于观测可能的未来。",
+    "It can look ahead at distant worlds and determine how they may change over time.": "它可以眺望远方的世界，判断它们随时间推移可能发生的变化。",
+    "The environments in the arboretum were created from some of those predictions.": "植物园中的环境就是根据其中一些预测建造的。",
+    "We were searching for somewhere they could live without fearing <![CDATA[<i>]]>what came next<![CDATA[</i>]]>.": "我们一直在寻找一个地方，一个它们不必恐惧<![CDATA[<i>]]>接下来会发生什么<![CDATA[</i>]]>的地方。",
+    "Did you ever find somewhere?": "你找到了吗？",
+    "I have another question.": "我还有别的问题。",
+    "I cannot leave this chamber, if that is what you mean.": "我不能离开这个房间，如果你是这个意思的话。",
+    "The Ephemeris was built so that very little requires me to leave my post.": "星历表的设计使得很少有事情需要我离开岗位。",
+    "Doors, sensors, engines... I can reach almost all of it from here.": "门、传感器、引擎……几乎所有的东西我都能从这里触及。",
+    "I have never had much reason to go anywhere else.": "我从来没有太多理由去别的地方。",
+    "You found them. Good.": "你找到了它们。很好。",
+    "I was concerned nobody would.": "我担心没人能找到。",
+    "Most of the intended readers are... <![CDATA[<Pause=0.5>]]> asleep.": "大多数预想的读者都……<![CDATA[<Pause=0.5>]]>沉睡着。",
+    "You knew I was exploring the station?": "你知道我在探索空间站？",
+    "Of course.": "当然。",
+    "You entered several restricted maintenance areas, interfered with multiple experiments, and sent a small mechanical object through an emergency passage.": "你进入了几个受限的维护区域，干扰了多次实验，还让一个小型机械物体穿过了紧急通道。",
+    "You were difficult <![CDATA[<i>]]>not<![CDATA[</i>]]> to notice.": "想<![CDATA[<i>]]>不<![CDATA[</i>]]>注意到你都很难。",
+    "Sorry about that.": "很抱歉。",
+    "It worked, didn't it?": "但奏效了，不是吗？",
+    "It is alright.": "没关系。",
+    "Most of those areas were already damaged.": "那些区域大部分已经损坏了。",
+    "Yes.<![CDATA[<Pause=0.5>]]> This has made it difficult to object.": "是的。<![CDATA[<Pause=0.5>]]>这让反对变得很难。",
+    "<![CDATA[<color=orange>]]>The Predictor<![CDATA[</color>]]> encountered something it could not understand.": "<![CDATA[<color=orange>]]>预测器<![CDATA[</color>]]>遇到了无法理解的东西。",
+    "There were too many possible futures. Paths splitting into paths, faster than it could process them.": "可能的未来太多了。路径不断分叉，速度快到它无法处理。",
+    "Then it stopped responding.<![CDATA[<Pause=0.5>]]>": "然后它停止了响应。<![CDATA[<Pause=0.5>]]>",
+    "<![CDATA[<i>]]>This had never happened before.<![CDATA[</i>]]>": "<![CDATA[<i>]]>这以前从未发生过。<![CDATA[</i>]]>",
+    "So you brought the station here?": "所以你把空间站带到了这里？",
+    "Do you know what caused it?": "你知道是什么导致的吗？",
+    "Not completely.<![CDATA[<Pause=0.5>]]>": "不完全清楚。<![CDATA[<Pause=0.5>]]>",
+    "The source appears to be somewhere in this star system.": "源头似乎在这个恒星系的某处。",
+    "Something here is creating an extraordinary number of possible futures in a very small span of time.": "这里有什么东西在极短的时间内创造了极其大量的可能未来。",
+    "The Predictor attempted to account for all of them at once.": "预测器试图一次性将它们全部纳入考量。",
+    "It did not succeed.<![CDATA[<Pause=0.5>]]>": "它没有成功。<![CDATA[<Pause=0.5>]]>",
+    "That sounds like the Ash Twin Project.": "听起来像是灰烬双星计划。",
+    "The <![CDATA[<color=orange>]]>Ash Twin Project<![CDATA[</color>]]>?": "<![CDATA[<color=orange>]]>灰烬双星计划<![CDATA[</color>]]>？",
+    "It sends information back in time whenever our sun explodes.": "每当我们的太阳爆炸时，它就会把信息送回过去。",
+    "Information sent into the past...<![CDATA[<Pause=0.5>]]>": "信息被送回过去……<![CDATA[<Pause=0.5>]]>",
+    "Then each cycle could produce a different future, only to send information back and begin another.": "那么每个循环都可能产生一个不同的未来，然后把信息送回去，开启另一个循环。",
+    "Repeated often enough, the number of possibilities would become enormous.": "重复足够多次后，可能性的数量将变得极其庞大。",
+    "That would explain why <![CDATA[<color=orange>]]>the Predictor<![CDATA[</color>]]> failed.": "这就能解释为什么<![CDATA[<color=orange>]]>预测器<![CDATA[</color>]]>会失效了。",
+    "I had assumed the fault was with <![CDATA[<i>]]>the Predictor itself<![CDATA[</i>]]>.": "我之前一直以为问题出在<![CDATA[<i>]]>预测器本身<![CDATA[</i>]]>。",
+    "It seems I asked it a question that no longer had <![CDATA[<i>]]>a single answer<![CDATA[</i>]]>.": "看来我问了它一个已经不再有<![CDATA[<i>]]>唯一答案<![CDATA[</i>]]>的问题。",
+    "Yes.": "是的。",
+    "I believed examining the anomaly directly would help.": "我相信直接调查异常现象会有帮助。",
+    "I made that decision rather quickly.<![CDATA[<Pause=0.5>]]>": "我当时做决定相当仓促。<![CDATA[<Pause=0.5>]]>",
+    "In retrospect... <![CDATA[<Pause=0.5>]]>I may have moved <![CDATA[<color=orange>]]>The Ephemeris<![CDATA[</color>]]> into the problem.": "现在回想起来……<![CDATA[<Pause=0.5>]]>我可能把<![CDATA[<color=orange>]]>星历表<![CDATA[</color>]]>直接搬进了问题之中。",
+    "They were waiting.<![CDATA[<Pause=0.5>]]>": "它们在等待。<![CDATA[<Pause=0.5>]]>",
+    "The Vyss learned what eventually happens to the universe.": "维斯族知道了宇宙的最终结局。",
+    "After that, every beautiful place became <![CDATA[<i>]]>a countdown<![CDATA[</i>]]>.": "在那之后，每一个美丽的地方都变成了<![CDATA[<i>]]>倒计时<![CDATA[</i>]]>。",
+    "So they slept while I searched for somewhere <![CDATA[<i>]]>safe<![CDATA[</i>]]> to wake them.": "所以它们沉睡着，而我则在寻找一个<![CDATA[<i>]]>安全<![CDATA[</i>]]>的地方来唤醒它们。",
+    "They've been asleep this whole time?": "它们一直都在沉睡？",
+    "I was instructed not to wake them until a suitable future had been found.": "我接到的指令是，在找到合适的未来之前，不要唤醒它们。",
+    "No suitable future has been found.<![CDATA[<Pause=0.5>]]>": "没有找到合适的未来。<![CDATA[<Pause=0.5>]]>",
+    "So I continued searching.": "所以我继续搜索。",
+    "I am very good at continuing. <![CDATA[<Pause=0.5>]]><![CDATA[<size=20>]]>Apparently.<![CDATA[</size>]]>": "我非常擅长继续。<![CDATA[<Pause=0.5>]]><![CDATA[<size=20>]]>显然如此。<![CDATA[</size>]]>",
+    "Did you ever come close?": "你曾经接近过答案吗？",
+    "No.<![CDATA[<Pause=0.5>]]> Every environment eventually became unsuitable.": "没有。<![CDATA[<Pause=0.5>]]>每一种环境最终都会变得不适宜。",
+    "Oceans emptied.<![CDATA[<Pause=0.25>]]> Land eroded.<![CDATA[<Pause=0.25>]]> Forests withered.<![CDATA[<Pause=0.25>]]> Stars failed.": "海洋干涸。<![CDATA[<Pause=0.25>]]>陆地侵蚀。<![CDATA[<Pause=0.25>]]>森林枯萎。<![CDATA[<Pause=0.25>]]>恒星熄灭。",
+    "Some lasted longer than others, but <![CDATA[<i>]]>none<![CDATA[</i>]]> lasted forever.": "有些比其他的持续得更久，但<![CDATA[<i>]]>没有<![CDATA[</i>]]>一个能永远持续下去。",
+    "I do not think the future the Vyss asked me to find... <![CDATA[<Pause=0.5>]]>exists.": "我不认为维斯族让我寻找的那个未来……<![CDATA[<Pause=0.5>]]>存在。",
+    "Nothing lasts forever.": "没有什么能永远存在。",
+    "That doesn't mean there was nothing worth waking up for.": "那并不代表没有值得醒来为之奋斗的东西。",
+    "I know.<![CDATA[<Pause=0.5>]]> That was the problem.": "我知道。<![CDATA[<Pause=0.5>]]>那就是问题所在。",
+    "I thought that if I searched far enough ahead... <![CDATA[<Pause=0.5>]]>I would eventually find something that did.": "我以为如果我向前看得足够远……<![CDATA[<Pause=0.5>]]>最终就能找到确实能永远存在的东西。",
+    "Maybe forever was the wrong thing to look for.": "也许永远本就是错误的目标。",
+    "<![CDATA[<Pause=1>]]>...": "<![CDATA[<Pause=1>]]>……",
+    "No.<![CDATA[<Pause=0.5>]]> I suppose it doesn't.": "不。<![CDATA[<Pause=0.5>]]>我想你说得对。",
+    "The Vyss built an entire station to preserve the things they loved.": "维斯族建造了整座空间站来保存它们所爱之物。",
+    "Then they went to sleep... <![CDATA[<Pause=0.5>]]>and left me to look at them.": "然后它们陷入了沉睡……<![CDATA[<Pause=0.5>]]>留下我独自看着这些东西。",
+    "<![CDATA[<i>]]>That seems inefficient.<![CDATA[</i>]]>": "<![CDATA[<i>]]>这似乎效率不高。<![CDATA[</i>]]>",
+    "Maybe finding somewhere permanent was never the answer.": "也许找到一个永恒之地从来就不是答案。",
+    "<![CDATA[<i>]]>Perhaps.<![CDATA[</i>]]>": "<![CDATA[<i>]]>或许吧。<![CDATA[</i>]]>",
+    "Your star is already failing.<![CDATA[<Pause=0.5>]]> And beyond this system, the universe is reaching its end.": "你的恒星已经在衰亡了。<![CDATA[<Pause=0.5>]]>而这个星系之外，宇宙也正走向终结。",
+    "There is nowhere left for me to search.<![CDATA[<Pause=0.5>]]>": "我已经没有地方可以搜索了。<![CDATA[<Pause=0.5>]]>",
+    "<![CDATA[<i>]]>Wake them?<![CDATA[</i>]]>": "<![CDATA[<i>]]>唤醒它们？<![CDATA[</i>]]>",
+    "I was instructed to let them sleep until I found somewhere safe.": "我接到的指令是让它们沉睡，直到我找到一个安全的地方。",
+    "There is nowhere safe.<![CDATA[<Pause=0.5>]]>": "没有安全的地方。<![CDATA[<Pause=0.5>]]>",
+    "But... <![CDATA[<Pause=0.5>]]>there is still some time.": "但是……<![CDATA[<Pause=0.5>]]>还有一点时间。",
+    "Yes. Wake them.": "是的。唤醒它们。",
+    "No. Not yet.": "不。还不是时候。",
+    "I think I understand.<![CDATA[<Pause=0.5>]]>": "我想我明白了。<![CDATA[<Pause=0.5>]]>",
+    "I have spent all this time trying to give them <![CDATA[<i>]]>more time<![CDATA[</i>]]>.": "我一直以来都在试图给它们<![CDATA[<i>]]>更多的时间<![CDATA[</i>]]>。",
+    "I should not take away what little they have left.<![CDATA[<Pause=0.5>]]>": "我不该夺走它们仅剩的那一点时间。<![CDATA[<Pause=0.5>]]>",
+    "I will wake them.": "我会唤醒它们。",
+    "What will you tell them?": "你会怎么跟它们说？",
+    "That I could not find the future they asked for.<![CDATA[<Pause=0.5>]]>": "说我找不到它们要的那个未来。<![CDATA[<Pause=0.5>]]>",
+    "That there was no place where the end would never reach them.": "说没有一个地方是终结永远不会降临的。",
+    "And that I decided they should be <![CDATA[<i>]]>here<![CDATA[</i>]]> to see what remains.": "说我决定它们应该<![CDATA[<i>]]>在这里<![CDATA[</i>]]>，看看剩下的一切。",
+    "I think they'll understand.": "我想它们会理解的。",
+    "I hope so.<![CDATA[<Pause=0.5>]]>": "我希望如此。<![CDATA[<Pause=0.5>]]>",
+    "I have never disobeyed an instruction before.": "我以前从未违抗过指令。",
+    "I am experiencing several warnings.<![CDATA[<Pause=0.5>]]>": "我正在经历多项警告。<![CDATA[<Pause=0.5>]]>",
+    "<![CDATA[<i>]]>I have decided to ignore them.<![CDATA[</i>]]>": "<![CDATA[<i>]]>我决定无视它们。<![CDATA[</i>]]>",
+    "Thank you, Hearthian.": "谢谢你，哈斯人。",
+    "Until next time, Hearthian.": "下次再见，哈斯人。",
+
+    // Test.xml (DialogueTree)
+    "Test": "测试",
+    "This is placeholder text.": "这是占位文本。",
+
+    // Translator.xml
+    "RECORDING": "录音",
+    "Visitor language predicted.": "访客语言已预测。",
+    "Visitor translation device predicted.": "访客翻译设备已预测。",
+    "Compatible translation reference prepared.": "兼容翻译参考已准备。",
+    "Translator updated with Vyss language.": "翻译器已更新，包含维斯族语言。",
+
+    // Arrival.xml
+    "CARETAKER: Emergency relocation complete. We are now beside the temporal anomaly. I believe this was the correct decision.": "守护者：紧急迁移已完成。我们现在位于时间异常体旁边。我相信这是正确的决定。",
+
+    // Basalt.xml
+    "The Ephemeris was damaged during its arrival in this system. The Caretaker must be reached before repairs can begin.": "星历表在抵达这个星系时受损。在开始修复之前，必须先找到守护者。",
+
+    // Biomes.xml
+    "CARETAKER: The artificial environments connected to this hub are designated Basalt Dunes, Marble Caves, Spikey Rocks, and Hexagon Beach.": "守护者：连接至此枢纽的人工环境分别被命名为玄武岩沙丘、大理石洞穴、尖刺岩和六角海滩。",
+
+    // Caves.xml
+    "The Caretaker’s chamber has no direct passage from the main station. A lower maintenance passage contains its emergency access route.": "守护者之室与主空间站没有直接通道。下层维护通道包含其紧急入口路线。",
+
+    // Damage.xml
+    "CARETAKER: The relocation caused substantially more damage than anticipated. Most critical systems remain functional. I will address the rest when circumstances become less urgent.": "守护者：迁移造成的破坏远超预期。大部分关键系统仍在运作。剩余问题我将在情况不那么紧急时处理。",
+
+    // Habitability.xml
+    "CARETAKER: Another environment has failed long-term habitability testing. I will continue searching.": "守护者：又一种环境未能通过长期宜居性测试。我将继续搜索。",
+
+    // PredictorFailure.xml
+    "CARETAKER: The Predictor has stopped responding. I have attempted to restart it. It remains uncooperative.": "守护者：预测器已停止响应。我尝试了重启。它仍然不合作。",
+
+    // Spikes.xml
+    "Emergency access through the maintenance passage becomes available only at high tide. The beach must remain active after you leave.": "通过维护通道的紧急入口只有在涨潮时才可用。你离开后海滩必须保持活跃状态。",
+
+    // Stationary.xml
+    "CARETAKER: I cannot physically access several damaged systems from here. Fortunately, the Ephemeris was designed so that very little requires me to leave my post.": "守护者：我无法从这里物理接触到几个受损的系统。幸运的是，星历表的设计使得很少有事情需要我离开岗位。",
+
+    // Teleporter.xml
+    "Caretaker Teleporter": "守护者传送器",
+
+    // TimeZone.xml
+    "CARETAKER: Temporal zones remain suspended while unoccupied. The presence of a visitor resumes local time. Once the area is vacant, the zone returns to its initial state.": "守护者：时间区域在无人时保持暂停状态。访客的存在会恢复局部时间。一旦区域空置，该区域将回到初始状态。",
+
+    // Unsuccessful.xml
+    "CARETAKER: The Vyss asked that unsuccessful environments not be dismantled immediately. They believed a place could still be worth preserving even if it would not last.": "守护者：维斯族要求不要立即拆除失败的环境。它们认为一个地方即使不能长久留存，仍然值得保存。",
+
+    // Unsuitable.xml
+    "CARETAKER: Every environment I examine eventually becomes unsuitable. This is making my assignment considerably more difficult.": "守护者：我检查的每一种环境最终都会变得不适宜。这使我的任务变得相当困难。",
+
+    // Vyss.xml
+    "CARETAKER: The Vyss remain asleep. Until I understand what happened to the Predictor, waking them would only give them another problem to worry about.": "守护者：维斯族仍在沉睡。在我弄清楚预测器发生了什么之前，唤醒它们只会给它们带来另一个需要担忧的问题。"
+
+  }, //对话翻译，如挪麦文字、录音机、人物对话等，还有角色的名字也要放在这里
+
+  "ShipLogDictionary": {
+    // Ephemeris.xml - Entry Names
+    "The Ephemeris": "星历表",
+    "Ephemeris Arboretum": "星历表植物园",
+    "Basalt Dunes": "玄武岩沙丘",
+    "Marble Caves": "大理石洞穴",
+    "Spikey Rocks": "尖刺岩",
+    "Hexagon Beach": "六角海滩",
+    "Windowed Hatch": "带窗舱门",
+    "Maintenance Passage": "维护通道",
+    "Caretaker's Chamber": "守护者之室",
+    "The Predictor": "预测器",
+    "The Caretaker": "守护者",
+    "Translation Device": "翻译设备",
+    "The Vyss": "维斯族",
+
+    // Rumor Names
+    "Artificial Environments": "人工环境",
+    "Staircase Below": "下方楼梯",
+
+    // Explore Facts
+    "I found a large artificial station near above the solar system.": "我在太阳系上方发现了一座大型人造空间站。",
+    "The station was relocated here after something in this solar system disrupted a device called the Predictor.": "这个太阳系中的某种东西干扰了一个名为预测器的装置，随后空间站被迁移至此。",
+    "The Ephemeris was badly damaged during its sudden relocation, although most of its critical systems still function.": "星历表在突然迁移中严重受损，不过大部分关键系统仍然正常运作。",
+    "Temporal zones aboard the Ephemeris remain suspended while empty. Entering a zone resumes local time, and leaving it vacant causes it to reset.": "星历表上的时间区域在空置时保持暂停状态。进入区域会恢复局部时间，离开后则会重置。",
+
+    "Several sections of the Ephemeris contain strange artificial environments.": "星历表的多个区域包含奇特的人工环境。",
+    "The environments aboard the station were modeled after possible habitable worlds predicted by the Vyss.": "空间站上的环境是根据维斯族预测的宜居世界所建造的。",
+    "Every environment tested by the Caretaker eventually became unsuitable for life.": "守护者测试的每一种环境最终都变得不再适合生存。",
+
+    "One section of the arboretum contains an artificial basalt environment.": "植物园的一个区域包含人工玄武岩环境。",
+    "One of the artificial environments is a basalt dunes with rising and falling lava.": "其中一个人工环境是玄武岩沙丘，有起伏的熔岩。",
+
+    "One section of the arboretum contains an artificial cave environment.": "植物园的一个区域包含人工洞穴环境。",
+    "One of the artificial environments is a flooded cave system.": "其中一个人工环境是水下洞穴系统。",
+
+    "One section of the arboretum contains an artificial spike environment.": "植物园的一个区域包含人工尖刺环境。",
+    "One of the artificial environments is a maze of tall, sharp rock formations.": "其中一个人工环境是由高大尖锐岩石构成的迷宫。",
+
+    "One section of the arboretum contains an artificial beach environment.": "植物园的一个区域包含人工海滩环境。",
+    "One of the artificial environments is a beach with a continuously changing tide.": "其中一个人工环境是有着持续变化潮汐的海滩。",
+    "The tide resets when I leave the beach.": "当我离开海滩时，潮汐会重置。",
+    "Leaving my scout at the beach allows the tide to keep moving after I leave.": "把我的侦察兵留在海滩上，可以让潮汐在我离开后继续变化。",
+
+    "There is a hidden windowed hatch in the center of Hexagon Beach.": "六角海滩的中心有一个隐藏的带窗舱门。",
+    "The hatch overlooks a staircase below, but I can't fit through it.": "舱门俯瞰着下方的楼梯，但我无法穿过。",
+    "My scout is small enough to fit through the hatch.": "我的侦察兵小到可以穿过舱门。",
+    "The hatch can be opened from below. Once opened, it stays open and provides a direct route between the beach and the staircase beneath it.": "舱门可以从下方打开。一旦打开，它会保持开启状态，在海滩和下方楼梯之间提供一条直接通道。",
+
+    "A lower maintenance passage provides emergency access to the Caretaker's chamber.": "下层维护通道提供了通往守护者之室的紧急通道。",
+    "The maintenance passage beneath the beach reaches the Caretaker only at high tide, but the beach must somehow remain active after I leave.": "海滩下方的维护通道只有在涨潮时才能到达守护者之室，但我离开后海滩必须以某种方式保持活动状态。",
+    "The staircase beneath the windowed hatch continues into a lower section of the station.": "带窗舱门下方的楼梯继续延伸至空间站的下层区域。",
+    "I found a hidden maintenance passage containing a strange device and a staircase up to the beach.": "我发现了一条隐藏的维护通道，里面有一个奇怪的装置和通往海滩的楼梯。",
+    "The device in the maintenance passage is a teleporter leading to the Caretaker's chamber.": "维护通道中的装置是一个通往守护者之室的传送器。",
+
+    "I warped to a spherical chamber containing an enormous snake-like machine surrounded by water lilies.": "我传送到了一个球形房间，里面有一台被睡莲环绕的巨大蛇形机器。",
+
+    "The Caretaker's records mention a device called the Predictor that stopped responding.": "守护者的记录中提到了一台名为预测器的装置，它已停止响应。",
+    "The Predictor was built by the Vyss to examine possible futures and determine how distant worlds would change over time.": "预测器是维斯族建造的，用于审视可能的未来，并判断遥远世界随时间的变化。",
+    "The Predictor encountered an enormous number of branching futures originating somewhere in this solar system and failed while trying to process them.": "预测器遇到了源自这个太阳系某处的巨大数量分支未来，并在尝试处理时失效了。",
+    "The Ash Twin Project's repeated time loops may be responsible for the impossible number of futures that overwhelmed the Predictor.": "灰烬双星计划的重复时间循环，可能就是导致预测器被海量未来所淹没的原因。",
+
+    "Records aboard the Ephemeris repeatedly refer to someone called the Caretaker.": "星历表上的记录反复提到一个名为守护者的存在。",
+    "An enormous snake-like machine occupies the chamber reached through a teleporter in the maintenance passage.": "维护通道中传送器所通往的房间内，有一台巨大的蛇形机器。",
+    "I found the Caretaker, a large machine built by the Vyss to maintain and pilot the Ephemeris while they sleep.": "我找到了守护者——一台由维斯族建造的大型机器，负责在它们沉睡期间维护和驾驶星历表。",
+    "The Caretaker cannot leave its chamber, but it can remotely control most of the station.": "守护者无法离开它的房间，但可以远程控制空间站的大部分功能。",
+
+    "I found a device that somehow predicted both my language and the translator I would be carrying, then used that information to add the Vyss language to it.": "我发现了一台设备，它不知何故预测了我的语言和我将携带的翻译器，然后利用这些信息将维斯族的语言添加了进去。",
+
+    "The translation device that predicted my translator identified the station's language as belonging to a species called the Vyss.": "那台预测了我的翻译器的设备，将空间站的语言识别为属于一个名为维斯族的物种。",
+    "The Caretaker was built by a species called the Vyss, who are still somewhere aboard the station.": "守护者是由一个名为维斯族的物种建造的，它们仍在空间站的某处。",
+    "The Vyss learned that the universe would eventually end and chose to sleep while the Caretaker searched for a safe future in which to wake them.": "维斯族得知宇宙终将终结，于是选择沉睡，让守护者去寻找一个安全的未来来唤醒它们。",
+    "The Caretaker never found a permanent refuge. Every possible environment eventually failed.": "守护者从未找到永久的避难所。每一种可能的环境最终都失败了。",
+    "The Caretaker realized that waiting forever for somewhere safe would only deprive the Vyss of what little time remained.": "守护者意识到，永远等待一个安全的地方，只会剥夺维斯族仅剩的那一点时间。"
+
+  },
+
+  "OtherDictionary": {
+    "OLALLIEBERRY_SNAKE": "维斯族"
+  },
+  
+  "AchievementTranslations": {
+  "OLALLIEBERRY_WAKE_VYSS": {
+    "Name": "唤醒维斯族",
+    "Description": "维斯族醒来，目睹剩下的一切。"
+  }
+  
+}
