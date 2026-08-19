@@ -9,22 +9,14 @@ public class BasaltLavaController : TimeZoneObject
     public float lowerLavaHeight = 0.025f;
     public float upperLavaHeight = 0.35f;
 
-    [Header("Timing")]
-    [Min(0f)]
-    public float riseSeconds = 60f;
-
-    [Min(0f)]
-    public float lowerSeconds = 60f;
-
-    [Min(0f)]
-    public float raisedWaitSeconds = 10f;
-
-    [Min(0f)]
-    public float loweredWaitSeconds = 10f;
+    public static readonly float riseSeconds = 35f;
+    public static readonly float lowerSeconds = 35f;
+    public static readonly float raisedWaitSeconds = 5f;
+    public static readonly float loweredWaitSeconds = 5f;
 
     public LevelState State => _state;
 
-    private LevelState _state = LevelState.Raised;
+    private LevelState _state = LevelState.Lowering;
     private float _lavaHeight;
     private float _waitTimer;
 
@@ -100,7 +92,7 @@ public class BasaltLavaController : TimeZoneObject
 
     protected override void OnZoneReset(TimeZone zone)
     {
-        _state = LevelState.Raised;
+        _state = LevelState.Lowering;
         _waitTimer = 0f;
         _lavaHeight = upperLavaHeight;
 

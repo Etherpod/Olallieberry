@@ -9,20 +9,17 @@ public class BeachTidesController : TimeZoneObject
     public float lowerWaterHeight = 0.015f;
     public float upperWaterHeight = 0.65f;
 
-    [Header("Timing")]
-    [Min(0f)]
-    public float riseSeconds = 60f;
-
-    [Min(0f)]
-    public float lowerSeconds = 60f;
-
-    [Min(0f)]
-    public float raisedWaitSeconds = 10f;
-
-    [Min(0f)]
-    public float loweredWaitSeconds = 10f;
+    public static readonly float riseSeconds = 25f;
+    public static readonly float lowerSeconds = 25f;
+    public static readonly float raisedWaitSeconds = 5f;
+    public static readonly float loweredWaitSeconds = 5f;
 
     public LevelState State => _state;
+    public float TideLevel => Mathf.InverseLerp(
+        lowerWaterHeight,
+        upperWaterHeight,
+        _waterHeight
+    );
 
     private LevelState _state = LevelState.Lowered;
     private float _waterHeight;
